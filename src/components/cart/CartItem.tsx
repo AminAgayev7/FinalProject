@@ -1,0 +1,110 @@
+"use client";
+
+import type { CartItem } from "@/context/CartContext";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/pagination";
+import Button from "../ui/Button";
+type CartItemProps = {
+    item: CartItem;
+    removeFromCart: (id: number, size: string, color: string) => void;
+    updateQuantity: (id: number, size: string, color: string, quantity: number) => void;
+};
+
+export default function CartItem({ item, removeFromCart, updateQuantity }: CartItemProps) {
+    return (
+        <div className="flex shadow-lg p-5 rounded-md relative items-center gap-x-2.5 border border-gray-200 bg-white">
+
+            <Swiper
+                modules={[Pagination]}
+                pagination={{ clickable: true }}
+                slidesPerView={1}
+                className="w-24 h-24 sm:w-35 sm:h-35 rounded-md shrink-0"
+            >
+                {item.product.images.map((img, i) => (
+                    <SwiperSlide key={i}>
+
+                        <Image src={img} width={1000} height={1000}
+                            alt={item.product.title}
+                            className="object-cover w-full h-full rounded-md"></Image>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
+            <div className="flex gap-y-1 flex-col flex-1 pr-8">
+                <p className="text-gray-400 text-sm">
+                    {item.product.brand}
+                </p>
+
+                <h2 className="text-base sm:text-lg text-black font-semibold">
+                    {item.product.title}
+                </h2>
+
+                <div className="flex flex-wrap gap-x-2">
+                    <span className="text-gray-400 text-sm">
+                        Size: {item.selectedSize}
+                    </span>
+
+                    <span className="text-gray-400 text-sm">
+                        Color: {item.selectedColor}
+                    </span>
+                </div>
+
+                <div className="flex gap-x-3 items-center mt-2">
+
+                    <Button className="border border-gray-300 rounded-sm px-1.5 text-black hover:bg-gray-100"
+                        onClick={() => { updateQuantity(item.product.id, item.selectedSize, item.selectedColor, Math.max(1, item.quantity - 1)) }}>
+                            <i className="fa-solid fa-minus text-xs"></i>
+                        </Button>
+
+                    <p className="text-black font-medium">
+                        {item.quantity}
+                    </p>
+
+
+                    <Button className="border border-gray-300 rounded-sm px-1.5 text-black hover:bg-gray-100"
+                        onClick={() => { updateQuantity(item.product.id, item.selectedSize, item.selectedColor, item.quantity + 1) }}>
+                            <i className="fa-solid fa-plus text-xs"></i>
+                    </Button>
+                </div>
+            </div>
+
+            <div className="text-sm sm:text-lg absolute bottom-5 right-5 text-right">
+                <p className="text-gray-800 font-bold">
+                    $
+                    {item.product.discount ? ((item.product.price - (item.product.price * item.product.discount) / 100) * item.quantity
+                    ).toFixed(2)
+                        : (
+                            item.product.price *
+                            item.quantity
+                        ).toFixed(2)}
+                </p>
+
+                {item.product.discount ? (
+                    <p className="text-gray-400 line-through text-xs">
+                        $
+                        {(
+                            item.product.price *
+                            item.quantity
+                        ).toFixed(2)}
+                    </p>
+                ) : null}
+            </div>
+
+
+
+            <Button className="absolute top-5 right-5 text-gray-400 hover:text-red-500 transition-colors"
+                onClick={() => {
+                    removeFromCart(
+                        item.product.id,
+                        item.selectedSize,
+                        item.selectedColor
+                    )}
+                }>
+                <i className="fa-solid fa-xmark"></i>
+            </Button>
+        </div>
+    );
+}
