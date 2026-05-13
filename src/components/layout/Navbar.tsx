@@ -20,7 +20,7 @@ export default function Navbar() {
 
                 <a href="#" className="flex items-center space-x-1">
                     <i className="fa-solid text-3xl text-blue-500 fa-basket-shopping"></i>
-                    <span className="text-2xl text-gray-900">
+                    <span className="text-2xl font-medium text-gray-900">
                         ModeX
                     </span>
                 </a>
