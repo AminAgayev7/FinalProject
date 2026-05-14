@@ -102,6 +102,7 @@ export default function ContactPage() {
                                     <div>
                                         <Input
                                             type="text"
+                                            id="firstName"
                                             placeholder="Name"
                                             {...register("firstName")}
                                             className="w-full h-12 px-5 rounded-full border border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -113,6 +114,7 @@ export default function ContactPage() {
 
                                     <div>
                                         <Input
+                                            id="email"
                                             type="email"
                                             placeholder="Email"
                                             {...register("email")}
@@ -124,7 +126,7 @@ export default function ContactPage() {
                                     </div>
 
                                     <div>
-                                        <Input
+                                        <Input id="phone"
                                             type="text"
                                             placeholder="Phone"
                                             {...register("phone")}

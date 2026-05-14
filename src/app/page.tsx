@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <main className="bg-zinc-50 min-h-screen pt-16">
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen mt-6 flex items-center overflow-hidden">
         <img
           src={"https://wallpaperaccess.com/full/4624210.jpg"}
           alt="Hero"

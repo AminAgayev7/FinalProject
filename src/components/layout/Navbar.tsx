@@ -3,6 +3,7 @@ import { useState, type KeyboardEvent } from "react";
 import Input from "../ui/Input";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("")
@@ -18,12 +19,27 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
 
 
-                <a href="#" className="flex items-center space-x-1">
-                    <i className="fa-solid text-3xl text-blue-500 fa-basket-shopping"></i>
-                    <span className="text-2xl font-medium text-gray-900">
-                        ModeX
-                    </span>
-                </a>
+                <Link href="/" className="flex items-center gap-3 group">
+                    <div className="relative">
+                        <Image
+                            width={1000}
+                            height={1000}
+                            src="/images/newLogo.png"
+                            alt="ModeX Logo"
+                            className="w-14 h-14  md:w-16 md:h-16 object-cover rounded-full bg-black shadow-md transition-transform duration-300 group-hover:scale-105"
+                        />
+                    </div>
+
+                    <div className="flex flex-col">
+                        <span className="text-2xl font-bold tracking-wide text-black">
+                            Mode<span className="text-gray-500">X</span>
+                        </span>
+
+                        <span className="text-[10px] uppercase tracking-[4px] text-gray-400 -mt-1">
+                            Fashion Store
+                        </span>
+                    </div>
+                </Link>
 
                 <div className="flex items-center gap-2 md:order-2">
 
@@ -74,35 +90,35 @@ export default function Navbar() {
                             onChange={(e) => setSearch(e.target.value)}
                             value={search}
                             onKeyDown={handleKeyDown}
-                            className="..."
+                            className="block w-full pl-10 pr-3 py-2 text-sm rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                             placeholder="Search...">
                         </Input>
                     </div>
 
-                    <ul className="flex  flex-row justify-center mt-2 p-4 md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row lg:gap-x-15 sm:gap-x-8 md:mt-0 md:border-0 md:bg-white">
+                    <ul className="flex  flex-col justify-center items-start mt-2 p-4 md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row lg:gap-x-15 sm:gap-x-8 md:mt-0 md:border-0 md:bg-white">
 
-                        <Link href="/" className="flex flex-col items-center">
-                            <i className="fa-solid fa-house-user lg:text-2xl text-gray-600"></i>
+                        <Link href="/" className="flex flex-col items-center ">
+
                             <p className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-600 md:p-0 transition-colors">
                                 Home
                             </p>
                         </Link>
 
                         <Link href="/products" className="flex flex-col items-center">
-                            <i className="fa-solid fa-bag-shopping lg:text-2xl text-gray-600"></i>
+
                             <p className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-600 md:p-0 transition-colors">
                                 Shop
                             </p>
                         </Link>
 
                         <Link href="/cart" className="flex flex-col items-center">
-                            <i className="fa-solid fa-cart-shopping lg:text-2xl text-gray-600"></i>
+
                             <p className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-600 md:p-0 transition-colors">
                                 Cart
                             </p>
                         </Link>
                         <Link href="/contact" className="flex flex-col items-center">
-                            <i className="fa-solid fa-square-phone lg:text-2xl text-gray-600"></i>
+
                             <p className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-600 md:p-0 transition-colors">
                                 Contact
                             </p>

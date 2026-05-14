@@ -46,9 +46,9 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
             </div>
 
             <div className="flex flex-col gap-3 mt-6">
-                <button className="bg-blue-500 text-white py-2.5 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium">
+                <Link href="/checkout" className="bg-blue-500 text-center text-white py-2.5 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium">
                     Proceed to Checkout
-                </button>
+                </Link>
 
                 <Link href="/" className="text-center border border-gray-300 rounded-md py-2 px-4 text-black hover:bg-gray-50 transition-colors">
                     Continue shopping

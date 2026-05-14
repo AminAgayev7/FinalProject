@@ -8,10 +8,11 @@ type InputProps = {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     name?: string;
     onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+    id: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ type, className, placeholder, value, onChange, name, onKeyDown }, ref) => {
+    ({ type, className, placeholder, value, onChange, name, onKeyDown, id }, ref) => {
         return (
             <input
                 ref={ref}
@@ -22,6 +23,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 placeholder={placeholder}
                 name={name}
                 onKeyDown={onKeyDown}
+                id={id}
             />
         );
     }

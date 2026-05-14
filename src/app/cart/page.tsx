@@ -32,7 +32,7 @@ export default function CartPage() {
     }, []);
 
     return (
-        <main className="min-h-screen bg-zinc-50 pt-24 pb-16">
+        <main className="min-h-screen bg-zinc-50 pt-30 pb-16">
             <div className="container mx-auto px-4">
                 <h1 className="text-2xl text-gray-900 font-bold mb-4">
                     Shopping Cart
