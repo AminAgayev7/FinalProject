@@ -1,8 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
-
-
 export interface CartItem {
     product: Product;
     quantity: number;
@@ -25,7 +23,7 @@ export const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
     const [items, setItems] = useState<CartItem[]>([]);
-
+    
     useEffect(() => {
         const saved = localStorage.getItem("cart");
         if (saved) {

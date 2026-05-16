@@ -7,31 +7,35 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import Button from "../ui/Button";
+import Link from "next/link";
 type CartItemProps = {
     item: CartItem;
     removeFromCart: (id: number, size: string, color: string) => void;
     updateQuantity: (id: number, size: string, color: string, quantity: number) => void;
+    link: string;
 };
 
-export default function CartItem({ item, removeFromCart, updateQuantity }: CartItemProps) {
+export default function CartItem({ item, removeFromCart, updateQuantity, link }: CartItemProps) {
     return (
         <div className="flex shadow-lg p-5 rounded-md relative items-center gap-x-2.5 border border-gray-200 bg-white">
+            <Link href={link}>
+                <Swiper
+                    modules={[Pagination]}
+                    pagination={{ clickable: true }}
+                    slidesPerView={1}
+                    className="w-24 h-24 sm:w-35 sm:h-35 rounded-md shrink-0"
+                >
+                    {item.product.images.map((img, i) => (
+                        <SwiperSlide key={i}>
 
-            <Swiper
-                modules={[Pagination]}
-                pagination={{ clickable: true }}
-                slidesPerView={1}
-                className="w-24 h-24 sm:w-35 sm:h-35 rounded-md shrink-0"
-            >
-                {item.product.images.map((img, i) => (
-                    <SwiperSlide key={i}>
+                            <Image src={img} width={1000} height={1000}
+                                alt={item.product.title}
+                                className="object-cover w-full h-full rounded-md"></Image>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </Link>
 
-                        <Image src={img} width={1000} height={1000}
-                            alt={item.product.title}
-                            className="object-cover w-full h-full rounded-md"></Image>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
 
             <div className="flex gap-y-1 flex-col flex-1 pr-8">
                 <p className="text-gray-400 text-sm">
@@ -56,8 +60,8 @@ export default function CartItem({ item, removeFromCart, updateQuantity }: CartI
 
                     <Button className="border border-gray-300 rounded-sm px-1.5 text-black hover:bg-gray-100"
                         onClick={() => { updateQuantity(item.product.id, item.selectedSize, item.selectedColor, Math.max(1, item.quantity - 1)) }}>
-                            <i className="fa-solid fa-minus text-xs"></i>
-                        </Button>
+                        <i className="fa-solid fa-minus text-xs"></i>
+                    </Button>
 
                     <p className="text-black font-medium">
                         {item.quantity}
@@ -66,7 +70,7 @@ export default function CartItem({ item, removeFromCart, updateQuantity }: CartI
 
                     <Button className="border border-gray-300 rounded-sm px-1.5 text-black hover:bg-gray-100"
                         onClick={() => { updateQuantity(item.product.id, item.selectedSize, item.selectedColor, item.quantity + 1) }}>
-                            <i className="fa-solid fa-plus text-xs"></i>
+                        <i className="fa-solid fa-plus text-xs"></i>
                     </Button>
                 </div>
             </div>
@@ -101,7 +105,8 @@ export default function CartItem({ item, removeFromCart, updateQuantity }: CartI
                         item.product.id,
                         item.selectedSize,
                         item.selectedColor
-                    )}
+                    )
+                }
                 }>
                 <i className="fa-solid fa-xmark"></i>
             </Button>

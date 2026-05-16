@@ -14,8 +14,7 @@ export default function CartPage() {
     let originalTotal = 0;
 
     items.forEach((item) => {
-        const original =
-            item.product.price * item.quantity;
+        const original = item.product.price * item.quantity;
 
         const discounted = item.product.discount ? (item.product.price - (item.product.price * item.product.discount) / 100) * item.quantity : original;
 
@@ -57,7 +56,8 @@ export default function CartPage() {
                                         key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`}
                                         item={item}
                                         removeFromCart={removeFromCart}
-                                        updateQuantity={updateQuantity}
+                                        updateQuantity={updateQuantity} 
+                                        link={`/products/${item.product.id}`}
                                     />
                                 ))}
                             </div>

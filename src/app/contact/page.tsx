@@ -6,7 +6,7 @@ import { type contactFormData, contactSchema } from "@/hooks/zodSchemas";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
-
+import Image from "next/image";
 export default function ContactPage() {
 
     const [showModal, setShowModal] = useState(false);
@@ -33,10 +33,12 @@ export default function ContactPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">
                             <div className="relative">
-                                <img
+                                <Image
                                     src="https://images.squarespace-cdn.com/content/v1/6204821bfe06b76898b431c5/80221678-0539-4495-8007-0096677e1eca/image00016.jpeg?format=1000w"
                                     alt="Contact"
                                     className="w-full h-full object-cover"
+                                    width={1000}
+                                    height={1000}
                                 />
 
                                 <div className="absolute inset-0 bg-black/55" />
@@ -167,7 +169,7 @@ export default function ContactPage() {
 
             {showModal && (
                 <Modal
-                    message="Message sent successfully!"
+                    message="We received your message and will comeback you soon!"
                     onClose={() => setShowModal(false)}
                 />
             )}

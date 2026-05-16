@@ -18,14 +18,19 @@
             "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800",
             "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800"
         ],
-        "description": "Experience ultimate comfort with this premium cotton t-shirt."
+        "description": "Experience ultimate comfort with this premium cotton t-shirt.",
+        "comments": [
+            { "id": 1, "user": "Michael R.", "avatar": "https://i.pravatar.cc/150?img=1", "rating": 5, "date": "2026-04-12", "verified": true, "comment": "Amazing quality and very comfortable." },
+            { "id": 2, "user": "Daniel K.", "avatar": "https://i.pravatar.cc/150?img=3", "rating": 4, "date": "2026-04-18", "verified": true, "comment": "Good basic t-shirt for everyday wear." },
+            { "id": 3, "user": "James T.", "avatar": "https://i.pravatar.cc/150?img=5", "rating": 4, "date": "2026-04-25", "verified": false, "comment": "Nice fit, washes well without shrinking." }
+        ]
     },
     {
         "id": 2,
         "title": "High-Waist Skinny Jeans",
         "price": 55,
         "discount": 10,
-        "gender": "Women",  
+        "gender": "Women",
         "category": "Jeans",
         "brand": "Levi's",
         "sizes": ["26", "28", "30", "32"],
@@ -39,14 +44,19 @@
             "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800",
             "https://images.unsplash.com/photo-1555689502-c4b22d76c56f?w=800"
         ],
-        "description": "Stretchable denim for a perfect fit and all-day comfort."
+        "description": "Stretchable denim for a perfect fit and all-day comfort.",
+        "comments": [
+            { "id": 1, "user": "Sophia L.", "avatar": "https://i.pravatar.cc/150?img=7", "rating": 5, "date": "2026-03-11", "verified": true, "comment": "Fits perfectly and looks amazing." },
+            { "id": 2, "user": "Emily W.", "avatar": "https://i.pravatar.cc/150?img=9", "rating": 4, "date": "2026-04-03", "verified": false, "comment": "Comfortable jeans with nice stretch." },
+            { "id": 3, "user": "Olivia M.", "avatar": "https://i.pravatar.cc/150?img=11", "rating": 5, "date": "2026-04-20", "verified": true, "comment": "Best jeans I've ever owned, super flattering." }
+        ]
     },
     {
         "id": 3,
         "title": "Puffer Jacket",
         "price": 120,
         "discount": 20,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Jackets",
         "brand": "The North Face",
         "sizes": ["M", "L", "XL"],
@@ -60,14 +70,19 @@
             "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800",
             "https://images.unsplash.com/photo-1604644401890-0bd678c83788?w=800"
         ],
-        "description": "Thermal insulation jacket designed for cold and wet conditions."
+        "description": "Thermal insulation jacket designed for cold and wet conditions.",
+        "comments": [
+            { "id": 1, "user": "Chris M.", "avatar": "https://i.pravatar.cc/150?img=13", "rating": 5, "date": "2026-02-15", "verified": true, "comment": "Extremely warm and lightweight." },
+            { "id": 2, "user": "Liam T.", "avatar": "https://i.pravatar.cc/150?img=15", "rating": 5, "date": "2026-03-21", "verified": true, "comment": "Perfect for winter weather." },
+            { "id": 3, "user": "Noah B.", "avatar": "https://i.pravatar.cc/150?img=17", "rating": 5, "date": "2026-04-01", "verified": true, "comment": "Worth every penny, top quality jacket." }
+        ]
     },
     {
         "id": 4,
         "title": "Floral Summer Dress",
         "price": 45,
         "discount": 5,
-        "gender": "Women",  
+        "gender": "Women",
         "category": "Dresses",
         "brand": "Zara",
         "sizes": ["XS", "S", "M"],
@@ -81,14 +96,19 @@
             "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800",
             "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800"
         ],
-        "description": "Lightweight, breathable dress perfect for summer outings."
+        "description": "Lightweight, breathable dress perfect for summer outings.",
+        "comments": [
+            { "id": 1, "user": "Anna P.", "avatar": "https://i.pravatar.cc/150?img=19", "rating": 5, "date": "2026-04-27", "verified": true, "comment": "Beautiful colors and very light fabric." },
+            { "id": 2, "user": "Jessica H.", "avatar": "https://i.pravatar.cc/150?img=20", "rating": 4, "date": "2026-05-01", "verified": false, "comment": "Perfect summer dress." },
+            { "id": 3, "user": "Mia C.", "avatar": "https://i.pravatar.cc/150?img=22", "rating": 4, "date": "2026-05-05", "verified": true, "comment": "Lovely print, runs slightly small so size up." }
+        ]
     },
     {
         "id": 5,
         "title": "Air Max Sneaker",
         "price": 180,
         "discount": 0,
-        "gender": "Men",    
+        "gender": "Men",
         "category": "Sneakers",
         "brand": "Nike",
         "sizes": ["40", "41", "42", "43", "44", "45"],
@@ -102,14 +122,19 @@
             "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800",
             "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=800"
         ],
-        "description": "Iconic cushioning and modern design for maximum performance."
+        "description": "Iconic cushioning and modern design for maximum performance.",
+        "comments": [
+            { "id": 1, "user": "Kevin B.", "avatar": "https://i.pravatar.cc/150?img=25", "rating": 5, "date": "2026-03-18", "verified": true, "comment": "Very comfortable for daily use." },
+            { "id": 2, "user": "Ryan S.", "avatar": "https://i.pravatar.cc/150?img=27", "rating": 5, "date": "2026-04-08", "verified": true, "comment": "Stylish and worth the price." },
+            { "id": 3, "user": "Ethan J.", "avatar": "https://i.pravatar.cc/150?img=29", "rating": 4, "date": "2026-04-22", "verified": true, "comment": "Great sneakers, true to size." }
+        ]
     },
     {
         "id": 6,
         "title": "Wool Blend Beanie",
         "price": 15,
         "discount": 0,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Accessories",
         "brand": "Carhartt",
         "sizes": ["One Size"],
@@ -123,14 +148,19 @@
             "https://www.worldmarket.com/on/demandware.static/-/Sites-wm-master-catalog/default/dw01e02c84/images/large/126172_XXX_v1.jpg",
             "https://tse1.mm.bing.net/th/id/OIP.nkfjoQ_xY3W7Poip45paOAHaId?rs=1&pid=ImgDetMain&o=7&rm=3"
         ],
-        "description": "Classic warm and woolly beanie for winter seasons."
+        "description": "Classic warm and woolly beanie for winter seasons.",
+        "comments": [
+            { "id": 1, "user": "Tom H.", "avatar": "https://i.pravatar.cc/150?img=33", "rating": 5, "date": "2026-01-10", "verified": true, "comment": "Super warm, great for cold mornings." },
+            { "id": 2, "user": "Grace N.", "avatar": "https://i.pravatar.cc/150?img=35", "rating": 4, "date": "2026-02-03", "verified": true, "comment": "Nice quality for the price." },
+            { "id": 3, "user": "Sam W.", "avatar": "https://i.pravatar.cc/150?img=37", "rating": 5, "date": "2026-03-14", "verified": false, "comment": "Fits well and looks stylish." }
+        ]
     },
     {
         "id": 7,
         "title": "Classic Oxford Shirt",
         "price": 60,
         "discount": 0,
-        "gender": "Men",    
+        "gender": "Men",
         "category": "Shirts",
         "brand": "Ralph Lauren",
         "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -144,7 +174,12 @@
             "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800",
             "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=800"
         ],
-        "description": "Timeless Oxford shirt perfect for both casual and smart-casual looks."
+        "description": "Timeless Oxford shirt perfect for both casual and smart-casual looks.",
+        "comments": [
+            { "id": 1, "user": "William F.", "avatar": "https://i.pravatar.cc/150?img=41", "rating": 5, "date": "2026-03-05", "verified": true, "comment": "Excellent quality, very classy look." },
+            { "id": 2, "user": "Henry O.", "avatar": "https://i.pravatar.cc/150?img=43", "rating": 4, "date": "2026-03-28", "verified": true, "comment": "Great shirt, fits true to size." },
+            { "id": 3, "user": "George A.", "avatar": "https://i.pravatar.cc/150?img=45", "rating": 5, "date": "2026-04-15", "verified": false, "comment": "Perfect for office wear, highly recommend." }
+        ]
     },
     {
         "id": 8,
@@ -165,14 +200,19 @@
             "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800",
             "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800"
         ],
-        "description": "Versatile slim-fit chinos that work for office or weekend wear."
+        "description": "Versatile slim-fit chinos that work for office or weekend wear.",
+        "comments": [
+            { "id": 1, "user": "Alex D.", "avatar": "https://i.pravatar.cc/150?img=47", "rating": 4, "date": "2026-02-20", "verified": true, "comment": "Good fit and comfortable fabric." },
+            { "id": 2, "user": "Marcus L.", "avatar": "https://i.pravatar.cc/150?img=49", "rating": 5, "date": "2026-03-10", "verified": true, "comment": "Perfect chinos for any occasion." },
+            { "id": 3, "user": "Peter V.", "avatar": "https://i.pravatar.cc/150?img=51", "rating": 4, "date": "2026-04-02", "verified": false, "comment": "Nice color options, runs slightly slim." }
+        ]
     },
     {
         "id": 9,
         "title": "Oversized Hoodie",
         "price": 65,
         "discount": 15,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Hoodies",
         "brand": "Champion",
         "sizes": ["S", "M", "L", "XL"],
@@ -186,14 +226,19 @@
             "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800",
             "https://images.unsplash.com/photo-1611911813383-67769b37a149?w=800"
         ],
-        "description": "Cozy oversized hoodie for a relaxed, streetwear-inspired look."
+        "description": "Cozy oversized hoodie for a relaxed, streetwear-inspired look.",
+        "comments": [
+            { "id": 1, "user": "Jake R.", "avatar": "https://i.pravatar.cc/150?img=53", "rating": 5, "date": "2026-03-01", "verified": true, "comment": "So soft and cozy, wear it every day." },
+            { "id": 2, "user": "Luna K.", "avatar": "https://i.pravatar.cc/150?img=55", "rating": 5, "date": "2026-03-22", "verified": true, "comment": "Perfect oversized fit, love the cream color." },
+            { "id": 3, "user": "Zoe P.", "avatar": "https://i.pravatar.cc/150?img=57", "rating": 4, "date": "2026-04-11", "verified": false, "comment": "Great hoodie, washes really well." }
+        ]
     },
     {
         "id": 10,
         "title": "Leather Belt",
         "price": 35,
         "discount": 0,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Accessories",
         "brand": "Tommy Hilfiger",
         "sizes": ["S", "M", "L", "XL"],
@@ -207,7 +252,12 @@
             "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800",
             "https://images.unsplash.com/photo-1664286022075-8e997e95bd17?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Premium genuine leather belt with a classic silver buckle."
+        "description": "Premium genuine leather belt with a classic silver buckle.",
+        "comments": [
+            { "id": 1, "user": "David C.", "avatar": "https://i.pravatar.cc/150?img=59", "rating": 5, "date": "2026-02-08", "verified": true, "comment": "Excellent leather quality, very durable." },
+            { "id": 2, "user": "Paul M.", "avatar": "https://i.pravatar.cc/150?img=60", "rating": 4, "date": "2026-03-17", "verified": true, "comment": "Looks great, good stitching." },
+            { "id": 3, "user": "Frank S.", "avatar": "https://i.pravatar.cc/150?img=62", "rating": 5, "date": "2026-04-09", "verified": false, "comment": "Perfect belt, exactly as described." }
+        ]
     },
     {
         "id": 11,
@@ -228,7 +278,12 @@
             "https://images.unsplash.com/photo-1691315909393-c5c91e22760f?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://images.unsplash.com/photo-1680492775002-641a20e202ca?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Lightweight and breathable shorts built for high-performance runs."
+        "description": "Lightweight and breathable shorts built for high-performance runs.",
+        "comments": [
+            { "id": 1, "user": "Carlos R.", "avatar": "https://i.pravatar.cc/150?img=65", "rating": 5, "date": "2026-02-28", "verified": true, "comment": "Great for running, very lightweight." },
+            { "id": 2, "user": "Ben A.", "avatar": "https://i.pravatar.cc/150?img=67", "rating": 4, "date": "2026-03-15", "verified": true, "comment": "Comfortable and dries quickly." },
+            { "id": 3, "user": "Matt G.", "avatar": "https://i.pravatar.cc/150?img=69", "rating": 5, "date": "2026-04-05", "verified": false, "comment": "Best running shorts I've had." }
+        ]
     },
     {
         "id": 12,
@@ -249,14 +304,19 @@
             "https://images.unsplash.com/photo-1537465978529-d23b17165b3b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://images.unsplash.com/photo-1592301933927-35b597393c0a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Elegant satin wrap skirt that transitions from day to evening effortlessly."
+        "description": "Elegant satin wrap skirt that transitions from day to evening effortlessly.",
+        "comments": [
+            { "id": 1, "user": "Claire B.", "avatar": "https://i.pravatar.cc/150?img=2", "rating": 5, "date": "2026-03-08", "verified": true, "comment": "Beautiful fabric, very elegant." },
+            { "id": 2, "user": "Natalie F.", "avatar": "https://i.pravatar.cc/150?img=4", "rating": 4, "date": "2026-03-29", "verified": false, "comment": "Lovely skirt, great for evenings out." },
+            { "id": 3, "user": "Isabella R.", "avatar": "https://i.pravatar.cc/150?img=6", "rating": 5, "date": "2026-04-17", "verified": true, "comment": "The terracotta color is stunning." }
+        ]
     },
     {
         "id": 13,
         "title": "Denim Jacket",
         "price": 85,
         "discount": 10,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Jackets",
         "brand": "Levi's",
         "sizes": ["XS", "S", "M", "L", "XL"],
@@ -270,7 +330,12 @@
             "https://images.unsplash.com/photo-1614699745279-2c61bd9d46b5?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "A wardrobe staple denim jacket that pairs with almost anything."
+        "description": "A wardrobe staple denim jacket that pairs with almost anything.",
+        "comments": [
+            { "id": 1, "user": "Tyler W.", "avatar": "https://i.pravatar.cc/150?img=8", "rating": 5, "date": "2026-02-10", "verified": true, "comment": "Classic jacket, pairs with everything." },
+            { "id": 2, "user": "Aaron Z.", "avatar": "https://i.pravatar.cc/150?img=10", "rating": 4, "date": "2026-03-03", "verified": true, "comment": "Good quality denim, fits well." },
+            { "id": 3, "user": "Derek M.", "avatar": "https://i.pravatar.cc/150?img=12", "rating": 5, "date": "2026-04-14", "verified": false, "comment": "Love the dark wash color, very stylish." }
+        ]
     },
     {
         "id": 14,
@@ -291,14 +356,19 @@
             "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800",
             "https://images.unsplash.com/photo-1760552069049-600f71fa5bbf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Soft merino wool turtleneck perfect for cool weather layering."
+        "description": "Soft merino wool turtleneck perfect for cool weather layering.",
+        "comments": [
+            { "id": 1, "user": "Helen S.", "avatar": "https://i.pravatar.cc/150?img=14", "rating": 5, "date": "2026-01-20", "verified": true, "comment": "Incredibly soft, no itching at all." },
+            { "id": 2, "user": "Rachel T.", "avatar": "https://i.pravatar.cc/150?img=16", "rating": 5, "date": "2026-02-14", "verified": true, "comment": "The camel color is gorgeous." },
+            { "id": 3, "user": "Diane V.", "avatar": "https://i.pravatar.cc/150?img=18", "rating": 4, "date": "2026-03-30", "verified": false, "comment": "Warm and stylish, great winter piece." }
+        ]
     },
     {
         "id": 15,
         "title": "Classic Sneakers",
         "price": 90,
         "discount": 0,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Sneakers",
         "brand": "Adidas",
         "sizes": ["36", "37", "38", "39", "40", "41", "42", "43", "44"],
@@ -312,14 +382,19 @@
             "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800",
             "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800"
         ],
-        "description": "Clean and minimalist sneakers that go with every outfit."
+        "description": "Clean and minimalist sneakers that go with every outfit.",
+        "comments": [
+            { "id": 1, "user": "Lucas P.", "avatar": "https://i.pravatar.cc/150?img=21", "rating": 5, "date": "2026-02-05", "verified": true, "comment": "These go with absolutely everything." },
+            { "id": 2, "user": "Owen C.", "avatar": "https://i.pravatar.cc/150?img=23", "rating": 5, "date": "2026-03-12", "verified": true, "comment": "Super clean look, very comfortable." },
+            { "id": 3, "user": "Finn H.", "avatar": "https://i.pravatar.cc/150?img=24", "rating": 5, "date": "2026-04-19", "verified": false, "comment": "Best everyday sneakers, love them." }
+        ]
     },
     {
         "id": 16,
         "title": "Linen Blazer",
         "price": 110,
         "discount": 15,
-        "gender": "Men",    
+        "gender": "Men",
         "category": "Blazers",
         "brand": "Massimo Dutti",
         "sizes": ["S", "M", "L", "XL"],
@@ -333,14 +408,19 @@
             "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800",
             "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=800"
         ],
-        "description": "Lightweight linen blazer ideal for summer formal and smart-casual occasions."
+        "description": "Lightweight linen blazer ideal for summer formal and smart-casual occasions.",
+        "comments": [
+            { "id": 1, "user": "Charles E.", "avatar": "https://i.pravatar.cc/150?img=26", "rating": 5, "date": "2026-03-07", "verified": true, "comment": "Perfect summer blazer, very breathable." },
+            { "id": 2, "user": "Victor N.", "avatar": "https://i.pravatar.cc/150?img=28", "rating": 4, "date": "2026-03-25", "verified": true, "comment": "Great quality linen, looks expensive." },
+            { "id": 3, "user": "Simon G.", "avatar": "https://i.pravatar.cc/150?img=30", "rating": 5, "date": "2026-04-13", "verified": false, "comment": "Navy color is stunning, very elegant." }
+        ]
     },
     {
         "id": 17,
         "title": "Sports Bra",
         "price": 35,
         "discount": 0,
-        "gender": "Women",  
+        "gender": "Women",
         "category": "Sportswear",
         "brand": "Nike",
         "sizes": ["XS", "S", "M", "L"],
@@ -354,14 +434,19 @@
             "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800",
             "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800"
         ],
-        "description": "High-support sports bra designed for intense workouts."
+        "description": "High-support sports bra designed for intense workouts.",
+        "comments": [
+            { "id": 1, "user": "Ava L.", "avatar": "https://i.pravatar.cc/150?img=31", "rating": 5, "date": "2026-02-18", "verified": true, "comment": "Great support, stays in place during workouts." },
+            { "id": 2, "user": "Sara J.", "avatar": "https://i.pravatar.cc/150?img=32", "rating": 4, "date": "2026-03-09", "verified": true, "comment": "Very comfortable for long sessions." },
+            { "id": 3, "user": "Nora K.", "avatar": "https://i.pravatar.cc/150?img=34", "rating": 5, "date": "2026-04-01", "verified": false, "comment": "Love the mint color, excellent quality." }
+        ]
     },
     {
         "id": 18,
         "title": "Trench Coat",
         "price": 200,
         "discount": 20,
-        "gender": "Women",  
+        "gender": "Women",
         "category": "Jackets",
         "brand": "Burberry",
         "sizes": ["S", "M", "L"],
@@ -375,14 +460,19 @@
             "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800",
             "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800"
         ],
-        "description": "Iconic double-breasted trench coat for a sophisticated, polished look."
+        "description": "Iconic double-breasted trench coat for a sophisticated, polished look.",
+        "comments": [
+            { "id": 1, "user": "Victoria H.", "avatar": "https://i.pravatar.cc/150?img=36", "rating": 5, "date": "2026-01-30", "verified": true, "comment": "Absolutely stunning, worth every penny." },
+            { "id": 2, "user": "Catherine B.", "avatar": "https://i.pravatar.cc/150?img=38", "rating": 5, "date": "2026-02-22", "verified": true, "comment": "Classic and timeless, impeccable quality." },
+            { "id": 3, "user": "Eleanor M.", "avatar": "https://i.pravatar.cc/150?img=39", "rating": 5, "date": "2026-03-18", "verified": false, "comment": "So elegant, gets compliments everywhere." }
+        ]
     },
     {
         "id": 19,
         "title": "Cargo Pants",
         "price": 65,
         "discount": 0,
-        "gender": "Men",    
+        "gender": "Men",
         "category": "Pants",
         "brand": "Dickies",
         "sizes": ["30", "32", "34", "36"],
@@ -396,14 +486,19 @@
             "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800",
             "https://plus.unsplash.com/premium_photo-1698339571239-8c65d17adab7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Durable multi-pocket cargo pants for utility and street style."
+        "description": "Durable multi-pocket cargo pants for utility and street style.",
+        "comments": [
+            { "id": 1, "user": "Hunter R.", "avatar": "https://i.pravatar.cc/150?img=40", "rating": 5, "date": "2026-02-12", "verified": true, "comment": "Super durable, pockets are very useful." },
+            { "id": 2, "user": "Blake T.", "avatar": "https://i.pravatar.cc/150?img=42", "rating": 4, "date": "2026-03-04", "verified": true, "comment": "Great fit, comfortable all day." },
+            { "id": 3, "user": "Cole N.", "avatar": "https://i.pravatar.cc/150?img=44", "rating": 4, "date": "2026-04-07", "verified": false, "comment": "Good quality, olive color looks great." }
+        ]
     },
     {
         "id": 20,
         "title": "Knit Cardigan",
         "price": 75,
         "discount": 10,
-        "gender": "Women",  
+        "gender": "Women",
         "category": "Tops",
         "brand": "Arket",
         "sizes": ["XS", "S", "M", "L", "XL"],
@@ -417,14 +512,19 @@
             "https://plus.unsplash.com/premium_photo-1727427849915-c13d406bf86a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://images.unsplash.com/photo-1633438584121-ec60a7d453d2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Soft lambswool cardigan that adds warmth and style to any outfit."
+        "description": "Soft lambswool cardigan that adds warmth and style to any outfit.",
+        "comments": [
+            { "id": 1, "user": "Lily A.", "avatar": "https://i.pravatar.cc/150?img=46", "rating": 5, "date": "2026-02-25", "verified": true, "comment": "So soft, the dusty pink is gorgeous." },
+            { "id": 2, "user": "Rose C.", "avatar": "https://i.pravatar.cc/150?img=48", "rating": 4, "date": "2026-03-16", "verified": true, "comment": "Cozy and stylish, great for layering." },
+            { "id": 3, "user": "Violet D.", "avatar": "https://i.pravatar.cc/150?img=50", "rating": 5, "date": "2026-04-10", "verified": false, "comment": "Perfect cardigan, runs true to size." }
+        ]
     },
     {
         "id": 21,
         "title": "Chelsea Boots",
         "price": 150,
         "discount": 10,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Boots",
         "brand": "Dr. Martens",
         "sizes": ["36", "37", "38", "39", "40", "41", "42", "43"],
@@ -438,14 +538,19 @@
             "https://images.unsplash.com/photo-1605812860427-4024433a70fd?w=800",
             "https://plus.unsplash.com/premium_photo-1670983858132-c2f3c4dbf08c?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Classic leather Chelsea boots built to last and easy to style."
+        "description": "Classic leather Chelsea boots built to last and easy to style.",
+        "comments": [
+            { "id": 1, "user": "Adrian F.", "avatar": "https://i.pravatar.cc/150?img=52", "rating": 5, "date": "2026-01-15", "verified": true, "comment": "Excellent boots, very well made." },
+            { "id": 2, "user": "Patrick O.", "avatar": "https://i.pravatar.cc/150?img=54", "rating": 5, "date": "2026-02-27", "verified": true, "comment": "So comfortable after breaking in." },
+            { "id": 3, "user": "Sean B.", "avatar": "https://i.pravatar.cc/150?img=56", "rating": 4, "date": "2026-03-20", "verified": false, "comment": "Great style, worth the investment." }
+        ]
     },
     {
         "id": 22,
         "title": "Graphic Tee",
         "price": 28,
         "discount": 0,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "T-Shirts",
         "brand": "Supreme",
         "sizes": ["S", "M", "L", "XL"],
@@ -459,14 +564,19 @@
             "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=800",
             "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=800"
         ],
-        "description": "Bold graphic tee for those who like to make a statement."
+        "description": "Bold graphic tee for those who like to make a statement.",
+        "comments": [
+            { "id": 1, "user": "Jordan L.", "avatar": "https://i.pravatar.cc/150?img=58", "rating": 5, "date": "2026-03-02", "verified": true, "comment": "Love the design, great quality cotton." },
+            { "id": 2, "user": "Kyle D.", "avatar": "https://i.pravatar.cc/150?img=61", "rating": 4, "date": "2026-03-24", "verified": false, "comment": "Cool graphic, fits a bit large." },
+            { "id": 3, "user": "Logan S.", "avatar": "https://i.pravatar.cc/150?img=63", "rating": 4, "date": "2026-04-16", "verified": true, "comment": "Nice tee, print hasn't faded after washing." }
+        ]
     },
     {
         "id": 23,
         "title": "Wide-Leg Trousers",
         "price": 80,
         "discount": 5,
-        "gender": "Women",  
+        "gender": "Women",
         "category": "Pants",
         "brand": "& Other Stories",
         "sizes": ["34", "36", "38", "40", "42"],
@@ -480,14 +590,19 @@
             "https://images.unsplash.com/photo-1762343291713-0d7f83e6c2e9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://plus.unsplash.com/premium_photo-1673977134363-c86a9d5dcafa?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Elegant wide-leg trousers with a flattering high-waist pleat."
+        "description": "Elegant wide-leg trousers with a flattering high-waist pleat.",
+        "comments": [
+            { "id": 1, "user": "Amber J.", "avatar": "https://i.pravatar.cc/150?img=64", "rating": 5, "date": "2026-03-06", "verified": true, "comment": "So elegant, the chocolate color is stunning." },
+            { "id": 2, "user": "Brooke H.", "avatar": "https://i.pravatar.cc/150?img=66", "rating": 4, "date": "2026-03-27", "verified": true, "comment": "Very flattering cut, great fabric." },
+            { "id": 3, "user": "Carmen V.", "avatar": "https://i.pravatar.cc/150?img=68", "rating": 5, "date": "2026-04-18", "verified": false, "comment": "Perfect trousers, very comfortable to wear." }
+        ]
     },
     {
         "id": 24,
         "title": "Patterned Socks Set",
         "price": 18,
         "discount": 0,
-        "gender": "Unisex", 
+        "gender": "Unisex",
         "category": "Accessories",
         "brand": "Happy Socks",
         "sizes": ["36-40", "41-46"],
@@ -501,6 +616,11 @@
             "https://images.unsplash.com/photo-1734522986159-7d08d9e968a2?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "https://images.unsplash.com/photo-1730448111621-c0524e75b0e8?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
-        "description": "Fun and colourful socks set — 3 pairs of premium combed cotton."
+        "description": "Fun and colourful socks set — 3 pairs of premium combed cotton.",
+        "comments": [
+            { "id": 1, "user": "Felix Q.", "avatar": "https://i.pravatar.cc/150?img=70", "rating": 5, "date": "2026-02-01", "verified": true, "comment": "So fun and colorful, great gift idea." },
+            { "id": 2, "user": "Oscar Y.", "avatar": "https://i.pravatar.cc/150?img=71", "rating": 5, "date": "2026-03-13", "verified": true, "comment": "Great quality, very comfortable cotton." },
+            { "id": 3, "user": "Hugo Z.", "avatar": "https://i.pravatar.cc/150?img=72", "rating": 4, "date": "2026-04-24", "verified": false, "comment": "Love the patterns, wash well too." }
+        ]
     }
 ]

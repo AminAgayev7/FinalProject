@@ -14,7 +14,7 @@ export default function Modal({ message, onClose }: ModalProps) {
                 </p>
                 <button
                     onClick={onClose}
-                    className="w-full bg-gray-800 dark:bg-white dark:text-black text-white py-2 rounded-lg font-medium"
+                    className="w-full dark:bg-gray-800 dark:text-white py-2 rounded-lg font-medium"
                 >
                     OK
                 </button>

@@ -16,7 +16,7 @@ export default function Navbar() {
     }
     return (
         <nav className="fixed w-full z-20 top-0 bg-white border-b border-gray-200 shadow-sm">
-            <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
+            <div className="w-full flex flex-wrap items-center justify-between px-2 sm:px-4 md:px-6 lg:px-8 py-4">
 
 
                 <Link href="/" className="flex items-center gap-3 group">
@@ -50,7 +50,8 @@ export default function Navbar() {
                             </svg>
                         </div>
 
-                        <Input type="text"
+                        <Input id="navbar-search" type="text"
+
                             onChange={(e) => { setSearch(e.target.value) }}
                             value={search}
                             className="block w-full pl-10 pr-3 py-2 text-sm rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
@@ -87,6 +88,7 @@ export default function Navbar() {
                         </div>
 
                         <Input type="text"
+                            id="navbar-search"
                             onChange={(e) => setSearch(e.target.value)}
                             value={search}
                             onKeyDown={handleKeyDown}

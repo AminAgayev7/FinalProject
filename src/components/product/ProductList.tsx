@@ -26,7 +26,7 @@ export default function ProductList() {
             setSearch(query);
         }
     }, [searchParams]);
-    
+
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -64,9 +64,9 @@ export default function ProductList() {
 
                                 <div className="bg-white rounded-xl shadow-sm p-6 sticky top-24 flex flex-col gap-6">
                                     <div>
-                                        <label className="font-semibold text-gray-700 block mb-2">Search</label>
+                                        <label className="font-semibold text-gray-700 block mb-2" htmlFor="search">Search</label>
 
-                                        <Input type="text"
+                                        <Input id="search" type="text"
                                             placeholder="Search products..."
                                             value={search}
                                             onChange={(e) => setSearch(e.target.value)}
@@ -137,7 +137,7 @@ export default function ProductList() {
                                         <label className="font-semibold text-gray-700 block mb-2">Price Range</label>
                                         <div className="flex gap-2 items-center">
 
-                                            <Input type="number"
+                                            <Input id="minPrice" type="number"
                                                 placeholder="Min"
                                                 value={minPrice}
                                                 onChange={e => setMinPrice(e.target.value)}
@@ -147,7 +147,7 @@ export default function ProductList() {
                                             <span className="text-gray-400">—</span>
 
 
-                                            <Input type="number"
+                                            <Input id="maxPrice" type="number"
                                                 placeholder="Max"
                                                 value={maxPrice}
                                                 onChange={e => setMaxPrice(e.target.value)}

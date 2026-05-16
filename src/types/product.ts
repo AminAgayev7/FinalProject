@@ -14,4 +14,15 @@ export interface Product {
     material: string;
     images: string[];
     description: string;
+    comments: Comment[];
 }
+
+export type Comment = {
+    id: number;
+    user: string;
+    rating: number;
+    date: string;
+    verified: boolean;
+    comment: string;
+    avatar: string;
+};
