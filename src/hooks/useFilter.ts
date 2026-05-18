@@ -3,6 +3,10 @@ import { useState, useMemo } from "react";
 import { Product } from "@/types/product";
 
 export function useFilter(products: Product[]) {
+
+    const [selectedSeason, setSelectedSeason] = useState("");
+    const seasons = ["Spring", "Summer", "Winter", "All Season"];
+
     const [search, setSearch] = useState("");
     const [selectedGender, setSelectedGender] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -106,8 +110,13 @@ export function useFilter(products: Product[]) {
             });
         }
 
+        if (selectedSeason) {
+            result = result.filter((p) => {
+                return p.season === selectedSeason
+            });
+        }
         return result;
-    }, [products, search, selectedGender, selectedCategory, selectedSize, selectedColor, minPrice, maxPrice, sort]);
+    }, [products, search, selectedGender, selectedCategory, selectedSize, selectedColor, minPrice, maxPrice, sort, selectedSeason]);
 
     const resetFilters = () => {
         setSearch("");
@@ -118,9 +127,10 @@ export function useFilter(products: Product[]) {
         setMinPrice("");
         setMaxPrice("");
         setSort("default");
+        setSelectedSeason("");
     };
 
-    const hasFilters = (search || selectedGender || selectedCategory || selectedSize || selectedColor || minPrice || maxPrice || sort !== "default");
+    const hasFilters = (search || selectedGender || selectedCategory || selectedSize || selectedColor || minPrice || maxPrice || sort !== "default" || selectedSeason);
 
     return {
         search, setSearch,
@@ -133,5 +143,6 @@ export function useFilter(products: Product[]) {
         sort, setSort,
         genders, categories, sizes, colors,
         filtered, resetFilters, hasFilters,
+        selectedSeason, setSelectedSeason, seasons,
     };
 }

@@ -15,6 +15,7 @@ export interface Product {
     images: string[];
     description: string;
     comments: Comment[];
+    season: string;
 }
 
 export type Comment = {

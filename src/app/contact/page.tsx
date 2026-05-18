@@ -72,23 +72,6 @@ export default function ContactPage() {
                                             </a>
                                         </div>
 
-                                        <div className="flex items-center gap-4">
-                                            <div className="text-indigo-600">
-                                                <svg width="28" height="28" fill="none" viewBox="0 0 30 30">
-                                                    <path
-                                                        d="M25 12.9169C25 17.716 21.1939 21.5832 18.2779 24.9828C16.8385 26.6609 16.1188 27.5 15 27.5C13.8812 27.5 13.1615 26.6609 11.7221 24.9828C8.80612 21.5832 5 17.716 5 12.9169C5 10.1542 6.05357 7.5046 7.92893 5.55105C9.8043 3.59749 12.3478 2.5 15 2.5C17.6522 2.5 20.1957 3.59749 22.0711 5.55105C23.9464 7.5046 25 10.1542 25 12.9169Z"
-                                                        stroke="currentColor" strokeWidth="2"
-                                                    />
-                                                    <path
-                                                        d="M17.5 11.6148C17.5 13.0531 16.3807 14.219 15 14.219C13.6193 14.219 12.5 13.0531 12.5 11.6148C12.5 10.1765 13.6193 9.01058 15 9.01058C16.3807 9.01058 17.5 10.1765 17.5 11.6148Z"
-                                                        stroke="currentColor" strokeWidth="2"
-                                                    />
-                                                </svg>
-                                            </div>
-                                            <span className="hover:text-indigo-600 transition">
-                                                654 Sycamore Avenue, Meadowville, WA 76543
-                                            </span>
-                                        </div>
 
                                     </div>
                                 </div>
@@ -96,7 +79,7 @@ export default function ContactPage() {
 
                             <div className="bg-gray-50 p-6 lg:p-12">
                                 <h2 className="text-4xl font-bold text-indigo-600 mb-10">
-                                    Send Us A Message
+                                    Contact US
                                 </h2>
 
                                 <div className="space-y-6">

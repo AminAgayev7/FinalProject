@@ -13,7 +13,7 @@ export default function CheckOutPage() {
     const { totalPrice, clearCart } = useCart();
     const [orderedTotal, setOrderedTotal] = useState(0);
     const [showModal, setShowModal] = useState<boolean>(false);
-    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<CheckoutFormData>({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<CheckoutFormData>({
         resolver: zodResolver(checkoutSchema),
         defaultValues: {
             shipping: { firstName: "", lastName: "", address: "", city: "", state: "", zipCode: "" }, payment: {

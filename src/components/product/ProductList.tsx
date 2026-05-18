@@ -7,7 +7,8 @@ import ProductCard from "@/components/product/ProductCard";
 import Skeleton from "../ui/Skeleton";
 import Button from "../ui/Button";
 import { useFilter } from "@/hooks/useFilter";
-import Input from "../ui/Input";
+import FilterPanel from "../FilterPanel";
+
 import { useSearchParams } from "next/navigation";
 const sort_options = [
     { label: "Default", value: "default" },
@@ -50,6 +51,7 @@ export default function ProductList() {
         sort, setSort,
         genders, categories, sizes, colors,
         filtered, resetFilters, hasFilters,
+        selectedSeason, setSelectedSeason, seasons
     } = useFilter(products);
 
     return (
@@ -58,116 +60,21 @@ export default function ProductList() {
                 <h1 className="text-3xl font-bold text-gray-900 text-center my-8">Find the product you want!</h1>
 
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
-                    {
-                        !loading && (
-                            <aside className="w-full lg:w-64">
-
-                                <div className="bg-white rounded-xl shadow-sm p-6 sticky top-24 flex flex-col gap-6">
-                                    <div>
-                                        <label className="font-semibold text-gray-700 block mb-2" htmlFor="search">Search</label>
-
-                                        <Input id="search" type="text"
-                                            placeholder="Search products..."
-                                            value={search}
-                                            onChange={(e) => setSearch(e.target.value)}
-                                            className="w-full border border-gray-300 rounded-lg text-black px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors">
-
-                                        </Input>
-                                    </div>
-
-
-                                    <div>
-                                        <label className="font-semibold text-gray-700 block mb-2">Gender</label>
-                                        <div className="flex flex-col gap-1">
-                                            {genders.map((gender) => (
-                                                <Button key={gender}
-                                                    onClick={() => handleGenderChange(selectedGender === gender ? "" : gender)}
-                                                    className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${selectedGender === gender ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100"}`}>
-                                                    {gender}
-                                                </Button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-
-                                    <div>
-                                        <label className="font-semibold text-gray-700 block mb-2">Category</label>
-                                        <div className="flex flex-col gap-1 max-h-48 overflow-y-auto">
-                                            {categories.map((category) => (
-
-                                                <Button key={category}
-                                                    onClick={() => setSelectedCategory(selectedCategory === category ? "" : category)}
-                                                    className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${selectedCategory === category ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100"}`}>
-                                                    {category}
-                                                </Button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-
-                                    <div>
-                                        <label className="font-semibold text-gray-700 block mb-2">Size</label>
-                                        <div className="flex flex-wrap gap-2">
-                                            {sizes.map((size) => (
-
-                                                <Button key={size}
-                                                    onClick={() => setSelectedSize(selectedSize === size ? "" : size)}
-                                                    className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedSize === size ? "bg-black text-white border-black" : "bg-white text-gray-600 border-gray-300 hover:border-black"}`}>
-                                                    {size}
-                                                </Button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="font-semibold text-gray-700 block mb-2">Color</label>
-                                        <div className="flex flex-wrap gap-2">
-                                            {colors.map((color) => (
-
-                                                <Button key={color}
-                                                    onClick={() => setSelectedColor(selectedColor === color ? "" : color)}
-                                                    className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedColor === color ? "bg-black text-white border-black" : "bg-white text-gray-600 border-gray-300 hover:border-black"}`}>
-                                                    {color}
-                                                </Button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="font-semibold text-gray-700 block mb-2">Price Range</label>
-                                        <div className="flex gap-2 items-center">
-
-                                            <Input id="minPrice" type="number"
-                                                placeholder="Min"
-                                                value={minPrice}
-                                                onChange={e => setMinPrice(e.target.value)}
-                                                className="w-full text-black border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors">
-
-                                            </Input>
-                                            <span className="text-gray-400">—</span>
-
-
-                                            <Input id="maxPrice" type="number"
-                                                placeholder="Max"
-                                                value={maxPrice}
-                                                onChange={e => setMaxPrice(e.target.value)}
-                                                className="w-full border text-black border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors">
-
-                                            </Input>
-                                        </div>
-                                    </div>
-
-
-                                    {hasFilters && (
-                                        <Button onClick={resetFilters}
-                                            className="w-full border border-gray-300 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50 transition-colors">
-                                            Reset Filters
-                                        </Button>
-                                    )}
-                                </div>
-                            </aside>
-                        )
-                    }
+                    {!loading && (
+                        <aside className="w-full lg:w-64">
+                            <FilterPanel
+                                search={search} setSearch={setSearch}
+                                selectedSeason={selectedSeason} setSelectedSeason={setSelectedSeason} seasons={seasons}
+                                selectedGender={selectedGender} handleGenderChange={handleGenderChange} genders={genders}
+                                selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} categories={categories}
+                                selectedSize={selectedSize} setSelectedSize={setSelectedSize} sizes={sizes}
+                                selectedColor={selectedColor} setSelectedColor={setSelectedColor} colors={colors}
+                                minPrice={minPrice} setMinPrice={setMinPrice}
+                                maxPrice={maxPrice} setMaxPrice={setMaxPrice}
+                                resetFilters={resetFilters} hasFilters={hasFilters}
+                            />
+                        </aside>
+                    )}
 
                     <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-6">

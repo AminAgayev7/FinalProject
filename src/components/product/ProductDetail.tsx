@@ -13,6 +13,7 @@ import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import Button from "../ui/Button";
+import CommentsSection from "./ProductReviews";
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
@@ -60,7 +61,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
     return (
         <>
-            <main className="min-h-screen bg-zinc-50 pt-20 pb-16 text-black">
+            <main className="min-h-screen bg-zinc-50 sm:pt-30 pt-25 pb-16 text-black">
                 <div className="max-w-5xl mx-auto px-6">
                     <div className="text-sm text-gray-400 mb-6">
                         <Link href="/" className="hover:text-black">Home</Link>
@@ -164,7 +165,9 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                     </div>
                 </div>
             </main>
-            
+            {product.comments && product.comments.length > 0 && (
+                <CommentsSection comments={product.comments} />
+            )}
         </>
 
     );

@@ -5,7 +5,7 @@ type SkeletonProps = {
 export default function Skeleton({ count = 0 }: SkeletonProps) {
     return (
         <>
-            {Array.from({ length: count }).map((_, i) => (
+            {Array.from({ length: count }).map((item, i) => (
                 <div
                     key={i}
                     role="status"
