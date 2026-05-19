@@ -20,6 +20,7 @@ export default function Home() {
   }, []);
 
 
+
   const newArrivals = products.slice(products.length - 6, products.length).reverse();
   const skeletonCount = loading ? 6 : newArrivals.length;
   const popular = products.filter((product) => {

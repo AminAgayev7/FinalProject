@@ -6,7 +6,7 @@ type Comment = NonNullable<Product["comments"]>[number];
 import Button from "../ui/Button";
 export default function CommentsSection({ comments }: { comments: Comment[] }) {
     return (
-        <section className=" bg-zinc-50  relative">
+        <section className="bg-zinc-50 pb-16 relative">
             <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 py-4 rounded-lg border shadow-lg mx-auto">
                 <div className="w-full flex flex-col justify-start items-start lg:gap-14 gap-7">
                     <h2 className="text-gray-900 text-4xl font-bold leading-normal">
@@ -73,7 +73,7 @@ export default function CommentsSection({ comments }: { comments: Comment[] }) {
 
                             </Input>
 
-                            <Button className="absolute right-6 top-[18px]">
+                            <Button className="absolute right-6 top-4.5">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="20"
