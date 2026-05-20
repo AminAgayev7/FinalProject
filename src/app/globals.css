@@ -1,17 +1,42 @@
 @import "tailwindcss";
-*{
+
+* {
   font-family: 'Poppins', sans-serif;
 }
+
 .caveat {
   font-family: "Caveat", cursive;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 10s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
 body.hide-footer footer {
-    display: none;
+  display: none;
 }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -36,4 +61,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-

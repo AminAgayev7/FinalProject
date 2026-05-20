@@ -62,7 +62,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     return (
         <>
             <main className="min-h-screen bg-zinc-50 sm:pt-30 pt-25 pb-16 text-black">
-                <div className="max-w-5xl mx-auto px-6">
+                <div className="max-w-7xl  mx-auto px-6">
                     <div className="text-sm text-gray-400 mb-6">
                         <Link href="/" className="hover:text-black">Home</Link>
                         <span className="mx-2">/</span>
@@ -85,7 +85,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                                         <Image
                                             src={image}
                                             alt={`Product ${index + 1}`}
-                                            className="h-96 rounded-md w-full object-cover"
+                                            className="h-129 rounded-md w-full object-cover"
                                             width={300}
                                             height={300}
                                         />

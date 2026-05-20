@@ -74,7 +74,7 @@ export default function ProductCard({ product }: { product?: Product }) {
                     </span>
                 </div>
 
-                <p className="mt-2 text-sm text-gray-500 line-clamp-2 min-h-[40px]">
+                <p className="mt-2 text-sm text-gray-500 line-clamp-2 min-h-10">
                     {product?.description}
                 </p>
 
