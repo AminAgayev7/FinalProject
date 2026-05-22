@@ -1,5 +1,7 @@
 "use client";
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+
+import { createContext, useState,useEffect, ReactNode } from "react";
+
 import bcrypt from "bcryptjs-react";
 
 interface User {
@@ -10,6 +12,7 @@ interface User {
 
 interface AuthContextType {
     user: User | null;
+    isAuthenticated: boolean;
     login: (email: string, password: string) => boolean;
     logout: () => void;
 }
@@ -17,52 +20,67 @@ interface AuthContextType {
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+
     const [user, setUser] = useState<User | null>(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        if (typeof window === "undefined") {
-            return;
-        }
+
         const currentEmail = localStorage.getItem("currentUser");
+
         if (!currentEmail) {
             return;
         }
-        const users = JSON.parse(localStorage.getItem("data") || "[]");
+        const users = JSON.parse(
+            localStorage.getItem("data") || "[]"
+        );
+
         const found = users.find((u: User) => {
             return u.email === currentEmail
-        });
+        }
+        );
+
         if (found) {
             setUser(found);
+            setIsAuthenticated(true);
         }
+
     }, []);
 
     function login(email: string, password: string): boolean {
-        if (typeof window === "undefined") {
-            return false;
-        }
-        const users = JSON.parse(localStorage.getItem("data") || "[]");
+
+        const users = JSON.parse(
+            localStorage.getItem("data") || "[]"
+        );
+
         const found = users.find((u: User & { password: string }) => {
-                return u.email === email && bcrypt.compareSync(password, u.password)
-        });
+            return (u.email === email) && (bcrypt.compareSync(password, u.password))
+        }
+        );
+
         if (!found) {
             return false;
         }
-        localStorage.setItem("currentUser", found.email);
-        localStorage.setItem("message", "User logged in!");
+
+        localStorage.setItem("currentUser",found.email);
+
         setUser(found);
+        setIsAuthenticated(true);
+
         return true;
     }
 
     function logout() {
+
         localStorage.removeItem("currentUser");
-        localStorage.removeItem("message");
+
         setUser(null);
+        setIsAuthenticated(false);
     }
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user, isAuthenticated, login, logout}}>
             {children}
         </AuthContext.Provider>
     );
 }
-

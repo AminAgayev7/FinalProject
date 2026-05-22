@@ -79,20 +79,12 @@ export default function CartItem({ item, removeFromCart, updateQuantity, link }:
                 <p className="text-gray-800 font-bold">
                     $
                     {item.product.discount ? ((item.product.price - (item.product.price * item.product.discount) / 100) * item.quantity
-                    ).toFixed(2)
-                        : (
-                            item.product.price *
-                            item.quantity
-                        ).toFixed(2)}
+                    ).toFixed(2) : (item.product.price * item.quantity).toFixed(2)}
                 </p>
 
                 {item.product.discount ? (
                     <p className="text-gray-400 line-through text-xs">
-                        $
-                        {(
-                            item.product.price *
-                            item.quantity
-                        ).toFixed(2)}
+                        ${(item.product.price * item.quantity).toFixed(2)}
                     </p>
                 ) : null}
             </div>

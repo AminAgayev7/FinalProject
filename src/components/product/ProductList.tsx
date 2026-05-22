@@ -55,7 +55,7 @@ export default function ProductList() {
     } = useFilter(products);
 
     return (
-        <main className="min-h-screen bg-zinc-50 pb-16">
+        <main className="min-h-screen bg-zinc-50 mt-8 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <h1 className="text-3xl font-bold text-gray-900 text-center my-8">Find the product you want!</h1>
 

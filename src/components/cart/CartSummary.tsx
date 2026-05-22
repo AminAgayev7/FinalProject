@@ -1,5 +1,7 @@
 import Link from "next/link";
-
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import Button from "../ui/Button";
 type CartSummaryProps = {
     originalTotal: number;
     totalDiscount: number;
@@ -7,6 +9,8 @@ type CartSummaryProps = {
 };
 
 export default function CartSummary({ originalTotal, totalDiscount, totalPrice }: CartSummaryProps) {
+    const { isAuthenticated } = useAuth();
+    const router = useRouter();
     return (
         <div className="shadow-lg p-5 rounded-md bg-white w-full md:max-w-sm md:sticky md:top-24 border border-gray-100">
             <h2 className="text-lg text-gray-900 font-semibold mb-4">
@@ -46,9 +50,19 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
             </div>
 
             <div className="flex flex-col gap-3 mt-6">
-                <Link href="/checkout" className="bg-blue-500 text-center text-white py-2.5 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium">
+
+                <Button
+                    onClick={() => {
+                        if (!isAuthenticated) {
+                            router.push("/auth/login");
+                            return;
+                        }
+                        router.push("/checkout");
+                    }}
+                    className="bg-blue-500 text-center text-white py-2.5 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium"
+                >
                     Proceed to Checkout
-                </Link>
+                </Button>
 
                 <Link href="/" className="text-center border border-gray-300 rounded-md py-2 px-4 text-black hover:bg-gray-50 transition-colors">
                     Continue shopping
@@ -57,3 +71,4 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
         </div>
     );
 }
+

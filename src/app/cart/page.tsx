@@ -37,7 +37,7 @@ export default function CartPage() {
                     Shopping Cart
                 </h1>
 
-                <section className="flex flex-col md:flex-row gap-6 items-center">
+                <section className="flex flex-col md:flex-row gap-6">
                     {items.length === 0 ? (
                         <div className="w-full text-center py-10">
                             <p className="text-gray-600 mb-4">
