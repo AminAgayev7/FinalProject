@@ -10,12 +10,6 @@ export const checkoutSchema = z.object({
         state: z.string().min(1, "State is required").max(50, "State name is too long"),
         zipCode: z.string().min(4, "ZIP code must be at least 4 characters").max(10, "ZIP code is too long"),
     }),
-
-    payment: z.object({
-        cardNumber: z.string().length(16, "Card number must be 16 digits"),
-        expirationDate: z.string().min(4, "Expiration date is required").max(5, "Invalid format"),
-        cvv: z.string().min(3, "CVV must be at least 3 digits").max(4, "CVV must be at most 4 digits"),
-    }),
 });
 
 export type CheckoutFormData = z.infer<typeof checkoutSchema>;
@@ -54,3 +48,42 @@ export const loginSchema = z.object({
 })
 
 export type loginFormData = z.infer<typeof loginSchema>
+
+export const cardSchema = z.object({
+    cardNumber: z.string().min(16, "Card number must be 16 digits!").max(16),
+    cardHolder: z.string().min(2, "Card holder name required!"),
+    expirationDate: z.string().min(5, "Can't get over 5 characters!").max(5, "Can't get over 5 characters!").refine((value) => {
+    const parts = value.split("/");
+
+    if (parts.length !== 2) {
+        return false;
+    }
+    const month = Number(parts[0]);
+    const year = Number(parts[1]);
+
+    if (isNaN(month) || isNaN(year)) {
+        return false;
+    }
+    if (month < 1 || month > 12) {
+        return false;
+    }
+    const fullYear = 2000 + year;
+
+    const now = new Date();
+    const currentMonth = now.getMonth() + 1;
+    const currentYear = now.getFullYear();
+
+    if (fullYear < currentYear) {
+        return false;
+    }
+    if (fullYear === currentYear && month < currentMonth) {
+        return false;
+    }
+    return true;
+}, {
+    message: "Invalid or expired date"
+}),
+    cvv: z.string().min(3).max(4),
+});
+
+export type CardFormData = z.infer<typeof cardSchema>

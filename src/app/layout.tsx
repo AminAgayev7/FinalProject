@@ -7,7 +7,7 @@ import Script from "next/script";
 import { CartProvider } from "@/context/CartContext";
 import Footer from "@/components/layout/Footer";
 import { AuthProvider } from "@/context/AuthContext";
-import { initBalance } from "@/lib/initBalance";
+
 import { useEffect } from "react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +26,6 @@ const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
-  useEffect(() => {
-        initBalance();
-    }, []);
   return (
     <html
       lang="en"

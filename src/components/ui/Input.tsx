@@ -17,10 +17,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <input
                 ref={ref}
                 type={type}
-                value={value}
+                value={value}    
                 onChange={onChange}
                 className={className}
-                placeholder={placeholder}
+                placeholder={placeholder} 
                 name={name}
                 onKeyDown={onKeyDown}
                 id={id}

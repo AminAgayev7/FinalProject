@@ -16,9 +16,7 @@ export default function CheckOutPage() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<CheckoutFormData>({
         resolver: zodResolver(checkoutSchema),
         defaultValues: {
-            shipping: { firstName: "", lastName: "", address: "", city: "", state: "", zipCode: "" }, payment: {
-                cardNumber: "", cvv: "", expirationDate: ""
-            }
+            shipping: { firstName: "", lastName: "", address: "", city: "", state: "", zipCode: "" }
         },
     });
 
@@ -163,76 +161,6 @@ export default function CheckOutPage() {
                                     </Input>
                                     {errors.shipping?.zipCode && (
                                         <p className="text-red-500 text-sm mt-1 px-5">{errors.shipping.zipCode.message}</p>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div>
-                            <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-4">
-                                Payment Information
-                            </h2>
-
-                            <div>
-                                <label
-                                    htmlFor="card_number"
-                                    className="block text-gray-700 dark:text-white mb-1"
-                                >
-                                    Card Number
-                                </label>
-
-
-                                <Input type="text"
-                                    id="card_number"
-                                    {...register("payment.cardNumber")}
-                                    className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500">
-
-                                </Input>
-                                {errors.payment?.cardNumber && (
-                                    <p className="text-red-500 text-sm mt-1 px-5">{errors.payment.cardNumber.message}</p>
-                                )}
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                <div>
-                                    <label
-                                        htmlFor="exp_date"
-                                        className="block text-gray-700 dark:text-white mb-1"
-                                    >
-                                        Expiration Date
-                                    </label>
-
-
-                                    <Input type="text"
-                                        id="exp_date"
-                                        {...register("payment.expirationDate")}
-                                        placeholder="MM/YY"
-                                        className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500">
-
-                                    </Input>
-                                    {errors.payment?.expirationDate && (
-                                        <p className="text-red-500 text-sm mt-1 px-5">{errors.payment.expirationDate.message}</p>
-                                    )}
-                                </div>
-
-                                <div>
-                                    <label
-                                        htmlFor="cvv"
-                                        className="block text-gray-700 dark:text-white mb-1"
-                                    >
-                                        CVV
-                                    </label>
-
-
-                                    <Input type="text"
-                                        {...register("payment.cvv")}
-                                        id="cvv"
-                                        className="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500">
-
-                                    </Input>
-                                    {errors.payment?.cvv && (
-                                        <p className="text-red-500 text-sm mt-1 px-5">{errors.payment.cvv.message}</p>
                                     )}
                                 </div>
                             </div>
