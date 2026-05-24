@@ -1,8 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
-
 
 type ChildrenType = {
     children: React.ReactNode;
@@ -11,58 +10,58 @@ type ChildrenType = {
 type WishlistContextType = {
     wishlist: Product[];
     toggleWishlist: (product: Product) => void;
+    mounted: boolean;
 };
 
-type WishlistAction = { type: "TOGGLE"; payload: Product };
-
-export const WishlistContext = createContext<WishlistContextType | null>(null);
+export const WishlistContext =
+    createContext<WishlistContextType | null>(null);
 
 export function WishlistProvider({ children }: ChildrenType) {
 
+    const [wishlist, setWishlist] = useState<Product[]>([]);
+    const [mounted, setMounted] = useState(false);
 
-    function wishlistReducer(state: Product[], action: WishlistAction): Product[] {
-        switch (action.type) {
-            case "TOGGLE":
-                const exists = state.find((item) => {
-                    return item.id === action.payload.id
-                });
-                if (exists) {
-                    return state.filter((item) => {
-                        return item.id !== action.payload.id
-                    })
-                } else {
-                    return [...state, action.payload]
-                }
-            default:
-                return state;
-        }
-    }
-
-    const [wishlist, dispatch] = useReducer(wishlistReducer, [], (): Product[] => {
-        if (typeof window === "undefined") {
-            return [];
-        }
+    useEffect(() => {
         const saved = localStorage.getItem("wishlist");
+
         if (saved) {
-            return JSON.parse(saved);
-        } else {
-            return []
+            setWishlist(JSON.parse(saved));
         }
-    });
+
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (mounted) {
+            localStorage.setItem("wishlist", JSON.stringify(wishlist)
+            );
+        }
+    }, [wishlist, mounted]);
 
     const toggleWishlist = (product: Product) => {
-        dispatch({ type: "TOGGLE", payload: product });
+
+        const exists = wishlist.find((item) => {
+            return item.id === product.id
+        }
+
+        );
+
+        if (exists) {
+            setWishlist(
+                wishlist.filter((item) => {
+                    return item.id !== product.id
+                })
+            );
+        } else {
+            setWishlist([...wishlist, product]);
+        }
     };
-    useEffect(() => {
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    }, [wishlist]);
-
-
 
     return (
-        <WishlistContext.Provider value={{ wishlist, toggleWishlist }}>
+        <WishlistContext.Provider
+            value={{wishlist, toggleWishlist, mounted,}}
+        >
             {children}
         </WishlistContext.Provider>
     );
 }
-

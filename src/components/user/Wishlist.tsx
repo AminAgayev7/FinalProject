@@ -4,7 +4,12 @@ import { useWishlist } from "@/hooks/useWishList";
 import ProductWishListGrid from "../product/ProductWishListGrid";
 
 export default function Wishlist() {
-    const { wishlist } = useWishlist();
+
+    const { wishlist, mounted } = useWishlist();
+
+    if (!mounted) {
+        return null;
+    }
 
     return (
         <div className="min-h-screen bg-zinc-50 pt-23 px-2 sm:px-6 lg:px-10">
