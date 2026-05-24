@@ -14,11 +14,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import Button from "../ui/Button";
 import CommentsSection from "./ProductReviews";
-
+import { getStock } from "@/lib/stockStorage";
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
     const [product, setProduct] = useState<Product | null>(null);
-    const { addToCart } = useCart();
+    const { addToCart, items } = useCart();
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedColor, setSelectedColor] = useState("");
     const [added, setAdded] = useState(false);
@@ -26,7 +26,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     useEffect(() => {
         fetchProducts().then((products) => {
             const foundProduct = products.find((p) => {
-                return p.id === parseInt(id)
+                return p.id === parseInt(id);
             });
             if (foundProduct) {
                 setProduct(foundProduct || null);
@@ -47,6 +47,18 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const handleAddToCart = () => {
         if (!selectedSize || !selectedColor) {
             alert("Please select size and color.");
+            return;
+        }
+
+        const currentStock = getStock(product.id, product.stock);
+        const itemInCart = items.find((item) => {
+            return item.product.id === product.id && item.selectedSize === selectedSize && item.selectedColor === selectedColor
+        })
+
+        const currentQuantityInCart = itemInCart ? itemInCart.quantity : 0;
+
+        if (currentQuantityInCart >= currentStock) {
+            alert(`Sorry, only ${currentStock} items are available in stock.`);
             return;
         }
         addToCart(product, selectedSize, selectedColor);
@@ -121,7 +133,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                             <div className="flex text-sm flex-col gap-y-2">
                                 <p className="font-medium">Material: <span className="font-normal text-gray-500">{product?.material}</span></p>
                                 <p className="font-medium">Category: <span className="font-normal text-gray-500">{product?.category}</span></p>
-                                <p className="font-medium">Stock: {product?.stock < 10 ? <span className="text-red-500">Only {product?.stock} left!</span> : <span className="text-green-500">In stock</span>}</p>
+                                <p className="font-medium">Stock: {product?.stock < 10 ? <span className="text-red-500">{product?.stock}</span> : <span className="text-green-500">{product?.stock}</span>}</p>
                                 <p className="font-medium">Gender: <span className="font-normal text-gray-500">{product?.gender}</span></p>
                             </div>
 

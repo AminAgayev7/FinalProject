@@ -14,6 +14,7 @@ export default function CartPage() {
     let originalTotal = 0;
 
     items.forEach((item) => {
+
         const original = item.product.price * item.quantity;
 
         const discounted = item.product.discount ? (item.product.price - (item.product.price * item.product.discount) / 100) * item.quantity : original;

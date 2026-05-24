@@ -11,7 +11,7 @@ import Link from "next/link";
 type CartItemProps = {
     item: CartItem;
     removeFromCart: (id: number, size: string, color: string) => void;
-    updateQuantity: (id: number, size: string, color: string, quantity: number) => void;
+    updateQuantity: (id: number, size: string, color: string, quantity: number, stock?: number) => void;
     link: string;
 };
 
@@ -46,6 +46,7 @@ export default function CartItem({ item, removeFromCart, updateQuantity, link }:
                     {item.product.title}
                 </h2>
 
+
                 <div className="flex flex-wrap gap-x-2">
                     <span className="text-gray-400 text-sm">
                         Size: {item.selectedSize}
@@ -68,8 +69,19 @@ export default function CartItem({ item, removeFromCart, updateQuantity, link }:
                     </p>
 
 
-                    <Button className="border border-gray-300 rounded-sm px-1.5 text-black hover:bg-gray-100"
-                        onClick={() => { updateQuantity(item.product.id, item.selectedSize, item.selectedColor, item.quantity + 1) }}>
+                    <Button
+                        disabled={item.quantity >= item.product.stock}
+                        className="border border-gray-300 rounded-sm px-1.5 text-black hover:bg-gray-100 disabled:opacity-50"
+                        onClick={() => {
+                            updateQuantity(
+                                item.product.id,
+                                item.selectedSize,
+                                item.selectedColor,
+                                item.quantity + 1,
+                                item.product.stock
+                            );
+                        }}
+                    >
                         <i className="fa-solid fa-plus text-xs"></i>
                     </Button>
                 </div>

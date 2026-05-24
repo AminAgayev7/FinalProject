@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
+import { getStock } from "@/lib/stockStorage";
 export interface CartItem {
     product: Product;
     quantity: number;
@@ -36,7 +37,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }, [items]);
 
     const addToCart = (product: Product, size: string, color: string) => {
-
+        const currentStock = getStock(product.id, product.stock)
 
         setItems((prev) => {
             const existing = prev.find(
@@ -49,6 +50,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 }
             );
 
+            const currentQuantityInCart = existing ? existing.quantity : 0;
+
+            if(currentQuantityInCart >= currentStock) {
+                return prev;
+            }
             if (existing) {
                 return prev.map((item) => {
                     return (
@@ -70,20 +76,30 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         });
     };
 
-    const updateQuantity = (productId: number, size: string, color: string, quantity: number) => {
-        if (quantity < 1) {
-            return;
-        }
-        setItems(function (prev) {
-            return prev.map((item) => {
-                if ((item.product.id === productId) && (item.selectedSize === size) && (item.selectedColor === color)) {
-                    return { ...item, quantity: quantity };
-                } else {
-                    return item;
-                }
-            });
+    const updateQuantity = (productId: number,size: string, color: string,  quantity: number, stock?: number) => {
+
+    if (quantity < 1) {
+        return;
+    }
+
+    if (stock !== undefined && quantity > stock) {
+        return;
+    }
+
+    setItems(function (prev) {
+        return prev.map((item) => {
+            if (
+                (item.product.id === productId) &&
+                (item.selectedSize === size) &&
+                (item.selectedColor === color)
+            ) {
+                return { ...item, quantity: quantity };
+            } else {
+                return item;
+            }
         });
-    };
+    });
+};
 
     const clearCart = () => setItems([]);
 

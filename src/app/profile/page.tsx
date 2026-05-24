@@ -47,7 +47,7 @@ export default function UserProfile() {
         const existingCards = getCards(user.email);
 
         const isDuplicate = existingCards.some((c) => {
-            return c.cardNumber === data.cardNumber
+            return (c.cardNumber === data.cardNumber && c.cvv === data.cvv)
         });
 
         if (isDuplicate) {

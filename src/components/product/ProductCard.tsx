@@ -4,14 +4,23 @@ import { Product } from "@/types/product";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import Link from "next/link";
+import { useCallback } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Image from "next/image";
 import Button from "../ui/Button";
+import { useWishlist } from "@/hooks/useWishList";
 export default function ProductCard({ product }: { product?: Product }) {
-
+    const { toggleWishlist, wishlist } = useWishlist();
+    const handleWishlist = useCallback(() => {
+        if (!product) {
+            return;
+        }
+        return toggleWishlist(product);
+    }, [toggleWishlist, product]);
+    const isFavorite = product ? wishlist.some((item) => item.id === product.id) : false;
     const discountedPrice = product?.discount ? (product.price - (product.price * product.discount) / 100) : product?.price;
 
     return (
@@ -38,7 +47,7 @@ export default function ProductCard({ product }: { product?: Product }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-
+            <Button onClick={handleWishlist} className={"top-2 right-2 text-2xl"}>{isFavorite ? "❤️" : "🤍"}</Button>
             <div className="p-4 flex flex-col flex-1">
                 <p className="text-xs text-gray-400 uppercase tracking-wide">
                     {product?.brand}

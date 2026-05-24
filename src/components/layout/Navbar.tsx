@@ -112,7 +112,15 @@ export default function Navbar() {
                             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
                         </Link>
                     </li>
-
+                    <li>
+                        <Link
+                            href="/wishlist"
+                            className="relative group text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors pb-0.5"
+                        >
+                            Wishlist
+                            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                        </Link>
+                    </li>
                 </ul>
 
                 <div className="flex items-center gap-3 sm:gap-4 shrink-0">
@@ -165,13 +173,7 @@ export default function Navbar() {
                                     {user.firstName}
                                 </span>
                             </Link>
-                            <Button
-                                onClick={handleLogout}
-                                className="hidden md:block p-2 rounded-lg text-red-400 hover:bg-red-50 transition-colors"
-                                title="Logout"
-                            >
-                                <i className="fa-solid fa-arrow-right-from-bracket" />
-                            </Button>
+
 
                         </div>
 
@@ -292,7 +294,13 @@ export default function Navbar() {
                     >
                         Contact
                     </Link>
-
+                    <Link
+                        href="/wishlist"
+                        onClick={() => setOpen(false)}
+                        className="px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                        Wishlist
+                    </Link>
                     <div className="mt-2 mb-1 border-t border-gray-50 pt-3">
                         {user ? (
                             <div className="flex items-center justify-between px-3 py-2">
@@ -314,16 +322,6 @@ export default function Navbar() {
                                     </span>
 
                                 </Link>
-
-                                <Button
-                                    onClick={handleLogout}
-                                    className="p-2 text-sm text-red-500 hover:bg-red-50 rounded-md transition-colors"
-                                >
-
-                                    <i className="fa-solid fa-arrow-right-from-bracket" />{" "}
-                                    Log Out
-
-                                </Button>
 
                             </div>
 
