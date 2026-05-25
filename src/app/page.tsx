@@ -28,7 +28,7 @@ export default function Home() {
   });
 
   return (
-    <main className="bg-zinc-50 min-h-screen pt-9">
+    <main className="bg-zinc-50 dark:bg-gray-950 min-h-screen pt-9">
       <section className="relative min-h-screen mt-6 flex items-center overflow-hidden">
         <img
           src={"https://wallpaperaccess.com/full/4624210.jpg"}
@@ -73,10 +73,10 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-6 py-16" id="newArrivals">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">New Arrivals</h2>
+          <h2 className="text-2xl font-bold dark:text-white text-gray-900">New Arrivals</h2>
           <Link
             href="/products"
-            className="text-sm text-gray-500 hover:text-black transition-colors"
+            className="text-sm text-gray-500 dark:text-white hover:text-black transition-colors"
           >
             View all
           </Link>
@@ -96,10 +96,10 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-6 py-16" id="mostPopular">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">Most Popular</h2>
+          <h2 className="text-2xl font-bold dark:text-white text-gray-900">Most Popular</h2>
           <Link
             href="/products"
-            className="text-sm text-gray-500 hover:text-black transition-colors"
+            className="text-sm dark:text-white text-gray-500 hover:text-black transition-colors"
           >
             View all
           </Link>
@@ -114,7 +114,7 @@ export default function Home() {
           )}
         </div>
       </section>
-      <section className="bg-zinc-900 text-white py-20 text-center">
+      <section className="dark:bg-black/20 bg-zinc-950 dark:shadow-blue-950 dark:shadow-lg shadow-lg shadow-gray-300 text-white py-20 text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">Limited Time</p>
         <h2 className="text-4xl font-light mb-4 tracking-tight">Up to 20% Off</h2>
         <p className="text-gray-400 text-sm mb-8 font-light">Selected items. While stocks last.</p>

@@ -9,7 +9,7 @@ export default function Skeleton({ count = 0 }: SkeletonProps) {
                 <div
                     key={i}
                     role="status"
-                    className="w-full rounded-md border border-gray-200 bg-gray-400 shadow-lg overflow-hidden animate-pulse"
+                    className="w-full rounded-md  bg-gray-400 shadow-lg overflow-hidden animate-pulse"
                 >
 
                     <div className="flex items-center justify-center h-70 w-full bg-gray-300">

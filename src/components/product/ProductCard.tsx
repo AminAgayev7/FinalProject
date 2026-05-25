@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product?: Product }) {
     const discountedPrice = product?.discount ? (product.price - (product.price * product.discount) / 100) : product?.price;
 
     return (
-        <div className="w-full h-full hover:scale-103 origin-center transition duration-300 rounded-md border bg-white dark:bg-gray-800 shadow-lg flex flex-col overflow-hidden">
+        <div className="w-full h-full hover:scale-103 origin-center transition duration-300 rounded-md  dark:shadow-blue-950 dark:shadow-lg shadow-lg shadow-gray-300 text-white dark:bg-gray-900 bg-gray-800  flex flex-col overflow-hidden">
 
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar]}
@@ -53,12 +53,12 @@ export default function ProductCard({ product }: { product?: Product }) {
                     {product?.brand}
                 </p>
 
-                <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mt-1 line-clamp-1">
+                <h2 className="text-base font-semibold  text-gray-100 mt-1 line-clamp-1">
                     {product?.title}
                 </h2>
 
                 <div className="flex items-center gap-2 mt-2 flex-wrap">
-                    <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                    <span className="text-lg font-bold  text-gray-100">
                         ${discountedPrice?.toFixed(2)}
                     </span>
 

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -6,6 +7,10 @@
 
 .caveat {
   font-family: "Caveat", cursive;
+}
+
+html.dark {
+    color-scheme: dark;
 }
 
 @keyframes float {

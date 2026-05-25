@@ -82,7 +82,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                         <span className="mx-2">/</span>
                         <span className="text-gray-700">{product.title}</span>
                     </div>
-                    <div className="rounded-md shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="rounded-md items-center shadow-lg p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-8 ">
                         <div>
                             <Swiper
                                 modules={[Navigation, Pagination, Scrollbar]}
@@ -97,7 +97,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                                         <Image
                                             src={image}
                                             alt={`Product ${index + 1}`}
-                                            className="h-129 rounded-md w-full object-cover"
+                                            className="w-full h-[400px] sm:h-[500px] md:h-[650px] object-cover rounded-md"
                                             width={300}
                                             height={300}
                                         />
