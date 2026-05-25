@@ -13,11 +13,12 @@ import { CardFormData } from "@/hooks/zodSchemas";
 import { addCard } from "@/lib/cardStorage";
 import { deleteCard } from "@/lib/cardStorage";
 import Input from "@/components/ui/Input";
+import Image from "next/image";
 
 export default function UserProfile() {
 
     const { user, logout, isAuthenticated } = useAuth();
-
+    const [profileImage, setProfileImage] = useState<string | null>(null);
     const [cards, setCards] = useState<Card[]>([]);
     const [showAddForm, setShowAddForm] = useState(false);
     const [error, setError] = useState("");
@@ -37,7 +38,12 @@ export default function UserProfile() {
 
         if (user) {
             setCards(getCards(user.email));
+            const savedImage = localStorage.getItem(`profileImage_${user.email}`);
+            if (savedImage) {
+                setProfileImage(savedImage);
+            }
         }
+
     }, [isAuthenticated, user, router]);
 
     const handleAddCard = (data: CardFormData) => {
@@ -84,16 +90,66 @@ export default function UserProfile() {
     if (!user) {
         return null;
     }
+    function handleProfileImage(e: React.ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files?.[0];
 
+        if (!file || !user) {
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            const imageBase64 = reader.result as string;
+
+            setProfileImage(imageBase64);
+
+            localStorage.setItem(`profileImage_${user.email}`, imageBase64);
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function removeProfileImage() {
+        if (!user) {
+            return;
+        }
+
+        localStorage.removeItem(`profileImage_${user.email}`);
+
+        setProfileImage(null);
+    }
+    useEffect(() => {
+        document.body.classList.add("hide-footer");
+
+        return () => {
+            document.body.classList.remove("hide-footer");
+        };
+    }, []);
     return (
-        <div className="bg-zinc-50 min-h-screen flex justify-center items-center p-3 sm:p-4 overflow-y-auto">
+        <div className="min-h-screen bg-linear-to-br from-gray-300 via-white to-indigo-100 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950 flex justify-center items-center p-3 sm:p-5 overflow-y-auto">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-6xl p-4 sm:p-6 md:p-8 my-6">
                 <div className="flex flex-col items-center lg:flex-row gap-8">
 
                     <div className="w-full lg:w-1/3 text-center">
-                        <div className="rounded-full flex items-center justify-center text-4xl sm:text-5xl text-white bg-linear-to-br from-blue-400 to-purple-500 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4 border-4 border-indigo-800 dark:border-blue-900">
-                            {user?.firstName.charAt(0)}
+                        <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4">
+                            {
+                                profileImage ? (
+                                    <Image
+                                        width={192}
+                                        height={192}
+                                        src={profileImage}
+                                        alt="Profile"
+                                        className="w-full h-full rounded-full object-cover border-4 border-indigo-800 dark:border-blue-900"
+                                    />
+                                ) : (
+                                    <div className="rounded-full flex items-center justify-center text-4xl sm:text-5xl text-white bg-linear-to-br from-blue-400 to-purple-500 w-full h-full border-4 border-indigo-800 dark:border-blue-900">
+                                        {user?.firstName.charAt(0)}
+                                    </div>
+                                )
+                            }
                         </div>
+
 
                         <h1 className="text-xl sm:text-2xl font-bold text-indigo-800 dark:text-white mb-2 wrap-break-word">
                             {user?.firstName}
@@ -103,16 +159,8 @@ export default function UserProfile() {
                             {user?.email}
                         </p>
 
-                        <div className="flex flex-wrap gap-2 justify-center mt-4">
-                            <Button
-                                onClick={() => {
-                                    logout();
-                                    router.push("/");
-                                }}
-                                className="bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300"
-                            >
-                                Log Out
-                            </Button>
+                        <div className="grid grid-cols-2 gap-2 justify-center mt-4">
+
 
                             {cards.length < 3 && (
                                 <Button
@@ -122,6 +170,36 @@ export default function UserProfile() {
                                     {showAddForm ? "Cancel" : "Add Card"}
                                 </Button>
                             )}
+
+                            <label className="bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">
+                                Upload Profile Photo
+
+                                <Input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleProfileImage}
+                                    className="hidden"
+                                />
+                            </label>
+                            {
+                                profileImage && (
+                                    <Button
+                                        onClick={removeProfileImage}
+                                        className="bg-red-700  text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300"
+                                    >
+                                        Remove Profile Photo
+                                    </Button>
+                                )
+                            }
+                            <Button
+                                onClick={() => {
+                                    logout();
+                                    router.push("/");
+                                }}
+                                className="bg-red-700  text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300"
+                            >
+                                Log Out
+                            </Button>
                         </div>
                     </div>
 
@@ -250,9 +328,7 @@ export default function UserProfile() {
 
                                             <Button
                                                 onClick={() => {
-                                                    setShowCardInfo(
-                                                        showCardInfo === card.id ? null : card.id
-                                                    )
+                                                    setShowCardInfo(showCardInfo === card.id ? null : card.id)
                                                 }}
                                                 className="bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300"
                                             >
@@ -261,7 +337,7 @@ export default function UserProfile() {
 
                                             <Button
                                                 onClick={() => handleDelete(card.id)}
-                                                className="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300"
+                                                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg  transition-colors duration-300"
                                             >
                                                 Delete
                                             </Button>
@@ -326,7 +402,7 @@ export default function UserProfile() {
                                     </div>
                                 )) : (
                                     !showAddForm && (
-                                        <div className="flex flex-col items-center justify-center text-center p-8 sm:p-12 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl bg-gray-50 dark:bg-gray-800/50 min-h-[300px]">
+                                        <div className="flex flex-col items-center justify-center text-center p-8 sm:p-12 border-2 border border-gray-300 dark:border-gray-600 rounded-2xl bg-gray-50 dark:bg-gray-800/50 min-h-[300px]">
                                             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-indigo-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
                                                 <svg className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />

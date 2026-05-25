@@ -93,8 +93,7 @@ export default function CheckOutPage() {
         );
     }
 
-    const inputClass = "w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500";
-    const labelClass = "block text-gray-700 dark:text-white mb-1";
+ 
 
     return (
         <>
@@ -110,38 +109,38 @@ export default function CheckOutPage() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label htmlFor="first_name" className={labelClass}>First Name</label>
-                                    <Input type="text" id="first_name" {...register("shipping.firstName")} className={inputClass} />
+                                    <label htmlFor="first_name" className={"block text-gray-700 dark:text-white mb-1"}>First Name</label>
+                                    <Input type="text" id="first_name" {...register("shipping.firstName")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                     {errors.shipping?.firstName && <p className="text-red-500 text-sm mt-1">{errors.shipping.firstName.message}</p>}
                                 </div>
                                 <div>
-                                    <label htmlFor="last_name" className={labelClass}>Last Name</label>
-                                    <Input type="text" id="last_name" {...register("shipping.lastName")} className={inputClass} />
+                                    <label htmlFor="last_name" className={"block text-gray-700 dark:text-white mb-1"}>Last Name</label>
+                                    <Input type="text" id="last_name" {...register("shipping.lastName")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                     {errors.shipping?.lastName && <p className="text-red-500 text-sm mt-1">{errors.shipping.lastName.message}</p>}
                                 </div>
                             </div>
 
                             <div className="mt-4">
-                                <label htmlFor="address" className={labelClass}>Address</label>
-                                <Input type="text" id="address" {...register("shipping.address")} className={inputClass} />
+                                <label htmlFor="address" className={"block text-gray-700 dark:text-white mb-1"}>Address</label>
+                                <Input type="text" id="address" {...register("shipping.address")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                 {errors.shipping?.address && <p className="text-red-500 text-sm mt-1">{errors.shipping.address.message}</p>}
                             </div>
 
                             <div className="mt-4">
-                                <label htmlFor="city" className={labelClass}>City</label>
-                                <Input type="text" id="city" {...register("shipping.city")} className={inputClass} />
+                                <label htmlFor="city" className={"block text-gray-700 dark:text-white mb-1"}>City</label>
+                                <Input type="text" id="city" {...register("shipping.city")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                 {errors.shipping?.city && <p className="text-red-500 text-sm mt-1">{errors.shipping.city.message}</p>}
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div>
-                                    <label htmlFor="state" className={labelClass}>State</label>
-                                    <Input type="text" id="state" {...register("shipping.state")} className={inputClass} />
+                                    <label htmlFor="state" className={"block text-gray-700 dark:text-white mb-1"}>State</label>
+                                    <Input type="text" id="state" {...register("shipping.state")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                     {errors.shipping?.state && <p className="text-red-500 text-sm mt-1">{errors.shipping.state.message}</p>}
                                 </div>
                                 <div>
-                                    <label htmlFor="zip" className={labelClass}>ZIP Code</label>
-                                    <Input type="text" id="zip" {...register("shipping.zipCode")} className={inputClass} />
+                                    <label htmlFor="zip" className={"block text-gray-700 dark:text-white mb-1"}>ZIP Code</label>
+                                    <Input type="text" id="zip" {...register("shipping.zipCode")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                     {errors.shipping?.zipCode && <p className="text-red-500 text-sm mt-1">{errors.shipping.zipCode.message}</p>}
                                 </div>
                             </div>

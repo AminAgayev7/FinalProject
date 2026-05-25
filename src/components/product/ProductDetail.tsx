@@ -73,16 +73,16 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
     return (
         <>
-            <main className="min-h-screen bg-zinc-50 sm:pt-30 pt-25 pb-16 text-black">
-                <div className="max-w-7xl  mx-auto px-6">
-                    <div className="text-sm text-gray-400 mb-6">
-                        <Link href="/" className="hover:text-black">Home</Link>
+            <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 sm:pt-30 pt-25 pb-16 text-black dark:text-white">
+                <div className="max-w-7xl   mx-auto px-6">
+                    <div className="text-sm text-gray-400 dark:text-gray-500 mb-6">
+                        <Link href="/" className="hover:text-black dark:hover:text-white">Home</Link>
                         <span className="mx-2">/</span>
-                        <Link href="/products" className="hover:text-black">Products</Link>
+                        <Link href="/products" className="hover:text-black dark:hover:text-white">Products</Link>
                         <span className="mx-2">/</span>
-                        <span className="text-gray-700">{product.title}</span>
+                        <span className="text-gray-700 dark:text-gray-300">{product.title}</span>
                     </div>
-                    <div className="rounded-md items-center shadow-lg p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+                    <div className="rounded-md items-center shadow-lg bg-white dark:bg-gray-900 p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div>
                             <Swiper
                                 modules={[Navigation, Pagination, Scrollbar]}
@@ -107,70 +107,81 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                         </div>
                         <div className="flex flex-col gap-y-3">
                             <div className="flex gap-y-1 flex-col">
-                                <p className="text-gray-400 uppercase tracking-widest text-sm">{product?.brand}</p>
-                                <h1 className="text-3xl font-bold">{product?.title}</h1>
+                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-widest text-sm">{product?.brand}</p>
+                                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{product?.title}</h1>
                             </div>
 
                             <div className="flex items-center text-sm gap-x-2">
-                                <i className="fa-solid text-amber-400 fa-star"></i><span className="text-gray-500">{product?.rating} ({product?.reviews} reviews)</span>
+                                <i className="fa-solid text-amber-400 fa-star"></i>
+                                <span className="text-gray-500 dark:text-gray-400">{product?.rating} ({product?.reviews} reviews)</span>
                             </div>
                             <div>
                                 {
                                     product.discount ? (
                                         <div className="flex gap-x-3 items-center">
-                                            <h1 className="text-2xl font-bold text-black">${discountedPrice.toFixed(2)}</h1>
-                                            <span className="text-lg text-gray-500 line-through">${product?.price}</span>
+                                            <h1 className="text-2xl font-bold text-black dark:text-white">${discountedPrice.toFixed(2)}</h1>
+                                            <span className="text-lg text-gray-500 dark:text-gray-400 line-through">${product?.price}</span>
                                             <span className="text-xs text-white bg-red-500 px-2 py-0.5 rounded">-{product.discount}%</span>
                                         </div>
                                     ) : (
-                                        <h1 className="text-2xl font-bold">${discountedPrice.toFixed(2)}</h1>
+                                        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">${discountedPrice.toFixed(2)}</h1>
                                     )
                                 }
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500">{product?.description}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{product?.description}</p>
                             </div>
                             <div className="flex text-sm flex-col gap-y-2">
-                                <p className="font-medium">Material: <span className="font-normal text-gray-500">{product?.material}</span></p>
-                                <p className="font-medium">Category: <span className="font-normal text-gray-500">{product?.category}</span></p>
-                                <p className="font-medium">Stock: {product?.stock < 10 ? <span className="text-red-500">{product?.stock}</span> : <span className="text-green-500">{product?.stock}</span>}</p>
-                                <p className="font-medium">Gender: <span className="font-normal text-gray-500">{product?.gender}</span></p>
+                                <p className="font-medium text-gray-900 dark:text-white">Material: <span className="font-normal text-gray-500 dark:text-gray-400">{product?.material}</span></p>
+                                <p className="font-medium text-gray-900 dark:text-white">Category: <span className="font-normal text-gray-500 dark:text-gray-400">{product?.category}</span></p>
+                                <p className="font-medium text-gray-900 dark:text-white">Stock: {product?.stock < 10 ? <span className="text-red-500">{product?.stock}</span> : <span className="text-green-500">{product?.stock}</span>}</p>
+                                <p className="font-medium text-gray-900 dark:text-white">Gender: <span className="font-normal text-gray-500 dark:text-gray-400">{product?.gender}</span></p>
                             </div>
 
                             <div>
-                                <h1 className="font-medium">Size</h1>
+                                <h1 className="font-medium text-gray-900 dark:text-white">Size</h1>
                                 <div className="flex items-center gap-x-2 flex-wrap mt-2">
                                     {product.sizes.map((size) => (
-                                        <Button key={size}
+                                        <Button
+                                            key={size}
                                             onClick={() => setSelectedSize(size)}
-                                            className={`px-4 py-1.5 rounded border text-sm font-medium transition-colors ${selectedSize === size ? "bg-black text-white border-black" : "bg-white text-gray-700 border-gray-300 hover:border-black"}`}>
+                                            className={`px-4 py-1.5 rounded border text-sm font-medium transition-colors ${selectedSize === size
+                                                ? "bg-black dark:bg-white text-white dark:text-black border-black dark:border-white"
+                                                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white"
+                                                }`}
+                                        >
                                             {size}
                                         </Button>
                                     ))}
                                 </div>
                             </div>
                             <div className="flex flex-col gap-y-2">
-                                <h1 className="font-medium">Color</h1>
-                                <div>
+                                <h1 className="font-medium text-gray-900 dark:text-white">Color</h1>
+                                <div className="flex flex-wrap gap-2">
                                     {product.colors.map(color => (
-
-                                        <Button key={color}
+                                        <Button
+                                            key={color}
                                             onClick={() => setSelectedColor(color)}
-                                            className={`px-4 py-1.5 rounded border text-sm font-medium transition-colors ${selectedColor === color ? "bg-black text-white border-black" : "bg-white text-gray-700 border-gray-300 hover:border-black"}`}>
+                                            className={`px-4 py-1.5 rounded border text-sm font-medium transition-colors ${selectedColor === color
+                                                ? "bg-black dark:bg-white text-white dark:text-black border-black dark:border-white"
+                                                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white"
+                                                }`}
+                                        >
                                             {color}
                                         </Button>
                                     ))}
                                 </div>
-
                             </div>
                             {(!selectedSize || !selectedColor) && (
                                 <p className="text-xs text-red-400 mt-3">Please select a size and color.</p>
                             )}
 
-                            <Button onClick={handleAddToCart} disabled={!selectedSize || !selectedColor} className={`mt-6 w-full py-3 rounded font-semibold transition-colors ${added ? "bg-green-600 text-white" : !selectedSize || !selectedColor ? "bg-gray-200 text-gray-400" : "bg-black text-white hover:bg-gray-800"}`}>
-                                {
-                                    added ? "Successfully added!" : "Add to Cart"
-                                }
+                            <Button
+                                onClick={handleAddToCart}
+                                disabled={!selectedSize || !selectedColor}
+                                className={`mt-6 w-full py-3 rounded font-semibold transition-colors ${added ? "bg-green-600 text-white" : !selectedSize || !selectedColor ? "bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500" : "bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"}`}
+                            >
+                                {added ? "Successfully added!" : "Add to Cart"}
                             </Button>
                         </div>
 

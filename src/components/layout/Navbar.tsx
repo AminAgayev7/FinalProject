@@ -1,22 +1,35 @@
 "use client";
 
-import { useState, type KeyboardEvent } from "react";
+import { useEffect, useState, type KeyboardEvent } from "react";
 import Input from "../ui/Input";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Button from "../ui/Button";
 import Image from "next/image";
 import { useAuth } from "@/hooks/useAuth";
+
 import ThemeToggle from "../theme/ThemeToggle";
 
 export default function Navbar() {
 
-    const { user, logout } = useAuth();
-
+    const { user, logout, } = useAuth();
+    const [profileImage, setProfileImage] = useState<string | null>(null);
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
 
     const router = useRouter();
+
+    useEffect(() => {
+        if (user) {
+            const savedImage = localStorage.getItem(
+                `profileImage_${user.email}`
+            );
+
+            if (savedImage) {
+                setProfileImage(savedImage);
+            }
+        }
+    }, [user]);
 
     function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
         if (e.key === "Enter" && search.trim() !== "") {
@@ -154,12 +167,24 @@ export default function Navbar() {
                                 href="/profile"
                                 className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg  dark:hover:bg-gray-800 hover:bg-gray-100 transition-colors group"
                             >
-                                <div className="w-7 h-7 rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center shrink-0">
-                                    <span className="text-white text-xs font-semibold">
-                                        {user.firstName.charAt(0).toUpperCase()}
-
-                                    </span>
-
+                                <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
+                                    {
+                                        profileImage ? (
+                                            <Image
+                                                width={28}
+                                                height={28}
+                                                src={profileImage}
+                                                alt="Profile"
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                                                <span className="text-white text-xs font-semibold">
+                                                    {user.firstName.charAt(0).toUpperCase()}
+                                                </span>
+                                            </div>
+                                        )
+                                    }
                                 </div>
 
                                 <span className="text-sm dark:text-white   text-gray-700 font-medium  transition-colors hidden lg:block">
@@ -290,12 +315,22 @@ export default function Navbar() {
                                     onClick={() => setOpen(false)}
                                     className="flex items-center gap-2"
                                 >
-                                    <div className="w-8 h-8 rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-
-                                        <span className="text-white text-xs font-semibold">
-                                            {user.firstName.charAt(0).toUpperCase()}
-                                        </span>
-
+                                    <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
+                                        {
+                                            profileImage ? (
+                                                <img
+                                                    src={profileImage}
+                                                    alt="Profile"
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                                                    <span className="text-white text-xs font-semibold">
+                                                        {user.firstName.charAt(0).toUpperCase()}
+                                                    </span>
+                                                </div>
+                                            )
+                                        }
                                     </div>
 
                                     <span className="text-sm dark:text-white text-gray-700 font-medium">

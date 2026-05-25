@@ -5,18 +5,20 @@ import Input from "../ui/Input";
 type Comment = NonNullable<Product["comments"]>[number];
 import Button from "../ui/Button";
 export default function CommentsSection({ comments }: { comments: Comment[] }) {
+
+    
     return (
-        <section className="bg-zinc-50 pb-16 relative">
-            <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 py-4 rounded-lg border shadow-lg mx-auto">
+        <section className="bg-zinc-50 dark:bg-gray-950 pb-16 relative">
+            <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 py-4 rounded-lg dark:bg-gray-900 shadow-lg mx-auto">
                 <div className="w-full flex flex-col justify-start items-start lg:gap-14 gap-7">
-                    <h2 className="text-gray-900 text-4xl font-bold leading-normal">
+                    <h2 className="text-gray-900 dark:text-white text-4xl font-bold leading-normal">
                         Comments
                     </h2>
 
                     <div className="w-full flex flex-col justify-start items-start gap-8">
 
                         {comments?.map((comment) => (
-                            <div key={comment.id} className="w-full lg:p-8 p-5 bg-white rounded-3xl border border-gray-200 flex flex-col">
+                            <div key={comment.id} className="w-full lg:p-8 p-5 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-600 flex flex-col">
                                 <div className="w-full flex flex-col gap-3.5">
                                     <div className="w-full flex justify-between items-center">
 
@@ -32,16 +34,16 @@ export default function CommentsSection({ comments }: { comments: Comment[] }) {
                                             </div>
                                             <div className="flex flex-col gap-1">
                                                 <div className="flex items-center gap-2">
-                                                    <h5 className="text-gray-900 text-sm font-semibold">
+                                                    <h5 className="text-gray-900 dark:text-white text-sm font-semibold">
                                                         {comment.user}
                                                     </h5>
                                                     {comment.verified && (
-                                                        <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded">
+                                                        <span className="text-xs text-green-600 dark:text-green-400 bg-green-50 px-2 py-0.5 rounded">
                                                             Verified
                                                         </span>
                                                     )}
                                                 </div>
-                                                <h6 className="text-gray-500 text-xs font-normal">
+                                                <h6 className="text-gray-500 dark:text-gray-400 text-xs font-normal">
                                                     {comment.date}
                                                 </h6>
                                             </div>
@@ -57,7 +59,7 @@ export default function CommentsSection({ comments }: { comments: Comment[] }) {
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-800 text-sm font-normal leading-snug">
+                                    <p className="text-gray-800 dark:text-white text-sm font-normal leading-snug">
                                         {comment.comment}
                                     </p>
                                 </div>
