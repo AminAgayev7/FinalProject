@@ -28,7 +28,7 @@ type FilterPanelProps = {
     hasFilters: string | boolean;
 };
 
-export default function FilterPanel({search, setSearch,selectedSeason, setSelectedSeason, seasons, selectedGender, handleGenderChange, genders, selectedCategory, setSelectedCategory, categories, selectedSize, setSelectedSize, sizes, selectedColor, setSelectedColor, colors, minPrice, setMinPrice, maxPrice, setMaxPrice, resetFilters, hasFilters}: FilterPanelProps) {
+export default function FilterPanel({ search, setSearch, selectedSeason, setSelectedSeason, seasons, selectedGender, handleGenderChange, genders, selectedCategory, setSelectedCategory, categories, selectedSize, setSelectedSize, sizes, selectedColor, setSelectedColor, colors, minPrice, setMinPrice, maxPrice, setMaxPrice, resetFilters, hasFilters }: FilterPanelProps) {
 
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 sticky top-24 flex flex-col gap-6">
@@ -97,7 +97,10 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
                         <Button
                             key={size}
                             onClick={() => setSelectedSize(selectedSize === size ? "" : size)}
-                            className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedSize === size ? "bg-black text-white border-black" : "bg-white text-gray-600 border-gray-300 hover:border-black"}`}
+                            className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedSize === size
+                                ? "bg-black text-white border-black"
+                                : "bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white"
+                                }`}
                         >
                             {size}
                         </Button>
@@ -112,7 +115,10 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
                         <Button
                             key={color}
                             onClick={() => setSelectedColor(selectedColor === color ? "" : color)}
-                            className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedColor === color ? "bg-black text-white border-black" : "bg-white text-gray-600 border-gray-300 hover:border-black"}`}
+                            className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedColor === color
+                                    ? "bg-black text-white border-black"
+                                    : "bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white"
+                                }`}
                         >
                             {color}
                         </Button>
@@ -146,7 +152,7 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
             {hasFilters && (
                 <Button
                     onClick={resetFilters}
-                    className="w-full border border-gray-300 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50 transition-colors"
+                    className="w-full dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50 transition-colors"
                 >
                     Reset Filters
                 </Button>

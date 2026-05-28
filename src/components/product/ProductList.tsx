@@ -54,6 +54,21 @@ export default function ProductList() {
         selectedSeason, setSelectedSeason, seasons
     } = useFilter(products);
 
+    if (!loading && filtered.length === 0) {
+        return (
+        <div className="flex flex-col items-center min-h-screen justify-center py-24 text-center">
+
+            <h3 className="text-xl font-semibold dark:text-gray-300 text-gray-800 mb-2">No products found</h3>
+            <p className="text-gray-500 dark:text-gray-400 mb-6">Try adjusting your filters or search term.</p>
+
+            <Button onClick={resetFilters}
+                className="bg-black dark:bg-gray-800 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">
+                Reset Filters
+            </Button>
+        </div>
+        )
+    }
+
     return (
         <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 mt-10 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -84,7 +99,7 @@ export default function ProductList() {
                             <select
                                 value={sort}
                                 onChange={e => setSort(e.target.value)}
-                                className="border text-black border-gray-300 dark:focus:border-gray-600  dark:border-gray-600 dark:text-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors"
+                                className="border text-black dark:text-gray-300 border-gray-300 dark:border-gray-600 dark:bg-gray-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-black dark:focus:border-gray-500 transition-colors"
                             >
                                 {sort_options.map((option, index) => (
                                     <option className="dark:bg-gray-800 dark:text-gray-300" key={index} value={option.value}>{option.label}</option>
@@ -103,19 +118,6 @@ export default function ProductList() {
                                 {filtered.map((product, index) => (
                                     <ProductCard key={index} product={product} />
                                 ))}
-                            </div>
-                        )}
-
-                        {(!loading && filtered.length === 0) && (
-                            <div className="flex flex-col items-center justify-center py-24 text-center">
-
-                                <h3 className="text-xl font-semibold text-gray-800 mb-2">No products found</h3>
-                                <p className="text-gray-500 mb-6">Try adjusting your filters or search term.</p>
-
-                                <Button onClick={resetFilters}
-                                    className="bg-black text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
-                                    Reset Filters
-                                </Button>
                             </div>
                         )}
                     </div>

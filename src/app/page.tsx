@@ -33,7 +33,7 @@ export default function Home() {
         <img
           src={"https://wallpaperaccess.com/full/4624210.jpg"}
           alt="Hero"
-          className="absolute inset-0 w-full min-h-full object-cover object-center"
+          className="absolute inset-0 w-full min-h-full object-cover  object-center"
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">

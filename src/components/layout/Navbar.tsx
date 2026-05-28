@@ -7,18 +7,19 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import Image from "next/image";
 import { useAuth } from "@/hooks/useAuth";
-
+import SearchBar from "../SearchBar";
 import ThemeToggle from "../theme/ThemeToggle";
-
+import { usePathname } from "next/navigation";
 export default function Navbar() {
 
-    const { user, logout, } = useAuth();
+    const { user } = useAuth();
     const [profileImage, setProfileImage] = useState<string | null>(null);
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
 
-    const router = useRouter();
+    const [isActive, setisActive] = useState(false);
 
+    const pathname = usePathname();
     useEffect(() => {
         if (user) {
             const savedImage = localStorage.getItem(
@@ -31,12 +32,6 @@ export default function Navbar() {
         }
     }, [user]);
 
-    function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
-        if (e.key === "Enter" && search.trim() !== "") {
-            router.push(`/products?q=${search}`);
-            setOpen(false);
-        }
-    }
 
     return (
 
@@ -83,84 +78,70 @@ export default function Navbar() {
                     <li>
                         <Link
                             href="/"
-                            className="relative group dark:text-white dark:hover:text-gray-300 text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors pb-0.5"
+                            className={`relative group text-sm font-medium transition-colors pb-0.5 ${pathname === "/" ? "text-blue-500" : "text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-300"}`}
                         >
                             Home
-                            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+
+                            <span className={`absolute bottom-0 left-0 h-[1.5px] bg-linear-to-r from-blue-400 to-purple-500 transition-all duration-300 rounded-full ${pathname === "/" ? "w-full" : "w-0 group-hover:w-full"}`}
+                            />
                         </Link>
                     </li>
 
                     <li>
                         <Link
                             href="/products"
-                            className="relative dark:text-white dark:hover:text-gray-300 group text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors pb-0.5"
+                            className={`relative group text-sm font-medium transition-colors pb-0.5 ${pathname === "/products" ? "text-blue-500" : "text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-300"}`}
                         >
                             Shop
 
-                            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                            <span className={`absolute bottom-0 left-0 h-[1.5px] bg-linear-to-r from-blue-400 to-purple-500 transition-all duration-300 rounded-full ${pathname === "/products" ? "w-full" : "w-0 group-hover:w-full"}`}
+                            />
                         </Link>
                     </li>
 
                     <li>
                         <Link
                             href="/cart"
-                            className="relative dark:text-white dark:hover:text-gray-300 group text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors pb-0.5"
+                            className={`relative group text-sm font-medium transition-colors pb-0.5 ${pathname === "/cart" ? "text-blue-500" : "text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-300"}`}
                         >
                             Cart
-                            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+
+                            <span className={`absolute bottom-0 left-0 h-[1.5px] bg-linear-to-r from-blue-400 to-purple-500 transition-all duration-300 rounded-full ${pathname === "/cart" ? "w-full" : "w-0 group-hover:w-full"}`}
+                            />
                         </Link>
                     </li>
 
                     <li>
                         <Link
                             href="/contact"
-                            className="relative dark:text-white dark:hover:text-gray-300 group text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors pb-0.5"
+                            className={`relative group text-sm font-medium transition-colors pb-0.5 ${pathname === "/contact" ? "text-blue-500" : "text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-300"}`}
                         >
                             Contact
-                            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+
+                            <span className={`absolute bottom-0 left-0 h-[1.5px] bg-linear-to-r from-blue-400 to-purple-500 transition-all duration-300 rounded-full ${pathname === "/contact" ? "w-full" : "w-0 group-hover:w-full"}`}
+                            />
                         </Link>
                     </li>
                     <li>
                         <Link
                             href="/wishlist"
-                            className="relative dark:text-white dark:hover:text-gray-300 group text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors pb-0.5"
+                            className={`relative group text-sm font-medium transition-colors pb-0.5 ${pathname === "/wishlist" ? "text-blue-500" : "text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-300"}`}
                         >
                             Wishlist
-                            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+
+                            <span className={`absolute bottom-0 left-0 h-[1.5px] bg-linear-to-r from-blue-400 to-purple-500 transition-all duration-300 rounded-full ${pathname === "/wishlist" ? "w-full" : "w-0 group-hover:w-full"}`}
+                            />
                         </Link>
                     </li>
                 </ul>
 
                 <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-                    <div className="relative hidden md:block">
-                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg
-                                className="w-4 h-4 text-gray-400"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                            >
-
-                                <path
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-                                />
-                            </svg>
-                        </div>
-                        <Input
-                            id="navbar-search-desktop"
-                            type="text"
-                            onChange={(e) => setSearch(e.target.value)}
-                            value={search}
-                            onKeyDown={handleKeyDown}
-                            className="w-40 lg:w-48 pl-9 pr-3 py-2 text-sm dark:bg-gray-800 dark:border-none border-gray-300 border dark:text-white rounded-lg bg-gray-50 outline-none text-gray-900 transition-all"
-                            placeholder="Search..."
-                        />
-
-                    </div>
+                    <SearchBar
+                        search={search}
+                        setSearch={setSearch}
+                        className="hidden md:block w-40 lg:w-48"
+                        inputClassName="w-full dark:bg-gray-800 dark:border-none border-gray-300 border dark:text-white bg-gray-50 text-gray-900"
+                    />
                     {user ? (
                         <div className="flex items-center gap-2">
                             <Link
@@ -206,7 +187,7 @@ export default function Navbar() {
 
                             <Link
                                 href="/auth/register"
-                                className="px-3 lg:px-4 py-2 text-sm text-white rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold"
+                                className="px-3 lg:px-4 py-2 text-sm text-white rounded-lg bg-linear-to-r from-blue-400 to-purple-500 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold"
                             >
                                 Register
                             </Link>
@@ -234,40 +215,13 @@ export default function Navbar() {
 
                 <div className="pt-4  mt-3 flex flex-col gap-1">
 
-                    <div className="relative mb-3">
-
-                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-
-                            <svg
-                                className="w-4 h-4 text-gray-400"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                            >
-
-                                <path
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-                                />
-
-                            </svg>
-
-                        </div>
-
-                        <Input
-                            id="navbar-search-mobile"
-                            type="text"
-                            onChange={(e) => setSearch(e.target.value)}
-                            value={search}
-                            onKeyDown={handleKeyDown}
-                            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-lg bg-gray-50 border border-gray-200 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:border-blue-300 outline-none transition-all"
-                            placeholder="Search..."
-                        />
-
-                    </div>
+                    <SearchBar
+                        search={search}
+                        setSearch={setSearch}
+                        onClose={() => setOpen(false)}
+                        className="mb-3 w-full"
+                        inputClassName="w-full bg-gray-50 border border-gray-200 dark:bg-gray-800 dark:border-none dark:text-white text-gray-900 focus:ring-2 focus:ring-blue-200"
+                    />
 
                     <Link
                         href="/"
@@ -356,7 +310,7 @@ export default function Navbar() {
                                 <Link
                                     href="/auth/register"
                                     onClick={() => setOpen(false)}
-                                    className="flex-1 text-center px-2 sm:px-4 py-2.5 text-sm text-white rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 font-semibold hover:shadow-md transition-all"
+                                    className="flex-1 text-center px-2 sm:px-4 py-2.5 text-sm text-white rounded-lg bg-linear-to-r from-blue-400 to-purple-500 font-semibold hover:shadow-md transition-all"
                                 >
                                     Register
                                 </Link>
