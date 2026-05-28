@@ -12,8 +12,8 @@ export default function Wishlist() {
     }
 
     return (
-        <div className="min-h-screen bg-zinc-50 pt-23 px-2 sm:px-6 lg:px-10">
-            <h1 className="text-2xl sm:text-3xl font-semibold text-black mb-6">
+        <div className="min-h-screen bg-zinc-50 dark:bg-gray-950 pt-23 px-2 sm:px-6 lg:px-10">
+            <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-300 text-black mb-6">
                 My Wishlist
             </h1>
 

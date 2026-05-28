@@ -97,8 +97,8 @@ export default function CheckOutPage() {
 
     return (
         <>
-            <form method="POST" onSubmit={handleSubmit(onSubmit)} className="min-h-screen pt-30 bg-gray-100 py-10">
-                <div className="w-full max-w-3xl mx-auto p-4">
+            <form method="POST" onSubmit={handleSubmit(onSubmit)} className="min-h-screen pt-30 bg-gray-100 dark:bg-gray-950 py-10">
+                <div className="w-full max-w-3xl  mx-auto p-4">
                     <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-md border dark:border-gray-700">
 
                         <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Checkout</h1>
@@ -162,11 +162,7 @@ export default function CheckOutPage() {
                                     {cards.map((card) => (
                                         <label
                                             key={card.id}
-                                            className={`flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedCardId === card.id
-                                                    ? " bg-teal-50"
-                                                    : " hover:border-gray-400"
-                                                }`}
-                                        >
+                                            className={`flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedCardId === card.id ? " bg-teal-50" : " hover:border-gray-400"}`}>
                                             <div className="flex items-center gap-3">
                                                 <input
                                                     type="radio"
@@ -197,8 +193,8 @@ export default function CheckOutPage() {
                                     {cardError && <p className="text-red-500 text-sm mt-1">{cardError}</p>}
 
                                     <div className="flex items-center justify-between mt-2 px-1">
-                                        <p className="text-sm ">Order total:</p>
-                                        <p className="text-base font-bold">${totalPrice.toFixed(2)}</p>
+                                        <p className="text-sm dark:text-gray-300 text-gray-600">Order total:</p>
+                                        <p className="text-base dark:text-gray-300 text-gray-900 font-bold">${totalPrice.toFixed(2)}</p>
                                     </div>
                                 </div>
                             )}

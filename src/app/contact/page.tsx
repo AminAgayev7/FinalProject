@@ -29,7 +29,7 @@ export default function ContactPage() {
                 className="w-full"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <section className="py-24 bg-white">
+                <section className="py-24 bg-white dark:bg-gray-950">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">
                             <div className="relative">
@@ -77,7 +77,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className="bg-gray-50 p-6 lg:p-12">
+                            <div className="bg-gray-50 dark:bg-gray-800 p-6 lg:p-12">
                                 <h2 className="text-4xl font-bold text-indigo-600 mb-10">
                                     Contact US
                                 </h2>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                                             id="firstName"
                                             placeholder="Name"
                                             {...register("firstName")}
-                                            className="w-full h-12 px-5 rounded-full border border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full h-12 px-5 rounded-full border dark:text-gray-300 dark:border-gray-600 border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                         />
                                         {errors.firstName && (
                                             <p className="text-red-500 text-sm mt-1 px-5">{errors.firstName.message}</p>
@@ -103,7 +103,7 @@ export default function ContactPage() {
                                             type="email"
                                             placeholder="Email"
                                             {...register("email")}
-                                            className="w-full h-12 px-5 rounded-full border border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full h-12 px-5 rounded-full border dark:text-gray-300 dark:border-gray-600 border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                         />
                                         {errors.email && (
                                             <p className="text-red-500 text-sm mt-1 px-5">{errors.email.message}</p>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                                             type="text"
                                             placeholder="Phone"
                                             {...register("phone")}
-                                            className="w-full h-12 px-5 rounded-full border border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full h-12 px-5 rounded-full dark:text-gray-300 dark:border-gray-600 border border-gray-300 text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                         />
                                         {errors.phone && (
                                             <p className="text-red-500 text-sm mt-1 px-5">{errors.phone.message}</p>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                                             rows={5}
                                             placeholder="Message"
                                             {...register("message")}
-                                            className="w-full p-5 rounded-2xl border border-gray-300 text-black placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full p-5 rounded-2xl dark:text-gray-300 dark:border-gray-600 border border-gray-300 text-black placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                         />
                                         {errors.message && (
                                             <p className="text-red-500 text-sm mt-1 px-5">{errors.message.message}</p>

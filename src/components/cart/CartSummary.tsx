@@ -12,24 +12,24 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
     const { isAuthenticated } = useAuth();
     const router = useRouter();
     return (
-        <div className="shadow-lg p-5 rounded-md bg-white w-full md:max-w-sm md:sticky md:top-24 border border-gray-100">
-            <h2 className="text-lg text-gray-900 font-semibold mb-4">
+        <div className="shadow-lg dark:bg-gray-800 p-5 rounded-md bg-white w-full md:max-w-sm md:sticky md:top-24">
+            <h2 className="text-lg dark:text-gray-300 text-gray-900 font-semibold mb-4">
                 Order Summary
             </h2>
 
-            <div className="space-y-2 border-b pb-4">
+            <div className="space-y-2 border-b dark:border-gray-600 pb-4">
                 <div className="flex justify-between">
-                    <span className="text-gray-600">
+                    <span className="text-gray-600 dark:text-gray-300">
                         Subtotal
                     </span>
 
-                    <span className="text-gray-800 font-bold">
+                    <span className="text-gray-800 dark:text-gray-300 font-bold">
                         ${originalTotal.toFixed(2)}
                     </span>
                 </div>
 
                 <div className="flex justify-between">
-                    <span className="text-gray-600">
+                    <span className="text-gray-600 dark:text-gray-300">
                         Discount
                     </span>
 
@@ -40,11 +40,11 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
             </div>
 
             <div className="flex justify-between mt-4">
-                <span className="text-gray-900 font-semibold text-lg">
+                <span className="text-gray-900 dark:text-gray-300 font-semibold text-lg">
                     Total
                 </span>
 
-                <span className="text-gray-900 font-bold text-lg">
+                <span className="text-gray-900 dark:text-gray-300 font-bold text-lg">
                     ${totalPrice.toFixed(2)}
                 </span>
             </div>
@@ -64,7 +64,7 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
                     Proceed to Checkout
                 </Button>
 
-                <Link href="/" className="text-center border border-gray-300 rounded-md py-2 px-4 text-black hover:bg-gray-50 transition-colors">
+                <Link href="/" className="text-center dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700 border border-gray-300 rounded-md py-2 px-4 text-black hover:bg-gray-50 transition-colors">
                     Continue shopping
                 </Link>
             </div>

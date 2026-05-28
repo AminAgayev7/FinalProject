@@ -31,28 +31,28 @@ type FilterPanelProps = {
 export default function FilterPanel({search, setSearch,selectedSeason, setSelectedSeason, seasons, selectedGender, handleGenderChange, genders, selectedCategory, setSelectedCategory, categories, selectedSize, setSelectedSize, sizes, selectedColor, setSelectedColor, colors, minPrice, setMinPrice, maxPrice, setMaxPrice, resetFilters, hasFilters}: FilterPanelProps) {
 
     return (
-        <div className="bg-white rounded-xl shadow-sm p-6 sticky top-24 flex flex-col gap-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 sticky top-24 flex flex-col gap-6">
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2" htmlFor="search">Search</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2" htmlFor="search">Search</label>
                 <Input
                     id="search"
                     type="text"
                     placeholder="Search products..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg text-black px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors"
+                    className="w-full border dark:text-gray-300 border-gray-300 rounded-lg text-black px-3 py-2 text-sm focus:outline-none dark:border-gray-600 focus:border-gray-300 transition-colors"
                 />
             </div>
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2">Season</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2">Season</label>
                 <div className="flex flex-col gap-1">
                     {seasons.map((season) => (
                         <Button
                             key={season}
                             onClick={() => setSelectedSeason(selectedSeason === season ? "" : season)}
-                            className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${selectedSeason === season ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100"}`}
+                            className={`text-left dark:text-gray-300 px-3 py-2 rounded-lg text-sm transition-colors ${selectedSeason === season ? "bg-black text-white" : "text-gray-600 dark:hover:bg-gray-600 hover:bg-gray-100"}`}
                         >
                             {season}
                         </Button>
@@ -61,13 +61,13 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
             </div>
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2">Gender</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2">Gender</label>
                 <div className="flex flex-col gap-1">
                     {genders.map((gender) => (
                         <Button
                             key={gender}
                             onClick={() => handleGenderChange(selectedGender === gender ? "" : gender)}
-                            className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${selectedGender === gender ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100"}`}
+                            className={`text-left px-3 dark:text-gray-300 py-2 rounded-lg text-sm transition-colors ${selectedGender === gender ? "bg-black text-white" : "text-gray-600 dark:hover:bg-gray-600 hover:bg-gray-100"}`}
                         >
                             {gender}
                         </Button>
@@ -76,13 +76,13 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
             </div>
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2">Category</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2">Category</label>
                 <div className="flex flex-col gap-1 max-h-48 overflow-y-auto">
                     {categories.map((category) => (
                         <Button
                             key={category}
                             onClick={() => setSelectedCategory(selectedCategory === category ? "" : category)}
-                            className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${selectedCategory === category ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100"}`}
+                            className={`text-left px-3 dark:text-gray-300 py-2 rounded-lg text-sm transition-colors ${selectedCategory === category ? "bg-black text-white" : "text-gray-600 dark:hover:bg-gray-600 hover:bg-gray-100"}`}
                         >
                             {category}
                         </Button>
@@ -91,7 +91,7 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
             </div>
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2">Size</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2">Size</label>
                 <div className="flex flex-wrap gap-2">
                     {sizes.map((size) => (
                         <Button
@@ -106,7 +106,7 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
             </div>
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2">Color</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2">Color</label>
                 <div className="flex flex-wrap gap-2">
                     {colors.map((color) => (
                         <Button
@@ -121,7 +121,7 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
             </div>
 
             <div>
-                <label className="font-semibold text-gray-700 block mb-2">Price Range</label>
+                <label className="font-semibold dark:text-gray-300 text-gray-700 block mb-2">Price Range</label>
                 <div className="flex gap-2 items-center">
                     <Input
                         id="minPrice"
@@ -129,7 +129,7 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
                         placeholder="Min"
                         value={minPrice}
                         onChange={(e) => setMinPrice(e.target.value)}
-                        className="w-full text-black border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors"
+                        className="w-full text-black dark:text-gray-300 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-300 transition-colors"
                     />
                     <span className="text-gray-400">—</span>
                     <Input
@@ -138,7 +138,7 @@ export default function FilterPanel({search, setSearch,selectedSeason, setSelect
                         placeholder="Max"
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(e.target.value)}
-                        className="w-full border text-black border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors"
+                        className="w-full border text-black dark:text-gray-300 border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-300 transition-colors"
                     />
                 </div>
             </div>
