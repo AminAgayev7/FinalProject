@@ -15,12 +15,13 @@ interface AuthContextType {
     isAuthenticated: boolean;
     login: (email: string, password: string) => boolean;
     logout: () => void;
+    loading: boolean;
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-
+    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -45,6 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             setIsAuthenticated(true);
         }
 
+        setLoading(false);
     }, []);
 
     function login(email: string, password: string): boolean {
@@ -79,7 +81,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     return (
-        <AuthContext.Provider value={{ user, isAuthenticated, login, logout}}>
+        <AuthContext.Provider value={{ user, isAuthenticated, login, logout, loading }}>
             {children}
         </AuthContext.Provider>
     );

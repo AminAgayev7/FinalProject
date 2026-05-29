@@ -15,6 +15,7 @@ import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import Button from "../ui/Button";
 import CommentsSection from "./ProductReviews";
 import { getStock } from "@/lib/stockStorage";
+
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
     const [product, setProduct] = useState<Product | null>(null);
@@ -26,14 +27,15 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     useEffect(() => {
         fetchProducts().then((products) => {
             const foundProduct = products.find((p) => {
-                return p.id === parseInt(id);
+                return p.id === parseInt(id)
             });
             if (foundProduct) {
-                setProduct(foundProduct || null);
+                const saved = localStorage.getItem(`comments_product_${foundProduct.id}`);
+                const extra = saved ? JSON.parse(saved) : [];
+                setProduct({...foundProduct,comments: [...(foundProduct.comments || []), ...extra]});
             }
         });
     }, [id]);
-
     if (!product) {
         return (
             <div className="min-h-screen bg-zinc-50 pt-20 pb-16 text-black flex items-center justify-center">
@@ -69,12 +71,10 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     };
 
 
-
-
     return (
         <>
             <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 sm:pt-30 pt-25 pb-16 text-black dark:text-white">
-                <div className="max-w-7xl   mx-auto px-6">
+                <div className="max-w-7xl mx-auto ">
                     <div className="text-sm text-gray-400 dark:text-gray-500 mb-6">
                         <Link href="/" className="hover:text-black dark:hover:text-white">Home</Link>
                         <span className="mx-2">/</span>
@@ -189,7 +189,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 </div>
             </main>
             {product.comments && product.comments.length > 0 && (
-                <CommentsSection comments={product.comments} />
+                <CommentsSection comments={product.comments} productId={product.id} />
             )}
         </>
 

@@ -17,7 +17,7 @@ import Image from "next/image";
 
 export default function UserProfile() {
 
-    const { user, logout, isAuthenticated } = useAuth();
+    const { user, logout, isAuthenticated, loading } = useAuth();
     const [profileImage, setProfileImage] = useState<string | null>(null);
     const [cards, setCards] = useState<Card[]>([]);
     const [showAddForm, setShowAddForm] = useState(false);
@@ -29,22 +29,33 @@ export default function UserProfile() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<CardFormData>(
         { resolver: zodResolver(cardSchema) }
     );
+    useEffect(() => {
+        document.body.classList.add("hide-footer");
+
+        return () => {
+            document.body.classList.remove("hide-footer");
+        };
+    }, []);
 
     useEffect(() => {
-        if (!isAuthenticated) {
-            router.push("/auth/login");
+
+        if (!user) {
             return;
         }
 
-        if (user) {
-            setCards(getCards(user.email));
-            const savedImage = localStorage.getItem(`profileImage_${user.email}`);
-            if (savedImage) {
-                setProfileImage(savedImage);
-            }
+        setCards(getCards(user.email));
+
+        const savedImage = localStorage.getItem(`profileImage_${user.email}`);
+
+        if (savedImage) {
+            setProfileImage(savedImage);
         }
 
-    }, [isAuthenticated, user, router]);
+    }, [user]);
+    
+    if (!user) {
+        return null;
+    }
 
     const handleAddCard = (data: CardFormData) => {
         if (!user) {
@@ -87,9 +98,7 @@ export default function UserProfile() {
         }
     };
 
-    if (!user) {
-        return null;
-    }
+
     function handleProfileImage(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];
 
@@ -119,13 +128,7 @@ export default function UserProfile() {
 
         setProfileImage(null);
     }
-    useEffect(() => {
-        document.body.classList.add("hide-footer");
 
-        return () => {
-            document.body.classList.remove("hide-footer");
-        };
-    }, []);
     return (
         <div className="min-h-screen bg-linear-to-br from-gray-300 via-white to-indigo-100 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950 flex justify-center items-center p-3 sm:p-5 overflow-y-auto">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-6xl p-4 sm:p-6 md:p-8 my-6">

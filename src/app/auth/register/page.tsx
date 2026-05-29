@@ -47,10 +47,10 @@ export default function RegisterPage() {
 
     return (
         <>
-            <main className="min-h-screen bg-zinc-50 flex items-center justify-center px-4 py-12">
-                <div className="w-full max-w-md">
-                    <div className="bg-white rounded-2xl shadow-md p-6 sm:p-10">
-                        <h1 className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+            <main className="min-h-screen bg-zinc-50 dark:bg-gray-950 flex items-center justify-center px-4 py-12">
+                <div className="w-full  max-w-md">
+                    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-6 sm:p-10">
+                        <h1 className="text-center text-2xl sm:text-3xl font-bold dark:text-white text-gray-900 mb-8">
                             Register for free!
                         </h1>
 
@@ -59,7 +59,7 @@ export default function RegisterPage() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <Input
-                                        className={"w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg font-medium placeholder-gray-400 text-sm focus:outline-none focus:border-black transition-colors"}
+                                        className={"w-full px-4 py-3 dark:text-white text-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg font-medium placeholder-gray-400 text-sm dark:bg-gray-800 dark:focus:border-gray-600 focus:outline-none focus:border-gray-500 transition-colors"}
                                         type="text"
                                         {...register("firstName")}
                                         placeholder="First name"
@@ -72,7 +72,7 @@ export default function RegisterPage() {
                                 </div>
                                 <div>
                                     <Input
-                                        className={"w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg font-medium placeholder-gray-400 text-sm focus:outline-none focus:border-black transition-colors"}
+                                        className={"w-full px-4 py-3 dark:text-white text-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg font-medium placeholder-gray-400 text-sm dark:bg-gray-800 dark:focus:border-gray-600 focus:outline-none focus:border-gray-500 transition-colors"}
                                         type="text"
                                         {...register("lastName")}
                                         placeholder="Last name"
@@ -87,7 +87,7 @@ export default function RegisterPage() {
 
                             <div>
                                 <Input
-                                    className={"w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg font-medium placeholder-gray-400 text-sm focus:outline-none focus:border-black transition-colors"}
+                                    className={"w-full px-4 py-3 dark:text-white text-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg font-medium placeholder-gray-400 text-sm dark:bg-gray-800 dark:focus:border-gray-600 focus:outline-none focus:border-gray-500 transition-colors"}
                                     type="email"
                                     {...register("email")}
                                     placeholder="Enter your email"
@@ -101,7 +101,7 @@ export default function RegisterPage() {
 
                             <div>
                                 <Input
-                                    className={"w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg font-medium placeholder-gray-400 text-sm focus:outline-none focus:border-black transition-colors"}
+                                    className={"w-full px-4 py-3 dark:text-white text-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg font-medium placeholder-gray-400 text-sm dark:bg-gray-800 dark:focus:border-gray-600 focus:outline-none focus:border-gray-500 transition-colors"}
                                     type="password"
                                     {...register("password")}
                                     placeholder="Password"
@@ -115,7 +115,7 @@ export default function RegisterPage() {
 
                             <div>
                                 <Input
-                                    className={"w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg font-medium placeholder-gray-400 text-sm focus:outline-none focus:border-black transition-colors"}
+                                    className={"w-full px-4 py-3 dark:text-white text-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg font-medium placeholder-gray-400 text-sm dark:bg-gray-800 dark:focus:border-gray-600 focus:outline-none focus:border-gray-500 transition-colors"}
                                     type="password"
                                     {...register("confirmPassword")}
                                     placeholder="Confirm password"
@@ -135,9 +135,9 @@ export default function RegisterPage() {
                                 Register
                             </Button>
 
-                            <p className="text-xs text-gray-500 text-center mt-2">
+                            <p className="text-xs text-gray-500 dark:text-gray-300 text-center mt-2">
                                 Already have an account?{" "}
-                                <Link href="/auth/login" className="text-black font-semibold hover:underline">
+                                <Link href="/auth/login" className="text-black dark:text-white font-semibold hover:underline">
                                     Login
                                 </Link>
                             </p>

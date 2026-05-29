@@ -114,7 +114,7 @@ export default function Home() {
           )}
         </div>
       </section>
-      <section className="dark:bg-black/20 bg-zinc-950 dark:shadow-blue-950 dark:shadow-lg shadow-lg shadow-gray-300 text-white py-20 text-center">
+      <section className="dark:bg-black/15 bg-zinc-950 dark:shadow-blue-950 dark:shadow-lg shadow-lg shadow-gray-300 text-white py-20 text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">Limited Time</p>
         <h2 className="text-4xl font-light mb-4 tracking-tight">Up to 20% Off</h2>
         <p className="text-gray-400 text-sm mb-8 font-light">Selected items. While stocks last.</p>

@@ -32,16 +32,16 @@ export default function LoginPage() {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center w-full h-screen bg-zinc-50 px-5">
-                <div className="xl:max-w-3xl w-full p-5 sm:p-10 rounded-md shadow-lg bg-white">
-                    <h1 className="text-center text-xl text-black sm:text-3xl font-semibold">
+            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
+                <div className="xl:max-w-3xl w-full p-5 sm:p-10 rounded-md shadow-lg dark:bg-gray-900">
+                    <h1 className="text-center text-xl text-black dark:text-white sm:text-3xl font-semibold">
                         Login your account!
                     </h1>
                     <div className="w-full mt-8">
                         <div className="mx-auto max-w-xs sm:max-w-md md:max-w-lg flex flex-col gap-4">
                             <div>
                                 <Input
-                                    className={"w-full text-gray-700 px-5 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
+                                    className={"w-full text-gray-700 px-5 dark:border-gray-700 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
                                     type="email"
                                     {...register("email")}
                                     placeholder="Enter your email"
@@ -54,7 +54,7 @@ export default function LoginPage() {
                             </div>
                             <div>
                                 <Input
-                                    className={"w-full text-gray-700 px-5 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
+                                    className={"w-full text-gray-700  px-5 dark:border-gray-700 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
                                     type="password"
                                     {...register("password")}
                                     placeholder="Password"
@@ -74,10 +74,10 @@ export default function LoginPage() {
                                 <span className="ml-3">Login</span>
                             </Button>
 
-                            <p className="mt-6 text-xs text-gray-600 text-center">
+                            <p className="mt-6 text-xs text-gray-600 dark:text-gray-300 text-center">
                                 Don't you have an account?{" "}
                                 <Link href="/auth/register">
-                                    <span className="text-black font-semibold">Register</span>
+                                    <span className="text-black dark:text-white font-semibold">Register</span>
                                 </Link>
                             </p>
                         </div>

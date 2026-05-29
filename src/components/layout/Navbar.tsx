@@ -17,7 +17,6 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
 
-    const [isActive, setisActive] = useState(false);
 
     const pathname = usePathname();
     useEffect(() => {

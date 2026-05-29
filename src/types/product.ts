@@ -10,6 +10,7 @@ export interface Product {
     colors: string[];
     stock: number;
     rating: number;
+    
     reviews: number;
     material: string;
     images: string[];
@@ -21,6 +22,7 @@ export interface Product {
 export type Comment = {
     id: number;
     user: string;
+    email?: string;
     rating: number;
     date: string;
     verified: boolean;
