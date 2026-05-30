@@ -14,18 +14,24 @@ import Link from "next/link";
 import { getStock } from "@/lib/stockStorage";
 import { useRouter } from "next/navigation";
 import { deductStock } from "@/lib/stockStorage";
+import { applyDiscount } from "@/lib/discountCodes";
 
 export default function CheckOutPage() {
     const { totalPrice, clearCart, items } = useCart();
     const { user, isAuthenticated } = useAuth();
     const router = useRouter();
-
+    const [appliedCoupon, setAppliedCoupon] = useState("");
     const [orderedTotal, setOrderedTotal] = useState(0);
     const [showModal, setShowModal] = useState(false);
     const [cards, setCards] = useState<Card[]>([]);
     const [selectedCardId, setSelectedCardId] = useState("");
     const [cardError, setCardError] = useState("");
 
+    const [coupon, setCoupon] = useState("");
+    const [couponResult, setCouponResult] = useState<{ valid: boolean; discount: number; finalPrice: number } | null>(null);
+    const [couponError, setCouponError] = useState("");
+
+    const [showCouponModal, setShowCouponModal] = useState(false);
     useEffect(() => {
         if (!isAuthenticated) {
             router.push("/auth/login");
@@ -47,7 +53,10 @@ export default function CheckOutPage() {
         },
     });
 
-    function onSubmit(data: CheckoutFormData) {
+    function onSubmit() {
+
+        const finalAmount = couponResult ? couponResult.finalPrice : totalPrice;
+
         if (!selectedCardId) {
             setCardError("Please select a payment card.");
             return;
@@ -57,20 +66,29 @@ export default function CheckOutPage() {
             return c.id === selectedCardId
         });
         if (!selectedCard) {
-            setCardError("Selected card not found."); 
-            return; 
+            setCardError("Selected card not found.");
+            return;
         }
-        if (selectedCard.balance < totalPrice) { 
-            setCardError(`Insufficient balance. Card balance: $${selectedCard.balance.toFixed(2)}`); 
-            return; 
+        if (selectedCard.balance < finalAmount) {
+            setCardError(`Insufficient balance. Card balance: $${selectedCard.balance.toFixed(2)}`);
+            return;
         }
 
         items.forEach((item) => {
             const currentStock = getStock(item.product.id, item.product.stock);
             deductStock(item.product.id, currentStock, item.quantity)
         })
-        deductBalance(user!.email, selectedCardId, totalPrice);
-        setOrderedTotal(totalPrice);
+        deductBalance(user!.email, selectedCardId, finalAmount);
+
+        if (appliedCoupon) {
+            const usedCoupons: string[] = JSON.parse(localStorage.getItem("usedCoupons") || "[]");
+
+            if (!usedCoupons.includes(appliedCoupon)) {
+                localStorage.setItem("usedCoupons", JSON.stringify([...usedCoupons, appliedCoupon])
+                );
+            }
+        }
+        setOrderedTotal(finalAmount);
         clearCart();
         reset();
         setShowModal(true);
@@ -78,22 +96,50 @@ export default function CheckOutPage() {
 
         setCards(getCards(user!.email));
     }
+    function handleApplyCoupon() {
+        if (!coupon.trim()) {
+            return;
+        }
 
+        const normalizedCoupon = coupon.trim().toUpperCase();
+
+        const usedCoupons: string[] = JSON.parse(
+            localStorage.getItem("usedCoupons") || "[]"
+        );
+
+        if (usedCoupons.includes(normalizedCoupon)) {
+            setCouponError("This coupon has already been used.");
+            setCouponResult(null);
+            return;
+        }
+
+        const result = applyDiscount(normalizedCoupon, totalPrice);
+
+        if (!result.valid) {
+            setCouponError("Invalid coupon code.");
+            setCouponResult(null);
+            return;
+        }
+
+        setAppliedCoupon(normalizedCoupon);
+        setCouponResult(result);
+        setShowCouponModal(true);
+        setCouponError("");
+    }
     if (items.length === 0 && !showModal) {
         return (
-            <main className="min-h-screen bg-zinc-50 pt-24 flex flex-col items-center justify-center gap-4">
-                <p className="text-5xl">🛒</p>
-                <h2 className="text-2xl font-bold text-gray-800">Your cart is empty</h2>
+            <main className="min-h-screen bg-zinc-50 dark:bg-gray-950 pt-24 flex flex-col items-center justify-center gap-4">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-400">Your cart is empty</h2>
                 <Link href="/products">
-                    <button className="mt-4 bg-black text-white px-8 py-3 rounded font-semibold hover:bg-gray-800 transition-colors">
+                    <Button className="mt-4 bg-black text-white px-8 py-3 dark:text-white rounded font-semibold hover:bg-gray-800 transition-colors">
                         Continue Shopping
-                    </button>
+                    </Button>
                 </Link>
             </main>
         );
     }
 
- 
+
 
     return (
         <>
@@ -192,9 +238,63 @@ export default function CheckOutPage() {
 
                                     {cardError && <p className="text-red-500 text-sm mt-1">{cardError}</p>}
 
-                                    <div className="flex items-center justify-between mt-2 px-1">
-                                        <p className="text-sm dark:text-gray-300 text-gray-600">Order total:</p>
-                                        <p className="text-base dark:text-gray-300 text-gray-900 font-bold">${totalPrice.toFixed(2)}</p>
+
+                                    <div className="mt-4">
+                                        <label className="block text-gray-700 dark:text-white mb-1 text-sm">
+                                            Discount Code
+                                        </label>
+
+                                        <div className="flex gap-2">
+                                            <Input
+                                                type="text"
+                                                value={coupon}
+                                                onChange={(e) => {
+                                                    setCoupon(e.target.value);
+                                                    setCouponError("");
+                                                    setCouponResult(null);
+                                                }}
+                                                placeholder="Enter coupon code"
+                                                className="flex-1 rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500 text-sm"
+                                            />
+
+                                            <Button
+                                                type="button"
+                                                onClick={handleApplyCoupon}
+                                                className="px-4 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors text-sm font-medium"
+                                            >
+                                                Apply
+                                            </Button>
+                                        </div>
+
+                                        {couponError && (
+                                            <p className="text-red-500 text-xs mt-1">
+                                                {couponError}
+                                            </p>
+                                        )}
+
+                                        {showCouponModal && (
+                                            <Modal
+                                                message={`Coupon applied! You save $${couponResult?.discount.toFixed(2)}`}
+                                                onClose={() => setShowCouponModal(false)}
+                                            />
+                                        )}
+                                    </div>
+
+
+                                    <div className="flex items-center justify-between mt-3 px-1">
+                                        <p className="text-sm text-gray-500">Order total:</p>
+
+                                        <div className="text-right">
+                                            {couponResult?.valid && (
+                                                <p className="text-xs text-gray-400 line-through">
+                                                    ${totalPrice.toFixed(2)}
+                                                </p>
+                                            )}
+
+                                            <p className="text-base font-bold text-gray-900 dark:text-white">
+                                                ${(couponResult?.finalPrice ?? totalPrice).toFixed(2)}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             )}

@@ -135,7 +135,7 @@ export default function FilterPanel({ search, setSearch, selectedSeason, setSele
                         placeholder="Min"
                         value={minPrice}
                         onChange={(e) => setMinPrice(e.target.value)}
-                        className="w-full text-black dark:text-gray-300 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-300 transition-colors"
+                        className="w-full text-black dark:text-gray-300 border border-gray-400 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-300 transition-colors"
                     />
                     <span className="text-gray-400">—</span>
                     <Input
@@ -144,7 +144,7 @@ export default function FilterPanel({ search, setSearch, selectedSeason, setSele
                         placeholder="Max"
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(e.target.value)}
-                        className="w-full border text-black dark:text-gray-300 border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-300 transition-colors"
+                        className="w-full border text-black dark:text-gray-300 border-gray-400 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-300 transition-colors"
                     />
                 </div>
             </div>
@@ -152,7 +152,7 @@ export default function FilterPanel({ search, setSearch, selectedSeason, setSele
             {hasFilters && (
                 <Button
                     onClick={resetFilters}
-                    className="w-full dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50 transition-colors"
+                    className="w-full bg-gray-900 text-gray-300 hover:bg-gray-700 py-2 rounded-lg text-sm transition-colors"
                 >
                     Reset Filters
                 </Button>
