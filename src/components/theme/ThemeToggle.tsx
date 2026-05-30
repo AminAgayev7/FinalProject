@@ -19,7 +19,9 @@ export default function ThemeToggle() {
     }, []);
 
     useEffect(() => {
-        if (!mounted) return;
+        if (!mounted) {
+                return;
+            }
         if (isDark) {
             document.documentElement.classList.add("dark");
         } else {

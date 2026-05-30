@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product?: Product }) {
     const discountedPrice = product?.discount ? (product.price - (product.price * product.discount) / 100) : product?.price;
 
     return (
-        <div className="w-full h-full hover:scale-103 origin-center transition duration-300 rounded-md  dark:shadow-blue-950 dark:shadow-lg shadow-lg shadow-gray-300 text-white dark:bg-gray-900 bg-gray-800  flex flex-col overflow-hidden">
+        <div className="relative w-full h-full hover:scale-103 origin-center transition duration-300 rounded-md dark:shadow-blue-950 dark:shadow-lg shadow-lg shadow-gray-300 text-white dark:bg-gray-900 bg-gray-800 flex flex-col overflow-hidden">
 
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar]}
@@ -47,7 +47,12 @@ export default function ProductCard({ product }: { product?: Product }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <Button onClick={handleWishlist} className={"top-2 right-2 text-2xl"}>{isFavorite ? "❤️" : "🤍"}</Button>
+            <Button
+                onClick={handleWishlist}
+                className="absolute top-2 left-2 z-10 text-2xl bg-black/40 rounded-full p-2"
+            >
+                {isFavorite ? "❤️" : "🤍"}
+            </Button>
             <div className="p-4 flex flex-col flex-1">
                 <p className="text-xs text-gray-400 uppercase tracking-wide">
                     {product?.brand}

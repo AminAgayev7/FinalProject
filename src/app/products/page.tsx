@@ -1,3 +1,8 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Products",
+};
 import ProductList from "@/components/product/ProductList";
 
 export default function ProductsPage() {

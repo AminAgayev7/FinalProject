@@ -50,7 +50,19 @@ export const loginSchema = z.object({
 export type loginFormData = z.infer<typeof loginSchema>
 
 export const cardSchema = z.object({
-    cardNumber: z.string().min(16, "Card number must be 16 digits!").max(16),
+    cardNumber: z.string().refine((val) => {
+    const cleaned = val.replaceAll(" ", "");
+    return (
+        cleaned.length === 16 &&
+        cleaned.split("").every((c) => {
+            return (c >= "0" && c <= "9");
+        })
+    );
+    },
+    {
+        message: "Invalid card number",
+    }
+),
     cardHolder: z.string().min(2, "Card holder name required!"),
     expirationDate: z.string().min(5, "Can't get over 5 characters!").max(5, "Can't get over 5 characters!").refine((value) => {
     const parts = value.split("/");
@@ -83,7 +95,13 @@ export const cardSchema = z.object({
 }, {
     message: "Invalid or expired date"
 }),
-    cvv: z.string().min(3).max(4),
+    cvv: z.string().min(3).max(4).refine((val) => {
+        return val.split("").every((char) => {
+            return (char >= "0" && char <= "9");
+        });
+    }, {
+        message: "CVV should only contain digits.",
+    }),
 });
 
 export type CardFormData = z.infer<typeof cardSchema>

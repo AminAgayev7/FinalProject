@@ -15,6 +15,9 @@ import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import Button from "../ui/Button";
 import CommentsSection from "./ProductReviews";
 import { getStock } from "@/lib/stockStorage";
+import { useAuth } from "@/hooks/useAuth";
+import Modal from "../ui/Modal";
+
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
@@ -23,6 +26,8 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedColor, setSelectedColor] = useState("");
     const [added, setAdded] = useState(false);
+    const { isAuthenticated } = useAuth();
+    const [showAuthModal, setshowAuthModal] = useState(false);
 
     useEffect(() => {
         fetchProducts().then((products) => {
@@ -32,7 +37,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             if (foundProduct) {
                 const saved = localStorage.getItem(`comments_product_${foundProduct.id}`);
                 const extra = saved ? JSON.parse(saved) : [];
-                setProduct({...foundProduct,comments: [...(foundProduct.comments || []), ...extra]});
+                setProduct({ ...foundProduct, comments: [...(foundProduct.comments || []), ...extra] });
             }
         });
     }, [id]);
@@ -47,8 +52,11 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const discountedPrice = product.discount ? (product.price - (product.price * product.discount) / 100) : product.price;
 
     const handleAddToCart = () => {
+        if (!isAuthenticated) {
+            setshowAuthModal(true);
+            return;
+        }
         if (!selectedSize || !selectedColor) {
-            alert("Please select size and color.");
             return;
         }
 
@@ -191,6 +199,13 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             {product.comments && product.comments.length > 0 && (
                 <CommentsSection comments={product.comments} productId={product.id} />
             )}
+            {showAuthModal && (
+                <Modal
+                    message="Please log in to add items to cart!"
+                    onClose={() => setshowAuthModal(false)}
+                />
+            )}
+
         </>
 
     );

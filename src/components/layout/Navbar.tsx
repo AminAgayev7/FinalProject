@@ -179,7 +179,7 @@ export default function Navbar() {
                         <div className="hidden md:flex items-center gap-2">
                             <Link
                                 href="/auth/login"
-                                className="px-3 lg:px-4 py-2 text-sm text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-all"
+                                className="px-3 lg:px-4 py-2 dark:hover:bg-gray-800  dark:text-white text-sm border-gray-400 dark:border-gray-500 text-gray-600 border rounded-lg hover:bg-gray-200  transition-all"
                             >
                                 Login
                             </Link>
