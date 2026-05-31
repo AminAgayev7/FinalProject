@@ -1,12 +1,12 @@
 "use client";
-import Image from "next/image";
+
 import { Product } from "@/types/product";
 import Input from "../ui/Input";
 type Comment = NonNullable<Product["comments"]>[number];
 import Button from "../ui/Button";
 import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 export default function CommentsSection({ comments: initialComments, productId }: { comments: Comment[]; productId: number }) {
     const { isAuthenticated, user } = useAuth();
     const [comments, setComments] = useState<Comment[]>(initialComments);
@@ -33,12 +33,18 @@ export default function CommentsSection({ comments: initialComments, productId }
             verified: true,
             comment: text.trim(),
         };
-
-        const saved = localStorage.getItem(`comments_product_${productId}`);
-        const existingComments = saved ? JSON.parse(saved) : [];
-        existingComments.push(newComment);
-        localStorage.setItem(`comments_product_${productId}`, JSON.stringify(existingComments));
-        setComments(prev => [...prev, newComment]);
+        
+        const existingComments = localStorage.getItem(`comments_product_${productId}`);
+        if (existingComments) {
+            const parsedComments = JSON.parse(existingComments);
+            parsedComments.push(newComment);
+            localStorage.setItem(`comments_product_${productId}`, JSON.stringify(parsedComments));
+        } else {
+            localStorage.setItem(`comments_product_${productId}`, JSON.stringify([newComment]));
+        }
+        setComments((prev) => {
+            return [...prev, newComment]
+    });
         setText("");
         setSelectedRating(0);
     };

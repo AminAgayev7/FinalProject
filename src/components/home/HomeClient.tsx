@@ -9,17 +9,30 @@ import Button from "@/components/ui/Button";
 export default function Home() {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
-
+    const [error, seterror] = useState<string | null>(null);
     useEffect(() => {
-        setTimeout(() => {
-            fetchProducts().then(data => {
+        setTimeout(async () => {
+            try {
+                const data = await fetchProducts();
                 setProducts(data);
                 setLoading(false);
-            });
+            } catch (err) {
+                seterror(`Error fetching products: ${err}`);
+                setLoading(false);
+            }
         }, 3000);
     }, []);
 
-
+    if (error) {
+        return (
+            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
+                <h1 className="text-2xl text-red-500">{error}</h1>
+                <Button onClick={() => window.location.reload()} className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg transition-colors">
+                    Reload Page
+                </Button>
+            </div>
+        )
+    }
 
     const newArrivals = products.slice(products.length - 6, products.length).reverse();
     const skeletonCount = loading ? 6 : newArrivals.length;

@@ -247,7 +247,7 @@ export default function UserProfile() {
                                             <Input
                                                 id="holder"
                                                 {...register("cardHolder")}
-                                                className="border-none outline-none w-full"
+                                                className="border-gray-400 border-b outline-none w-full"
                                             />
 
 

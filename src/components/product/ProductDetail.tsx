@@ -19,6 +19,7 @@ import { useAuth } from "@/hooks/useAuth";
 import Modal from "../ui/Modal";
 
 
+
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
     const [product, setProduct] = useState<Product | null>(null);
@@ -28,7 +29,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [added, setAdded] = useState(false);
     const { isAuthenticated } = useAuth();
     const [showAuthModal, setshowAuthModal] = useState(false);
-
+    const [error, seterror] = useState<string | null>(null);
     useEffect(() => {
         fetchProducts().then((products) => {
             const foundProduct = products.find((p) => {
@@ -39,8 +40,11 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 const extra = saved ? JSON.parse(saved) : [];
                 setProduct({ ...foundProduct, comments: [...(foundProduct.comments || []), ...extra] });
             }
+        }).catch((err) => {
+            seterror(`Error fetching product: ${err}`);
         });
     }, [id]);
+    
     if (!product) {
         return (
             <div className="min-h-screen bg-zinc-50 pt-20 pb-16 text-black flex items-center justify-center">
@@ -49,6 +53,16 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         );
     }
 
+    if(error) {
+        return (
+            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
+                <h1 className="text-2xl text-red-500">{error}</h1>
+                <Button onClick={() => window.location.reload()} className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg transition-colors">
+                    Reload Page
+                </Button>
+            </div>
+        )
+    }
     const discountedPrice = product.discount ? (product.price - (product.price * product.discount) / 100) : product.price;
 
     const handleAddToCart = () => {

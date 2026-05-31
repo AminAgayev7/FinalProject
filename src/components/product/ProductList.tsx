@@ -18,7 +18,7 @@ const sort_options = [
 ];
 
 export default function ProductList() {
-
+    const [error, seterror] = useState<string | null>(null);
     const searchParams = useSearchParams();
 
     useEffect(() => {
@@ -32,13 +32,18 @@ export default function ProductList() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => {
-            fetchProducts().then(data => {
-                setProducts(data);
-                setLoading(false);
-            });
-        }, 3000);
-    }, []);
+    setTimeout(async () => {
+        try {
+            const data = await fetchProducts();
+            setProducts(data);
+            setLoading(false);
+        } catch (err) {
+            seterror(`Error fetching products: ${err}`);
+            setLoading(false);
+        }
+    }, 3000);
+}, []);
+    
 
     const {
         search, setSearch,
@@ -69,6 +74,16 @@ export default function ProductList() {
         )
     }
 
+    if(error) {
+        return (
+            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
+                <h1 className="text-2xl text-red-500">{error}</h1>
+                <Button onClick={() => window.location.reload()} className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg transition-colors">
+                    Reload Page
+                </Button>
+            </div>
+        )
+    }
     return (
         <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 mt-10 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">

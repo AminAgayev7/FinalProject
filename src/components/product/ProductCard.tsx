@@ -14,13 +14,17 @@ import Button from "../ui/Button";
 import { useWishlist } from "@/hooks/useWishList";
 export default function ProductCard({ product }: { product?: Product }) {
     const { toggleWishlist, wishlist } = useWishlist();
+
     const handleWishlist = useCallback(() => {
         if (!product) {
             return;
         }
         return toggleWishlist(product);
     }, [toggleWishlist, product]);
-    const isFavorite = product ? wishlist.some((item) => item.id === product.id) : false;
+    const isFavorite = product ? wishlist.some((item) => {
+        return item.id === product.id;
+    }) : false;
+    
     const discountedPrice = product?.discount ? (product.price - (product.price * product.discount) / 100) : product?.price;
 
     return (

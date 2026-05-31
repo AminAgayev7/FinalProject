@@ -8,7 +8,8 @@ export async function fetchProducts(): Promise<Product[]> {
             ...product, stock: getStock(product.id, product.stock)
         }));
     } catch (err) {
-        console.error("Error fetching products:", err);
+        const message = err instanceof Error ? err.message : String(err);
+        console.error("Error fetching products:", message);
         throw err;
     }
 }

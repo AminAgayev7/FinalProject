@@ -49,7 +49,7 @@ export default function CheckOutPage() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<CheckoutFormData>({
         resolver: zodResolver(checkoutSchema),
         defaultValues: {
-            shipping: { firstName: "", lastName: "", address: "", city: "", state: "", zipCode: "" },
+            shipping: { firstName: "", lastName: "", address: "", city: "", region: "", zipCode: "" },
         },
     });
 
@@ -181,8 +181,8 @@ export default function CheckOutPage() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div>
                                     <label htmlFor="state" className={"block text-gray-700 dark:text-white mb-1"}>State</label>
-                                    <Input type="text" id="state" {...register("shipping.state")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
-                                    {errors.shipping?.state && <p className="text-red-500 text-sm mt-1">{errors.shipping.state.message}</p>}
+                                    <Input type="text" id="state" {...register("shipping.region")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
+                                    {errors.shipping?.region && <p className="text-red-500 text-sm mt-1">{errors.shipping.region.message}</p>}
                                 </div>
                                 <div>
                                     <label htmlFor="zip" className={"block text-gray-700 dark:text-white mb-1"}>ZIP Code</label>

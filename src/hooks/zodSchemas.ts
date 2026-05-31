@@ -7,8 +7,14 @@ export const checkoutSchema = z.object({
         lastName: z.string().min(2, "Last name must be at least 2 characters.").max(15, "Last name must be at most 50 characters."),
         address: z.string().min(5, "Address must be at least 5 characters").max(100, "Address is too long"),
         city: z.string().min(1, "City is required").max(50, "City name is too long"),
-        state: z.string().min(1, "State is required").max(50, "State name is too long"),
-        zipCode: z.string().min(4, "ZIP code must be at least 4 characters").max(10, "ZIP code is too long"),
+        region: z.string().min(1, "Region is required").max(50, "Region name is too long"),
+        zipCode: z.string().min(3).max(4).refine((val) => {
+        return val.split("").every((char) => {
+            return (char >= "0" && char <= "9");
+        });
+    }, {
+        message: "Zip Code should only contain digits.",
+    }),
     }),
 });
 
