@@ -392,7 +392,7 @@ export default function UserProfile() {
                                                         </span>
                                                     </div>
 
-                                                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-3 border-b border-gray-200 dark:border-gray-700">
+                                                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-3">
                                                         <span className="text-gray-600 dark:text-gray-400">
                                                             Expiration Date
                                                         </span>
@@ -402,15 +402,6 @@ export default function UserProfile() {
                                                         </span>
                                                     </div>
 
-                                                    <div className="flex flex-col text-2xl sm:flex-row sm:justify-between sm:items-center gap-1 py-3">
-                                                        <span className="text-green-600 dark:text-green-400">
-                                                            Balance
-                                                        </span>
-
-                                                        <span className="font-bold text-green-600 dark:text-green-400 wrap-break-word">
-                                                            {card.balance}$
-                                                        </span>
-                                                    </div>
                                                 </div>
                                             )
                                         }
