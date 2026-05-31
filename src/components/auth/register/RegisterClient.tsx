@@ -19,9 +19,6 @@ export default function RegisterPage() {
     });
 
     function handleFormSubmit(data: registerFormData) {
-        if (typeof window === "undefined") {
-            return;
-        }
         const existingUsers = JSON.parse(localStorage.getItem("data") || "[]");
         const isUserExist = existingUsers.some((user: { email: string }) => {
             return user.email === data.email

@@ -52,7 +52,7 @@ export default function UserProfile() {
         }
 
     }, [user]);
-    
+
     if (!user) {
         return null;
     }
@@ -130,12 +130,12 @@ export default function UserProfile() {
     }
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-gray-300 via-white to-indigo-100 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950 flex justify-center items-center p-3 sm:p-5 overflow-y-auto">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-6xl p-4 sm:p-6 md:p-8 my-6">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-950  bg-linear-to-br from-slate-100 via-indigo-50 to-purple-100 dark:from-black dark:via-slate-950 dark:to-indigo-950 flex justify-center items-center p-3 sm:p-5">
+            <div className="bg-white shadow-lg dark:shadow-none shadow-gray-400 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl w-full max-w-6xl p-4 sm:p-6 md:p-8 my-6  backdrop-blur-xl">
                 <div className="flex flex-col items-center lg:flex-row gap-8">
 
                     <div className="w-full lg:w-1/3 text-center">
-                        <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4">
+                        <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4 relative">
                             {
                                 profileImage ? (
                                     <Image
@@ -143,7 +143,7 @@ export default function UserProfile() {
                                         height={192}
                                         src={profileImage}
                                         alt="Profile"
-                                        className="w-full h-full rounded-full object-cover border-4 border-indigo-800 dark:border-blue-900"
+                                        className="rounded-full flex items-center justify-center text-4xl sm:text-5xl text-white bg-gradient-to-br from-blue-500 to-purple-600 w-full h-full border-4 border-indigo-600 shadow-xl shadow-indigo-500/40"
                                     />
                                 ) : (
                                     <div className="rounded-full flex items-center justify-center text-4xl sm:text-5xl text-white bg-linear-to-br from-blue-400 to-purple-500 w-full h-full border-4 border-indigo-800 dark:border-blue-900">
@@ -153,29 +153,32 @@ export default function UserProfile() {
                             }
                         </div>
 
+                        <div className="mt-5 bg-gray-100 dark:bg-gray-800 rounded-xl p-4 border border-gray-300 dark:border-gray-700">
+                            <h1 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-2 wrap-break-word">
+                                {user?.firstName}
+                            </h1>
 
-                        <h1 className="text-xl sm:text-2xl font-bold text-indigo-800 dark:text-white mb-2 wrap-break-word">
-                            {user?.firstName}
-                        </h1>
+                            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 wrap-break-word">
+                                {user?.email}
+                            </p>
+                        </div>
 
-                        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 wrap-break-word">
-                            {user?.email}
-                        </p>
 
-                        <div className="grid grid-cols-2 gap-2 justify-center mt-4">
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
 
 
                             {cards.length < 3 && (
                                 <Button
                                     onClick={() => setShowAddForm(!showAddForm)}
-                                    className="bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300"
+                                    className="flex items-center gap-2 py-2 px-4 justify-center rounded-lg dark:border dark:text-indigo-400 dark:border-indigo-800 dark:hover:bg-indigo-950 text-white bg-indigo-600 dark:bg-gray-900 hover:bg-indigo-500 text-sm  transition-colors"
                                 >
                                     {showAddForm ? "Cancel" : "Add Card"}
                                 </Button>
                             )}
 
-                            <label className="bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">
-                                Upload Profile Photo
+                            <label className="flex items-center gap-2 py-2 px-4 justify-center rounded-lg dark:border  dark:text-indigo-400 dark:border-indigo-800 dark:hover:bg-indigo-950 text-white bg-indigo-600 dark:bg-gray-900 hover:bg-indigo-500 text-sm  transition-colors">
+                                Upload Profile Image
 
                                 <Input
                                     type="file"
@@ -188,9 +191,9 @@ export default function UserProfile() {
                                 profileImage && (
                                     <Button
                                         onClick={removeProfileImage}
-                                        className="bg-red-700  text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300"
+                                        className="flex items-center dark:bg-transparent bg-red-600 text-white justify-center gap-2 py-2 px-4 rounded-lg dark:border  dark:border-red-800  hover:bg-red-500 dark:text-red-400 text-sm  dark:hover:bg-red-950 transition-colors"
                                     >
-                                        Remove Profile Photo
+                                        Remove Profile Image
                                     </Button>
                                 )
                             }
@@ -199,22 +202,30 @@ export default function UserProfile() {
                                     logout();
                                     router.push("/");
                                 }}
-                                className="bg-red-700  text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300"
+                                className="flex items-center dark:bg-transparent bg-red-600 text-white justify-center gap-2 py-2 px-4 rounded-lg dark:border  dark:border-red-800  hover:bg-red-500 dark:text-red-400 text-sm  dark:hover:bg-red-950 transition-colors"
                             >
                                 Log Out
                             </Button>
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-2/3 flex flex-col gap-4 min-h-75 justify-center">
+                    <div className="w-full lg:w-2/3 flex flex-col min-h-75 justify-center">
+                    <div className="flex items-center justify-between mb-4">
+                            <h2 className="font-bold text-gray-800 dark:text-white">
+                                Payment Cards
+                            </h2>
 
+                            <span className="text-sm text-gray-500">
+                                {cards.length}/3 Cards
+                            </span>
+                        </div>
                         {
                             showAddForm && (
                                 <form
                                     onSubmit={handleSubmit(handleAddCard)}
-                                    className="border p-3 sm:p-4 border-gray-700 rounded-md"
+                                    className="border border-gray-200 dark:border-gray-700 p-3 sm:p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50"
                                 >
-                                    <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-3">
+                                    <h3 className="text-base sm:text-lg font-semibold dark:text-gray-300 text-gray-700 mb-3">
                                         New Card
                                     </h3>
 
@@ -228,7 +239,7 @@ export default function UserProfile() {
 
                                     <div className="flex flex-col gap-y-3">
 
-                                        <div className="border-b border-gray-600 flex flex-col gap-y-1">
+                                        <div className="border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 flex flex-col gap-y-1">
                                             <label htmlFor="holder">
                                                 Card Holder
                                             </label>
@@ -239,16 +250,16 @@ export default function UserProfile() {
                                                 className="border-none outline-none w-full"
                                             />
 
-                                            {
-                                                errors.cardHolder && (
-                                                    <p className="text-red-500 text-xs">
-                                                        {errors.cardHolder.message}
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
 
-                                        <div className="border-b border-gray-600 flex flex-col gap-y-1">
+                                        </div>
+                                        {
+                                            errors.cardHolder && (
+                                                <p className="text-red-500 text-xs">
+                                                    {errors.cardHolder.message}
+                                                </p>
+                                            )
+                                        }
+                                        <div className="border-b border-gray-400 dark:text-gray-300 text-gray-700 flex flex-col gap-y-1">
                                             <label htmlFor="cardNumber">
                                                 Card Number
                                             </label>
@@ -259,16 +270,16 @@ export default function UserProfile() {
                                                 className="border-none outline-none w-full"
                                             />
 
-                                            {
-                                                errors.cardNumber && (
-                                                    <p className="text-red-500 text-xs">
-                                                        {errors.cardNumber.message}
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
 
-                                        <div className="border-b border-gray-600 flex flex-col gap-y-1">
+                                        </div>
+                                        {
+                                            errors.cardNumber && (
+                                                <p className="text-red-500 text-xs">
+                                                    {errors.cardNumber.message}
+                                                </p>
+                                            )
+                                        }
+                                        <div className="border-b border-gray-400 dark:text-gray-300 text-gray-700 flex flex-col gap-y-1">
                                             <label htmlFor="cvv">
                                                 CVV Number
                                             </label>
@@ -279,16 +290,16 @@ export default function UserProfile() {
                                                 className="border-none outline-none w-full"
                                             />
 
-                                            {
-                                                errors.cvv && (
-                                                    <p className="text-red-500 text-xs">
-                                                        {errors.cvv.message}
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
 
-                                        <div className="border-b border-gray-600 flex flex-col gap-y-1">
+                                        </div>
+                                        {
+                                            errors.cvv && (
+                                                <p className="text-red-500 text-xs">
+                                                    {errors.cvv.message}
+                                                </p>
+                                            )
+                                        }
+                                        <div className="border-b border-gray-400 dark:text-gray-300 text-gray-700 flex flex-col gap-y-1">
                                             <label htmlFor="expDate">
                                                 Expiration Date
                                             </label>
@@ -300,18 +311,19 @@ export default function UserProfile() {
                                                 className="border-none outline-none w-full"
                                             />
 
-                                            {
-                                                errors.expirationDate && (
-                                                    <p className="text-red-500 text-xs">
-                                                        {errors.expirationDate.message}
-                                                    </p>
-                                                )
-                                            }
+
                                         </div>
+                                        {
+                                            errors.expirationDate && (
+                                                <p className="text-red-500 text-xs">
+                                                    {errors.expirationDate.message}
+                                                </p>
+                                            )
+                                        }
 
                                         <Button
                                             type="submit"
-                                            className="mt-4 bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300"
+                                            className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors"
                                         >
                                             Add Card
                                         </Button>
@@ -319,13 +331,13 @@ export default function UserProfile() {
                                 </form>
                             )
                         }
-
+                        
                         {
                             cards.length > 0 ?
                                 cards.map((card, index) => (
                                     <div
                                         key={card.id}
-                                        className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 sm:p-4"
+                                        className="border border-gray-300 dark:border-gray-700 rounded-xl p-3 sm:p-4"
                                     >
                                         <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
 
@@ -333,14 +345,14 @@ export default function UserProfile() {
                                                 onClick={() => {
                                                     setShowCardInfo(showCardInfo === card.id ? null : card.id)
                                                 }}
-                                                className="bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300"
+                                                className="dark:border-indigo-800 dark:border dark:hover:bg-indigo-950 dark:text-indigo-500 hover:bg-indigo-700 text-white dark:bg-transparent  bg-indigo-800  px-4 py-2 rounded-lg  transition-colors duration-300"
                                             >
                                                 {`Card ${index + 1}`}
                                             </Button>
 
                                             <Button
                                                 onClick={() => handleDelete(card.id)}
-                                                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg  transition-colors duration-300"
+                                                className="dark:border-red-800 dark:border dark:bg-transparent bg-red-600 dark:text-red-500 dark:hover:bg-red-950 hover:bg-red-500 px-4 py-2 rounded-lg  transition-colors duration-300"
                                             >
                                                 Delete
                                             </Button>
@@ -348,7 +360,7 @@ export default function UserProfile() {
 
                                         {
                                             showCardInfo === card.id && (
-                                                <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition mt-4">
+                                                <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-6 mt-4">
 
                                                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-3 border-b border-gray-200 dark:border-gray-700">
                                                         <span className="text-gray-600 dark:text-gray-400">
@@ -391,11 +403,11 @@ export default function UserProfile() {
                                                     </div>
 
                                                     <div className="flex flex-col text-2xl sm:flex-row sm:justify-between sm:items-center gap-1 py-3">
-                                                        <span className="text-green-400">
+                                                        <span className="text-green-600 dark:text-green-400">
                                                             Balance
                                                         </span>
 
-                                                        <span className="font-bold text-green-400 wrap-break-word">
+                                                        <span className="font-bold text-green-600 dark:text-green-400 wrap-break-word">
                                                             {card.balance}$
                                                         </span>
                                                     </div>
@@ -419,7 +431,7 @@ export default function UserProfile() {
                                             </p>
                                             <Button
                                                 onClick={() => setShowAddForm(true)}
-                                                className="bg-indigo-800 text-white px-6 py-2.5 rounded-lg hover:bg-blue-900 transition-colors duration-300 shadow-md font-medium"
+                                                className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-lg transition-colors font-medium"
                                             >
                                                 Add Your First Card
                                             </Button>
