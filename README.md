@@ -1,5 +1,5 @@
 # ModeX
-A modern e-commerce web application built with Next.js 15, featuring product browsing, cart management, user authentication, and more.
+A modern, fully client-side e-commerce web application built with **Next.js 15** and **TypeScript**. ModeX supports product browsing with advanced filtering, a shopping cart, wishlist, user authentication, profile management, and a checkout flow — all without a backend or database.
 
 
 ## Tech Stack
@@ -12,24 +12,42 @@ A modern e-commerce web application built with Next.js 15, featuring product bro
 - Image Slider: Swiper.js
 
 ## Features
-- Simple and user-friendly interface
-- Product listing with search-bar and filteration system
-- Product detail page with image slider and reviews
-- Shopping cart with quantity management and stock tracking
-- Wishlist
-- User authentication (register, login, logout)
-- Password hashing via bcrypt
-- User profile with payment card management and profile image upload
-- Reviewing products via Local Storage
-- Checkout with discount code support
-- Dark / light theme toggle
-- Error boundaries for graceful error handling
+- Product listing — grid view with search, sort, and multi-filter support (gender, category, size, color, price range, season)
+- Product detail — image carousel, size/color selector, stock tracking, add to cart
+- Reviews — users can leave comments and star ratings, persisted in localStorage
+- Shopping cart — add/remove items, quantity management, real-time stock enforcement
+- Wishlist — save favourite products across sessions
+- Authentication — register and login with password hashing via bcrypt
+- User profile — update personal info, upload profile picture, manage saved payment cards
+- Checkout — order summary, address form, discount code support
+- Contact form — sends messages via EmailJS
+- Dark / light theme — toggle with system preference detection and persistence
+- Error boundaries — graceful fallback UI for unexpected runtime errors
+
+## Data & Storage
+ModeX has no backend. All data is handled client-side:
+
+- Product catalogue - `public/data/products.json`
+- User accounts - `localStorage` (password hashed with bcrypt) 
+- Cart - `localStorage` 
+- Wishlist - `localStorage` 
+- Stock levels - `localStorage` (deducted on checkout)
+- Product reviews - `localStorage` per product 
+- Payment cards - `localStorage` 
+- Profile image - `localStorage` (base64) 
+- Theme preference - `localStorage` 
 
 ## Getting Started
 
+### Prerequisites
+ 
+- Node.js 18+
+- npm
+### Installation
+ 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/your-username/modex.git
+git clone https://github.com/AminAgayev7/FinalProject.git
 cd modex
 ```
  
@@ -44,6 +62,8 @@ npm run dev
 ```
  
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+ 
+
 
 ## Available Scripts
 - npm run dev - Start development server
@@ -51,7 +71,21 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - npm run start - Start production server
 - npm run lint - Run ESLint
 
+## Pages
+- `/` - Homepage 
+- `/products` - Product listing with filters 
+- `/products/[id]` - Product detail with reviews 
+- `/cart` - Shopping cart 
+- `/checkout` - Order checkout 
+- `/wishlist` - Saved products 
+- `/auth/login` - Login
+- `/auth/register` - Register 
+- `/profile` - User profile
+- `/contact` - Contact form
+
 ## Notes
-- User data (auth, cart, wishlist, cards) is stored in `localStorage` — no backend or database required.
-- Product data is served from `public/data/products.json`.
-- Stock levels are tracked per session via `localStorage`.
+ 
+- All user data persists in the browser's `localStorage` — clearing browser data will reset accounts, cart, and wishlist.
+- Product stock is tracked per session; purchasing an item reduces its available stock in localStorage.
+- The app uses **Next.js App Router** with a mix of Server Components (for metadata/SEO) and Client Components (for interactivity).
+- Password hashing is done in the browser via `bcryptjs-react` — suitable for demos but not for production use with sensitive data.
