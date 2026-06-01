@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import SearchBar from "../SearchBar";
 import ThemeToggle from "../theme/ThemeToggle";
 import { usePathname } from "next/navigation";
+import {storageGet} from "@/lib/safeStorage";
 export default function Navbar() {
 
     const { user } = useAuth();
@@ -21,9 +22,7 @@ export default function Navbar() {
     const pathname = usePathname();
     useEffect(() => {
         if (user) {
-            const savedImage = localStorage.getItem(
-                `profileImage_${user.email}`
-            );
+            const savedImage = storageGet(`profileImage_${user.email}`, null);
 
             if (savedImage) {
                 setProfileImage(savedImage);

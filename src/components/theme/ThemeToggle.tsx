@@ -1,14 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import Button from "../ui/Button";
-
+import {storageGet, storageSet} from "@/lib/safeStorage";
 export default function ThemeToggle() {
     const [isDark, setIsDark] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-        const saved = localStorage.getItem("theme");
+        const saved = storageGet("theme", null);
         const dark = saved ? saved === "dark" : true;
         setIsDark(dark);
         if (dark) {
@@ -27,7 +27,7 @@ export default function ThemeToggle() {
         } else {
             document.documentElement.classList.remove("dark");
         }
-        localStorage.setItem("theme", isDark ? "dark" : "light");
+        storageSet("theme", isDark ? "dark" : "light");
     }, [isDark, mounted]);
 
     if (!mounted) {

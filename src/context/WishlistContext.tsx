@@ -2,7 +2,7 @@
 
 import { createContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
-
+import { storageGet, storageSet } from "@/lib/safeStorage";
 type ChildrenType = {
     children: React.ReactNode;
 };
@@ -22,10 +22,10 @@ export function WishlistProvider({ children }: ChildrenType) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const saved = localStorage.getItem("wishlist");
+        const saved = storageGet("wishlist", null);
 
         if (saved) {
-            setWishlist(JSON.parse(saved));
+            setWishlist(saved);
         }
 
         setMounted(true);
@@ -33,8 +33,7 @@ export function WishlistProvider({ children }: ChildrenType) {
 
     useEffect(() => {
         if (mounted) {
-            localStorage.setItem("wishlist", JSON.stringify(wishlist)
-            );
+            storageSet("wishlist", wishlist);
         }
     }, [wishlist, mounted]);
 

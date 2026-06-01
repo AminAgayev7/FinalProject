@@ -14,7 +14,7 @@ import { addCard } from "@/lib/cardStorage";
 import { deleteCard } from "@/lib/cardStorage";
 import Input from "@/components/ui/Input";
 import Image from "next/image";
-
+import {storageGet, storageSet} from "@/lib/safeStorage";
 export default function UserProfile() {
 
     const { user, logout } = useAuth();
@@ -45,7 +45,7 @@ export default function UserProfile() {
 
         setCards(getCards(user.email));
 
-        const savedImage = localStorage.getItem(`profileImage_${user.email}`);
+        const savedImage = storageGet(`profileImage_${user.email}`, null);
 
         if (savedImage) {
             setProfileImage(savedImage);
@@ -113,7 +113,7 @@ export default function UserProfile() {
 
             setProfileImage(imageBase64);
 
-            localStorage.setItem(`profileImage_${user.email}`, imageBase64);
+            storageSet(`profileImage_${user.email}`, imageBase64);
         };
 
         reader.readAsDataURL(file);
@@ -124,7 +124,7 @@ export default function UserProfile() {
             return;
         }
 
-        localStorage.removeItem(`profileImage_${user.email}`);
+        storageGet(`profileImage_${user.email}`, null);
 
         setProfileImage(null);
     }

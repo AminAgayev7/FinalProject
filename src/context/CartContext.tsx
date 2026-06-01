@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { getStock } from "@/lib/stockStorage";
+import { storageGet, storageSet } from "@/lib/safeStorage";
 export interface CartItem {
     product: Product;
     quantity: number;
@@ -24,16 +25,14 @@ export const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
     const [items, setItems] = useState<CartItem[]>([]);
-    
+
     useEffect(() => {
-        const saved = localStorage.getItem("cart");
-        if (saved) {
-            setItems(JSON.parse(saved));
-        }
+        const saved = storageGet<CartItem[]>("cart", []);
+        setItems(saved);
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(items));
+        storageSet("cart", items);
     }, [items]);
 
     const addToCart = (product: Product, size: string, color: string) => {
@@ -52,13 +51,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
             const currentQuantityInCart = existing ? existing.quantity : 0;
 
-            if(currentQuantityInCart >= currentStock) {
+            if (currentQuantityInCart >= currentStock) {
                 return prev;
             }
             if (existing) {
                 return prev.map((item) => {
                     return (
-                        ((item.product.id === product.id) && (item.selectedSize === size) && (item.selectedColor === color)) ? { ...item, quantity: item.quantity + 1 }: item
+                        ((item.product.id === product.id) && (item.selectedSize === size) && (item.selectedColor === color)) ? { ...item, quantity: item.quantity + 1 } : item
                     )
                 }
                 );
@@ -76,30 +75,30 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         });
     };
 
-    const updateQuantity = (productId: number,size: string, color: string,  quantity: number, stock?: number) => {
+    const updateQuantity = (productId: number, size: string, color: string, quantity: number, stock?: number) => {
 
-    if (quantity < 1) {
-        return;
-    }
+        if (quantity < 1) {
+            return;
+        }
 
-    if (stock !== undefined && quantity > stock) {
-        return;
-    }
+        if (stock !== undefined && quantity > stock) {
+            return;
+        }
 
-    setItems(function (prev) {
-        return prev.map((item) => {
-            if (
-                (item.product.id === productId) &&
-                (item.selectedSize === size) &&
-                (item.selectedColor === color)
-            ) {
-                return { ...item, quantity: quantity };
-            } else {
-                return item;
-            }
+        setItems(function (prev) {
+            return prev.map((item) => {
+                if (
+                    (item.product.id === productId) &&
+                    (item.selectedSize === size) &&
+                    (item.selectedColor === color)
+                ) {
+                    return { ...item, quantity: quantity };
+                } else {
+                    return item;
+                }
+            });
         });
-    });
-};
+    };
 
     const clearCart = () => setItems([]);
 

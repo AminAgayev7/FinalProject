@@ -26,9 +26,7 @@ export default function SearchBar({ search, setSearch, onClose, className, input
     return (
         <div className={`relative ${className}`}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                </svg>
+                <i className="fa-brands fa-sistrix"></i>
             </div>
             <Input
                 type="text"

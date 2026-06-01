@@ -1,7 +1,8 @@
+import { storageGet, storageSet } from "@/lib/safeStorage";
 export function getStock(productId: number, defaultStock: number): number {
-    const saved = localStorage.getItem(`stock_${productId}`)
+    const saved = storageGet(`stock_${productId}`, null);
     if(saved !== null) {
-        return JSON.parse(saved);
+        return saved;
     } else {
         return defaultStock;
     }
@@ -9,5 +10,5 @@ export function getStock(productId: number, defaultStock: number): number {
 
 export function deductStock(productId: number, currentStock: number, quantity: number):void {
     const newStock = Math.max(0, currentStock - quantity);
-    localStorage.setItem(`stock_${productId}`, JSON.stringify(newStock));
+    storageSet(`stock_${productId}`, newStock);
 }

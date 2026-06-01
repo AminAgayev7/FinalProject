@@ -17,7 +17,7 @@ import CommentsSection from "./ProductReviews";
 import { getStock } from "@/lib/stockStorage";
 import { useAuth } from "@/hooks/useAuth";
 import Modal from "../ui/Modal";
-
+import {storageGet, storageSet} from "@/lib/safeStorage";
 
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -36,7 +36,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 return p.id === parseInt(id)
             });
             if (foundProduct) {
-                const saved = localStorage.getItem(`comments_product_${foundProduct.id}`);
+                const saved = storageGet(`comments_product_${foundProduct.id}`, null);
                 const extra = saved ? JSON.parse(saved) : [];
                 setProduct({ ...foundProduct, comments: [...(foundProduct.comments || []), ...extra] });
             }

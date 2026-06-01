@@ -15,6 +15,7 @@ import { getStock } from "@/lib/stockStorage";
 import { useRouter } from "next/navigation";
 import { deductStock } from "@/lib/stockStorage";
 import { applyDiscount } from "@/lib/discountCodes";
+import {storageGet, storageSet} from "@/lib/safeStorage";
 
 export default function CheckOutPage() {
     const { totalPrice, clearCart, items } = useCart();
@@ -81,11 +82,10 @@ export default function CheckOutPage() {
         deductBalance(user!.email, selectedCardId, finalAmount);
 
         if (appliedCoupon) {
-            const usedCoupons: string[] = JSON.parse(localStorage.getItem("usedCoupons") || "[]");
+            const usedCoupons: string[] = storageGet("usedCoupons", []);
 
             if (!usedCoupons.includes(appliedCoupon)) {
-                localStorage.setItem("usedCoupons", JSON.stringify([...usedCoupons, appliedCoupon])
-                );
+                storageSet("usedCoupons", [...usedCoupons, appliedCoupon]);
             }
         }
         setOrderedTotal(finalAmount);
@@ -103,9 +103,7 @@ export default function CheckOutPage() {
 
         const normalizedCoupon = coupon.trim().toUpperCase();
 
-        const usedCoupons: string[] = JSON.parse(
-            localStorage.getItem("usedCoupons") || "[]"
-        );
+        const usedCoupons: string[] = storageGet("usedCoupons", []);
 
         if (usedCoupons.includes(normalizedCoupon)) {
             setCouponError("This coupon has already been used.");

@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import bcrypt from "bcryptjs-react";
 import Modal from "@/components/ui/Modal";
 import { useRouter } from "next/navigation";
+import {storageGet, storageSet} from "@/lib/safeStorage";
 
 export default function RegisterPage() {
     const [showModal, setShowModal] = useState(false);
@@ -19,7 +20,8 @@ export default function RegisterPage() {
     });
 
     function handleFormSubmit(data: registerFormData) {
-        const existingUsers = JSON.parse(localStorage.getItem("data") || "[]");
+
+        const existingUsers = storageGet("data", [] as Omit<registerFormData, "confirmPassword">[]);
         const isUserExist = existingUsers.some((user: { email: string }) => {
             return user.email === data.email
         }
@@ -37,7 +39,7 @@ export default function RegisterPage() {
             firstName: data.firstName,
             lastName: data.lastName,
         });
-        localStorage.setItem("data", JSON.stringify(existingUsers));
+        storageSet("data", existingUsers);
         reset();
         router.push("/auth/login");
     }

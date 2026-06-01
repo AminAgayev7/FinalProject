@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useState,useEffect, ReactNode } from "react";
-
+import {storageGet, storageSet, storageRemove} from "@/lib/safeStorage";
 import bcrypt from "bcryptjs-react";
 
 interface User {
@@ -27,14 +27,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
 
-        const currentEmail = localStorage.getItem("currentUser");
+        const currentEmail = storageGet("currentUser", null);
 
-        if (!currentEmail) {
-            return;
-        }
-        const users = JSON.parse(
-            localStorage.getItem("data") || "[]"
-        );
+        const users = storageGet<(User & { password: string })[]>("data", []);
 
         const found = users.find((u: User) => {
             return u.email === currentEmail
@@ -51,9 +46,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     function login(email: string, password: string): boolean {
 
-        const users = JSON.parse(
-            localStorage.getItem("data") || "[]"
-        );
+        const users = storageGet<(User & { password: string })[]>("data", []);
+        ;
 
         const found = users.find((u: User & { password: string }) => {
             return (u.email === email) && (bcrypt.compareSync(password, u.password))
@@ -64,7 +58,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             return false;
         }
 
-        localStorage.setItem("currentUser",found.email);
+
+        storageSet("currentUser", found.email);
 
         setUser(found);
         setIsAuthenticated(true);
@@ -74,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     function logout() {
 
-        localStorage.removeItem("currentUser");
+        storageRemove("currentUser");
 
         setUser(null);
         setIsAuthenticated(false);

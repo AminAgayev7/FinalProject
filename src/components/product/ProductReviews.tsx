@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
 import { useState } from "react";
+import {storageGet, storageSet} from "@/lib/safeStorage";
 export default function CommentsSection({ comments: initialComments, productId }: { comments: Comment[]; productId: number }) {
     const { isAuthenticated, user } = useAuth();
     const [comments, setComments] = useState<Comment[]>(initialComments);
@@ -34,13 +35,14 @@ export default function CommentsSection({ comments: initialComments, productId }
             comment: text.trim(),
         };
         
-        const existingComments = localStorage.getItem(`comments_product_${productId}`);
+        const existingComments = storageGet(`comments_product_${productId}`, null);
+        
         if (existingComments) {
             const parsedComments = JSON.parse(existingComments);
             parsedComments.push(newComment);
-            localStorage.setItem(`comments_product_${productId}`, JSON.stringify(parsedComments));
+            storageSet(`comments_product_${productId}`, parsedComments);
         } else {
-            localStorage.setItem(`comments_product_${productId}`, JSON.stringify([newComment]));
+            storageSet(`comments_product_${productId}`, [newComment]);
         }
         setComments((prev) => {
             return [...prev, newComment]
@@ -147,21 +149,7 @@ export default function CommentsSection({ comments: initialComments, productId }
                                                 onClick={handleSubmit}
                                                 className="absolute right-6 top-4"
                                             >
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                    <g clipPath="url(#clip0_2063_2504)">
-                                                        <path
-                                                            d="M10.0194 1.66699V5.6556C1.69526 5.6556 1.54178 14.4163 1.69573 18.3337C1.69573 16.4818 5.84659 10.0003 10.0194 10.6414V14.63L18.3332 8.14847L10.0194 1.66699Z"
-                                                            stroke="#111827"
-                                                            strokeWidth="1.6"
-                                                            strokeLinejoin="round"
-                                                        />
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_2063_2504">
-                                                            <rect width="20" height="20" fill="white" />
-                                                        </clipPath>
-                                                    </defs>
-                                                </svg>
+                                                <i className="fa-solid text-black dark:text-white fa-paper-plane"></i>
                                             </Button>
                                         </div>
                                     </div>

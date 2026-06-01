@@ -1,18 +1,18 @@
 import { Card } from "@/types/card";
-
+import { storageGet, storageSet, storageRemove } from "@/lib/safeStorage";
 const maxCards = 3
 
 export function getCards(email: string): Card[] {
-    const saved = localStorage.getItem(`cards_${email}`);
+    const saved = storageGet(`cards_${email}`, null);
     if(saved) {
-        return JSON.parse(saved)
+        return saved;
     } else {
         return []
     }
 }
 
 export function saveCards(email: string, cards: Card[]): void {
-    localStorage.setItem(`cards_${email}`, JSON.stringify(cards));
+    storageSet(`cards_${email}`, cards);
 }
 
 export function addCard(email: string, card: Omit<Card, "id" | "balance">): boolean {
