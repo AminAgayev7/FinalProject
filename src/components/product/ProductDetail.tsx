@@ -29,6 +29,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [added, setAdded] = useState(false);
     const { isAuthenticated } = useAuth();
     const [showAuthModal, setshowAuthModal] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, seterror] = useState<string | null>(null);
     useEffect(() => {
         fetchProducts().then((products) => {
@@ -37,7 +38,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             });
             if (foundProduct) {
                 const saved = storageGet(`comments_product_${foundProduct.id}`, null);
-                const extra = saved ? JSON.parse(saved) : [];
+                const extra = saved ? saved : [];
                 setProduct({ ...foundProduct, comments: [...(foundProduct.comments || []), ...extra] });
             }
         }).catch((err) => {
@@ -45,14 +46,6 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         });
     }, [id]);
     
-    if (!product) {
-        return (
-            <div className="min-h-screen bg-zinc-50 pt-20 pb-16 text-black flex items-center justify-center">
-                <p className="text-xl text-gray-500">Product not found.</p>
-            </div>
-        );
-    }
-
     if(error) {
         return (
             <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
@@ -63,6 +56,15 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             </div>
         )
     }
+    if (!product) {
+        return (
+            <div className="min-h-screen bg-zinc-50 dark:bg-gray-950  pt-20 pb-16 text-black flex items-center justify-center">
+                <p className="text-xl text-gray-500 dark:text-white">Product not found.</p>
+            </div>
+        );
+    }
+
+    
     const discountedPrice = product.discount ? (product.price - (product.price * product.discount) / 100) : product.price;
 
     const handleAddToCart = () => {

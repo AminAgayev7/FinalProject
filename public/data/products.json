@@ -643,8 +643,8 @@
         "description": "Fun and colourful socks set — 3 pairs of premium combed cotton.",
         "comments": [
             { "id": 1, "user": "Felix Q.", "avatar": "https://i.pravatar.cc/150?img=70", "rating": 5, "date": "2026-02-01", "verified": true, "comment": "So fun and colorful, great gift idea." },
-            { "id": 2, "user": "Oscar Y.", "avatar": "https://i.pravatar.cc/150?img=71", "rating": 5, "date": "2026-03-13", "verified": true, "comment": "Great quality, very comfortable cotton." },
-            { "id": 3, "user": "Hugo Z.", "avatar": "https://i.pravatar.cc/150?img=72", "rating": 4, "date": "2026-04-24", "verified": false, "comment": "Love the patterns, wash well too." }
+            { "id": 2, "user": "Julia Y.", "avatar": "https://i.pravatar.cc/150?img=10", "rating": 5, "date": "2026-03-13", "verified": true, "comment": "Great quality, very comfortable cotton." },
+            { "id": 3, "user": "Owen C.", "avatar": "https://i.pravatar.cc/150?img=54", "rating": 4, "date": "2026-04-24", "verified": false, "comment": "Love the patterns, wash well too." }
         ]
     }
 ]

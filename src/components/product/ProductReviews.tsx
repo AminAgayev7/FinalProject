@@ -35,10 +35,10 @@ export default function CommentsSection({ comments: initialComments, productId }
             comment: text.trim(),
         };
         
-        const existingComments = storageGet(`comments_product_${productId}`, null);
-        
-        if (existingComments) {
-            const parsedComments = JSON.parse(existingComments);
+        const existingComments = storageGet(`comments_product_${productId}`, null) as Comment[] | null;
+
+        if (existingComments && Array.isArray(existingComments)) {
+            const parsedComments: Comment[] = existingComments;
             parsedComments.push(newComment);
             storageSet(`comments_product_${productId}`, parsedComments);
         } else {

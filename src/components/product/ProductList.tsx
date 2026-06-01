@@ -131,7 +131,7 @@ export default function ProductList() {
                         {(!loading && filtered.length > 0) && (
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
                                 {filtered.map((product, index) => (
-                                    <ProductCard key={index} product={product} />
+                                    <ProductCard key={product.id} product={product} />
                                 ))}
                             </div>
                         )}
