@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { type contactFormData, contactSchema } from "@/hooks/zodSchemas";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 import Modal from "@/components/ui/Modal";
 import Image from "next/image";
 export default function ContactPage() {

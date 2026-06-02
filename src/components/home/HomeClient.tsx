@@ -6,10 +6,12 @@ import ProductCard from "@/components/product/ProductCard";
 import Link from "next/link";
 import Skeleton from "@/components/ui/Skeleton";
 import Button from "@/components/ui/Button";
+
 export default function Home() {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, seterror] = useState<string | null>(null);
+
     useEffect(() => {
         setTimeout(async () => {
             try {
