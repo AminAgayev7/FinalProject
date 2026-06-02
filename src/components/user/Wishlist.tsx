@@ -5,10 +5,19 @@ import ProductWishListGrid from "../product/ProductWishListGrid";
 import { useAuth } from "@/hooks/useAuth";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Skeleton from "../ui/Skeleton";
 export default function Wishlist() {
     const { isAuthenticated } = useAuth();
     const { wishlist, mounted } = useWishlist();
+    const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+    }, [wishlist]);
     if (!mounted) {
         return null;
     }
@@ -31,7 +40,16 @@ export default function Wishlist() {
                     <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-300 text-black mb-6">
                         My Wishlist
                     </h1>
-                    <ProductWishListGrid products={wishlist} />
+
+                    {loading ? (
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            <Skeleton count={wishlist.length || 4} />
+
+                        </div>
+                    ) : (
+                        <ProductWishListGrid products={wishlist} />
+                    )}
                 </div>
 
 

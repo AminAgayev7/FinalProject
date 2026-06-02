@@ -1,6 +1,5 @@
 import ProductCard from "./ProductCard";
 
-
 import { Product } from "@/types/product";
 type Props = {
     products: Product[];
