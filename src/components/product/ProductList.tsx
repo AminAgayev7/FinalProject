@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { fetchProducts } from "@/lib/fetchProducts";
 import ProductCard from "@/components/product/ProductCard";
@@ -8,8 +8,8 @@ import Skeleton from "../ui/Skeleton";
 import Button from "../ui/Button";
 import { useFilter } from "@/hooks/useFilter";
 import FilterPanel from "../FilterPanel";
-
 import { useSearchParams } from "next/navigation";
+
 const sort_options = [
     { label: "Default", value: "default" },
     { label: "Price: Low to High", value: "ascending" },
@@ -20,6 +20,8 @@ const sort_options = [
 export default function ProductList() {
     const [error, seterror] = useState<string | null>(null);
     const searchParams = useSearchParams();
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const query = searchParams.get("q");
@@ -28,22 +30,18 @@ export default function ProductList() {
         }
     }, [searchParams]);
 
-    const [products, setProducts] = useState<Product[]>([]);
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
-    setTimeout(async () => {
-        try {
-            const data = await fetchProducts();
-            setProducts(data);
-            setLoading(false);
-        } catch (err) {
-            seterror(`Error fetching products: ${err}`);
-            setLoading(false);
-        }
-    }, 3000);
-}, []);
-    
+        setTimeout(async () => {
+            try {
+                const data = await fetchProducts();
+                setProducts(data);
+                setLoading(false);
+            } catch (err) {
+                seterror(`Error fetching products: ${err}`);
+                setLoading(false);
+            }
+        }, 3000);
+    }, []);
 
     const {
         search, setSearch,
@@ -61,20 +59,18 @@ export default function ProductList() {
 
     if (!loading && filtered.length === 0) {
         return (
-        <div className="flex flex-col items-center min-h-screen justify-center py-24 text-center">
-
-            <h3 className="text-xl font-semibold dark:text-gray-300 text-gray-800 mb-2">No products found</h3>
-            <p className="text-gray-500 dark:text-gray-400 mb-6">Try adjusting your filters or search term.</p>
-
-            <Button onClick={resetFilters}
-                className="bg-black dark:bg-gray-800 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">
-                Reset Filters
-            </Button>
-        </div>
+            <div className="flex flex-col items-center min-h-screen justify-center py-24 text-center">
+                <h3 className="text-xl font-semibold dark:text-gray-300 text-gray-800 mb-2">No products found</h3>
+                <p className="text-gray-500 dark:text-gray-400 mb-6">Try adjusting your filters or search term.</p>
+                <Button onClick={resetFilters}
+                    className="bg-black dark:bg-gray-800 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">
+                    Reset Filters
+                </Button>
+            </div>
         )
     }
 
-    if(error) {
+    if (error) {
         return (
             <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
                 <h1 className="text-2xl text-red-500">{error}</h1>
@@ -84,6 +80,7 @@ export default function ProductList() {
             </div>
         )
     }
+
     return (
         <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 mt-10 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -122,7 +119,6 @@ export default function ProductList() {
                             </select>
                         </div>
 
-
                         {loading && (
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
                                 <Skeleton count={24} />
@@ -130,7 +126,7 @@ export default function ProductList() {
                         )}
                         {(!loading && filtered.length > 0) && (
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
-                                {filtered.map((product, index) => (
+                                {filtered.map((product) => (
                                     <ProductCard key={product.id} product={product} />
                                 ))}
                             </div>

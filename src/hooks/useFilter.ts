@@ -1,9 +1,7 @@
-
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Product } from "@/types/product";
 
 export function useFilter(products: Product[]) {
-
     const [selectedSeason, setSelectedSeason] = useState("");
     const seasons = ["Spring", "Summer", "Winter", "All Season"];
 
@@ -16,6 +14,31 @@ export function useFilter(products: Product[]) {
     const [maxPrice, setMaxPrice] = useState("");
     const [sort, setSort] = useState("default");
 
+    const [debouncedSearch, setDebouncedSearch] = useState("");
+    const [debouncedMinPrice, setDebouncedMinPrice] = useState("");
+    const [debouncedMaxPrice, setDebouncedMaxPrice] = useState("");
+
+    useEffect(() => {
+        const timer = setTimeout(() => setDebouncedSearch(search), 400);
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [search]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setDebouncedMinPrice(minPrice), 400);
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [minPrice]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setDebouncedMaxPrice(maxPrice), 400);
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [maxPrice]);
+
     const handleGenderChange = (gender: string) => {
         setSelectedGender(gender);
         setSelectedCategory("");
@@ -25,7 +48,6 @@ export function useFilter(products: Product[]) {
 
     const categories = useMemo(() => {
         let source;
-
         if (selectedGender) {
             source = products.filter((product) => {
                 return product.gender === selectedGender;
@@ -33,12 +55,10 @@ export function useFilter(products: Product[]) {
         } else {
             source = products;
         }
-
         return Array.from(
             new Set(source.map((product) => {
                 return product.category;
             }))).sort();
-
     }, [products, selectedGender]);
 
     const sizes = useMemo(() => {
@@ -56,9 +76,9 @@ export function useFilter(products: Product[]) {
     const filtered = useMemo(() => {
         let result = Array.from(products);
 
-        if (search) {
+        if (debouncedSearch) {
             result = result.filter((product) => {
-                return product.title.toLowerCase().includes(search.toLowerCase());
+                return product.title.toLowerCase().includes(debouncedSearch.toLowerCase());
             });
         }
         if (selectedGender) {
@@ -83,14 +103,14 @@ export function useFilter(products: Product[]) {
                 })
             });
         }
-        if (minPrice) {
+        if (debouncedMinPrice) {
             result = result.filter((product) => {
-                return product.price >= Number(minPrice)
+                return product.price >= Number(debouncedMinPrice)
             });
         }
-        if (maxPrice) {
+        if (debouncedMaxPrice) {
             result = result.filter((product) => {
-                return product.price <= Number(maxPrice)
+                return product.price <= Number(debouncedMaxPrice)
             });
         }
 
@@ -116,7 +136,7 @@ export function useFilter(products: Product[]) {
             });
         }
         return result;
-    }, [products, search, selectedGender, selectedCategory, selectedSize, selectedColor, minPrice, maxPrice, sort, selectedSeason]);
+    }, [products, debouncedSearch, selectedGender, selectedCategory, selectedSize, selectedColor, debouncedMinPrice, debouncedMaxPrice, sort, selectedSeason]);
 
     const resetFilters = () => {
         setSearch("");
