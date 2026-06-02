@@ -14,7 +14,7 @@ import { addCard } from "@/lib/cardStorage";
 import { deleteCard } from "@/lib/cardStorage";
 import Input from "@/components/ui/Input";
 import Image from "next/image";
-import {storageGet, storageSet} from "@/lib/safeStorage";
+import {storageGet, storageRemove, storageSet} from "@/lib/safeStorage";
 export default function UserProfile() {
 
     const { user, logout } = useAuth();
@@ -124,7 +124,7 @@ export default function UserProfile() {
             return;
         }
 
-        storageGet(`profileImage_${user.email}`, null);
+        storageRemove(`profileImage_${user.email}`);
 
         setProfileImage(null);
     }
