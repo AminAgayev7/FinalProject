@@ -29,7 +29,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [added, setAdded] = useState(false);
     const { isAuthenticated } = useAuth();
     const [showAuthModal, setshowAuthModal] = useState(false);
-    const [loading, setLoading] = useState(true);
+
     const [error, seterror] = useState<string | null>(null);
     useEffect(() => {
         fetchProducts().then((products) => {

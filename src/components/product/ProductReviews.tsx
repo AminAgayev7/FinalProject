@@ -62,7 +62,7 @@ export default function CommentsSection({ comments: initialComments, productId }
                     <div className="w-full flex flex-col justify-start items-start gap-8">
 
                         {comments?.map((comment) => {
-                            const liveAvatar = comment.email ? localStorage.getItem(`profileImage_${comment.email}`) : null;
+                            const liveAvatar = comment.email ? storageGet(`profileImage_${comment.email}`, null) : null;
                             const avatarSrc = liveAvatar || comment.avatar;
 
                             return (

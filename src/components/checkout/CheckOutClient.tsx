@@ -178,7 +178,7 @@ export default function CheckOutPage() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div>
-                                    <label htmlFor="state" className={"block text-gray-700 dark:text-white mb-1"}>State</label>
+                                    <label htmlFor="state" className={"block text-gray-700 dark:text-white mb-1"}>Region</label>
                                     <Input type="text" id="state" {...register("shipping.region")} className={"w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 outline-none focus:ring-2 focus:ring-teal-500"} />
                                     {errors.shipping?.region && <p className="text-red-500 text-sm mt-1">{errors.shipping.region.message}</p>}
                                 </div>
