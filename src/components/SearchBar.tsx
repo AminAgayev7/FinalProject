@@ -26,7 +26,7 @@ export default function SearchBar({ search, setSearch, onClose, className, input
     return (
         <div className={`relative ${className}`}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <i className="fa-brands fa-sistrix"></i>
+                <i className="fa-brands dark:text-white text-black fa-sistrix"></i>
             </div>
             <Input
                 type="text"

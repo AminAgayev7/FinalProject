@@ -72,7 +72,7 @@ export default function Navbar() {
 
                 </Link>
 
-                <ul className="hidden md:flex items-center gap-6 lg:gap-8 list-none m-0 p-0">
+                <ul className="hidden lg:flex items-center gap-6 lg:gap-8 list-none m-0 p-0">
                     <li>
                         <Link
                             href="/"
@@ -137,14 +137,14 @@ export default function Navbar() {
                     <SearchBar
                         search={search}
                         setSearch={setSearch}
-                        className="hidden md:block w-40 lg:w-48"
+                        className="hidden lg:block w-40 lg:w-48"
                         inputClassName="w-full dark:bg-gray-800 dark:border-none border-gray-300 border dark:text-white bg-gray-50 text-gray-900"
                     />
                     {user ? (
                         <div className="flex items-center gap-2">
                             <Link
                                 href="/profile"
-                                className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg  dark:hover:bg-gray-800 hover:bg-gray-100 transition-colors group"
+                                className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg  dark:hover:bg-gray-800 hover:bg-gray-100 transition-colors group"
                             >
                                 <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
                                     {
@@ -175,7 +175,7 @@ export default function Navbar() {
                         </div>
 
                     ) : (
-                        <div className="hidden md:flex items-center gap-2">
+                        <div className="hidden lg:flex items-center gap-2">
                             <Link
                                 href="/auth/login"
                                 className="px-3 lg:px-4 py-2 dark:hover:bg-gray-800  dark:text-white text-sm border-gray-400 dark:border-gray-500 text-gray-600 border rounded-lg hover:bg-gray-200  transition-all"
@@ -194,7 +194,7 @@ export default function Navbar() {
                     )}
                     <Button
                         onClick={() => setOpen(!open)}
-                        className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        className="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                     >
                         <span className="sr-only">Open the menu</span>
 
@@ -208,7 +208,7 @@ export default function Navbar() {
             </div>
 
             <div
-                className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${open ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
+                className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${open ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
             >
 
                 <div className="pt-4  mt-3 flex flex-col gap-1">
@@ -300,7 +300,7 @@ export default function Navbar() {
                                 <Link
                                     href="/auth/login"
                                     onClick={() => setOpen(false)}
-                                    className="flex-1 text-center px-2 sm:px-4 py-2.5 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-medium"
+                                    className="flex-1 text-center dark:text-white dark:border-gray-700 dark:hover:bg-gray-800 px-2 sm:px-4 py-2.5 text-sm text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all font-medium"
                                 >
                                     Login
                                 </Link>
