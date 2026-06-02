@@ -20,20 +20,19 @@ export default function ProductCard({ product }: { product?: Product }) {
     const { isAuthenticated } = useAuth();
     const [showModal, setShowModal] = useState(false);
     const handleWishlist = useCallback(() => {
-        if (!product) {
-            return;
-        }
+        if (!product) return;
+
 
         if (!isAuthenticated) {
             setShowModal(true);
             return;
         }
 
+
         toggleWishlist(product);
     }, [toggleWishlist, product, isAuthenticated]);
-    const isFavorite = product ? wishlist.some((item) => {
-        return item.id === product.id;
-    }) : false;
+
+    const isFavorite = product && isAuthenticated ? wishlist.some((item) => item.id === product.id) : false;
 
     const discountedPrice = product?.discount ? (product.price - (product.price * product.discount) / 100) : product?.price;
 

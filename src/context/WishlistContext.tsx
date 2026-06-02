@@ -2,7 +2,9 @@
 
 import { createContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
+import { useAuth } from "@/hooks/useAuth";
 import { storageGet, storageSet } from "@/lib/safeStorage";
+import { useRouter } from "next/navigation";
 type ChildrenType = {
     children: React.ReactNode;
 };
@@ -17,7 +19,8 @@ export const WishlistContext =
     createContext<WishlistContextType | null>(null);
 
 export function WishlistProvider({ children }: ChildrenType) {
-
+    const { user } = useAuth();
+    const router = useRouter();
     const [wishlist, setWishlist] = useState<Product[]>([]);
     const [mounted, setMounted] = useState(false);
 
@@ -31,6 +34,15 @@ export function WishlistProvider({ children }: ChildrenType) {
         setMounted(true);
     }, []);
 
+
+    useEffect(() => {
+
+        if (mounted && !user) {
+            setWishlist([]);
+            storageSet("wishlist", []);
+        }
+    }, [user, mounted]);
+    
     useEffect(() => {
         if (mounted) {
             storageSet("wishlist", wishlist);
@@ -39,18 +51,16 @@ export function WishlistProvider({ children }: ChildrenType) {
 
     const toggleWishlist = (product: Product) => {
 
-        const exists = wishlist.find((item) => {
-            return item.id === product.id
+        if (!user) {
+            router.push("/auth/login");
+            return;
         }
 
-        );
+
+        const exists = wishlist.find((item) => item.id === product.id);
 
         if (exists) {
-            setWishlist(
-                wishlist.filter((item) => {
-                    return item.id !== product.id
-                })
-            );
+            setWishlist(wishlist.filter((item) => item.id !== product.id));
         } else {
             setWishlist([...wishlist, product]);
         }
@@ -58,7 +68,7 @@ export function WishlistProvider({ children }: ChildrenType) {
 
     return (
         <WishlistContext.Provider
-            value={{wishlist, toggleWishlist, mounted,}}
+            value={{ wishlist, toggleWishlist, mounted, }}
         >
             {children}
         </WishlistContext.Provider>

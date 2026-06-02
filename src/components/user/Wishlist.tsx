@@ -27,13 +27,18 @@ export default function Wishlist() {
                             </Button>
                         </Link>
                     </div>
-                ) : <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-300 text-black mb-6">
-                    My Wishlist
-                </h1>
+                ) : <div>
+                    <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-300 text-black mb-6">
+                        My Wishlist
+                    </h1>
+                    <ProductWishListGrid products={wishlist} />
+                </div>
+
+
             }
 
 
-            <ProductWishListGrid products={wishlist} />
+
         </div>
     );
 }
