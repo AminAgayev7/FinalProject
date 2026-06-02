@@ -40,10 +40,10 @@ export default function Wishlist() {
                     <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-300 text-black mb-6">
                         My Wishlist
                     </h1>
-
+                    
                     {loading ? (
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4  gap-6">
                             <Skeleton count={wishlist.length || 4} />
 
                         </div>
@@ -54,9 +54,19 @@ export default function Wishlist() {
 
 
             }
-
-
-
+            {
+                        wishlist.length === 0 && !loading && (
+                            <div className="text-center py-50">
+                                <h2 className="text-xl font-semibold dark:text-gray-300 text-gray-800 mb-2">Your wishlist is empty.</h2>
+                                <p className="text-gray-500 dark:text-gray-400 mb-6">Start adding products to your wishlist to see them here.</p>
+                                <Link href="/products">
+                                    <Button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                                        Browse Products
+                                    </Button>
+                                </Link>
+                            </div>
+                        )
+                    }
         </div>
     );
 }
