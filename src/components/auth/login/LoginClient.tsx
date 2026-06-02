@@ -41,7 +41,7 @@ export default function LoginPage() {
                         <div className="mx-auto max-w-xs sm:max-w-md md:max-w-lg flex flex-col gap-4">
                             <div>
                                 <Input
-                                    className={"w-full text-gray-700 px-5 dark:border-gray-700 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
+                                    className={"w-full text-gray-700 px-5 dark:bg-gray-800 dark:text-white dark:border-gray-700 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
                                     type="email"
                                     {...register("email")}
                                     placeholder="Enter your email"
@@ -54,7 +54,7 @@ export default function LoginPage() {
                             </div>
                             <div>
                                 <Input
-                                    className={"w-full text-gray-700  px-5 dark:border-gray-700 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
+                                    className={"w-full text-gray-700 dark:bg-gray-800 dark:text-white px-5 dark:border-gray-700 py-3 rounded-lg font-medium border-gray-300 border placeholder-gray-500 text-sm focus:outline-none focus:border-2 focus:outline"}
                                     type="password"
                                     {...register("password")}
                                     placeholder="Password"
