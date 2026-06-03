@@ -15,8 +15,7 @@ type WishlistContextType = {
     mounted: boolean;
 };
 
-export const WishlistContext =
-    createContext<WishlistContextType | null>(null);
+export const WishlistContext = createContext<WishlistContextType | null>(null);
 
 export function WishlistProvider({ children }: ChildrenType) {
     const { user } = useAuth();
@@ -72,8 +71,7 @@ export function WishlistProvider({ children }: ChildrenType) {
 
     return (
         <WishlistContext.Provider
-            value={{ wishlist, toggleWishlist, mounted, }}
-        >
+            value={{ wishlist, toggleWishlist, mounted, }}>
             {children}
         </WishlistContext.Provider>
     );

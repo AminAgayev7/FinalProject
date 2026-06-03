@@ -447,9 +447,9 @@
         "reviews": 177,
         "material": "88% Polyester, 12% Elastane",
         "images": [
-            "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=800",
+            "https://th.bing.com/th/id/OIP.h6LMtAWAEN8EjykcmGwNzAHaJ4?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
             "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800",
-            "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800"
+            "https://i5.walmartimages.com/asr/4051b9b6-810c-41ff-81f0-55393d077946.d0affd07c5e612d313c1a01e181ac85b.jpeg"
         ],
         "description": "High-support sports bra designed for intense workouts.",
         "comments": [
@@ -520,7 +520,7 @@
         "gender": "Women",
         "category": "Tops",
         "brand": "Arket",
-        "season": "Winter",
+        "season": "Summer",
         "sizes": ["XS", "S", "M", "L", "XL"],
         "colors": ["Brown", "Cream", "Dusty Pink"],
         "stock": 19,
