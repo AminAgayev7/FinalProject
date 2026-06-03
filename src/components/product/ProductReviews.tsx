@@ -6,6 +6,7 @@ type Comment = NonNullable<Product["comments"]>[number];
 import Button from "../ui/Button";
 import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import {storageGet, storageSet} from "@/lib/safeStorage";
 export default function CommentsSection({ comments: initialComments, productId }: { comments: Comment[]; productId: number }) {
@@ -72,7 +73,9 @@ export default function CommentsSection({ comments: initialComments, productId }
                                             <div className="flex items-center gap-2.5">
                                                 <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                                                     {avatarSrc ? (
-                                                        <img
+                                                        <Image
+                                                            width={40}
+                                                            height={40}
                                                             className="w-full h-full rounded-full object-cover"
                                                             src={avatarSrc}
                                                             alt={comment.user}
@@ -129,7 +132,7 @@ export default function CommentsSection({ comments: initialComments, productId }
                                     <div className="w-full flex flex-col gap-4">
                                         <div className="flex items-center gap-1">
                                             {Array.from({ length: 5 }).map((_, i) => (
-                                                <button
+                                                <Button
                                                     key={i}
                                                     onClick={() => setSelectedRating(i + 1)}
                                                     className={`fa-star fa-solid text-xl transition-colors ${i < selectedRating ? "text-amber-400" : "text-gray-300"}`}

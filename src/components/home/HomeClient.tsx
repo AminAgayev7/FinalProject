@@ -6,7 +6,7 @@ import ProductCard from "@/components/product/ProductCard";
 import Link from "next/link";
 import Skeleton from "@/components/ui/Skeleton";
 import Button from "@/components/ui/Button";
-
+import Image from "next/image";
 export default function Home() {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
@@ -45,10 +45,12 @@ export default function Home() {
     return (
         <main className="bg-zinc-50 dark:bg-gray-950 min-h-screen pt-9">
             <section className="relative min-h-screen mt-6 flex items-center overflow-hidden">
-                <img
+                <Image
                     src={"https://wallpaperaccess.com/full/4624210.jpg"}
                     alt="Hero"
                     className="absolute inset-0 w-full min-h-full object-cover  object-center"
+                    width={1920}
+                    height={1080}
                 />
                 <div className="absolute inset-0 bg-black/55" />
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">

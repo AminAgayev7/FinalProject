@@ -20,6 +20,8 @@ export default function Navbar() {
 
 
     const pathname = usePathname();
+
+    
     useEffect(() => {
         if (user) {
             const savedImage = storageGet(`profileImage_${user.email}`, null);
@@ -211,7 +213,7 @@ export default function Navbar() {
                 className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${open ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
             >
 
-                <div className="pt-4  mt-3 flex flex-col gap-1">
+                <div className="pt-4 mt-3 flex flex-col gap-1">
 
                     <SearchBar
                         search={search}
@@ -270,7 +272,9 @@ export default function Navbar() {
                                     <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
                                         {
                                             profileImage ? (
-                                                <img
+                                                <Image
+                                                    width={32}
+                                                    height={32}
                                                     src={profileImage}
                                                     alt="Profile"
                                                     className="w-full h-full object-cover"

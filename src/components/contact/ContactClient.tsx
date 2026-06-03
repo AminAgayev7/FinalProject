@@ -58,9 +58,9 @@ export default function ContactPage() {
                                             <div className="text-indigo-600">
                                                 <i className="fa-regular text-2xl fa-envelope"></i>
                                             </div>
-                                            <a href="mailto:example@mail.com" className="hover:text-indigo-600 transition">
+                                            <Link href="mailto:example@mail.com" className="hover:text-indigo-600 transition">
                                                 aminagayev516@gmail.com
-                                            </a>
+                                            </Link>
                                         </div>
 
 

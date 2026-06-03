@@ -42,7 +42,7 @@ export function WishlistProvider({ children }: ChildrenType) {
             storageSet("wishlist", []);
         }
     }, [user, mounted]);
-    
+
     useEffect(() => {
         if (mounted) {
             storageSet("wishlist", wishlist);
@@ -57,10 +57,14 @@ export function WishlistProvider({ children }: ChildrenType) {
         }
 
 
-        const exists = wishlist.find((item) => item.id === product.id);
+        const exists = wishlist.find((item) => {
+            return item.id === product.id
+        });
 
         if (exists) {
-            setWishlist(wishlist.filter((item) => item.id !== product.id));
+            setWishlist(wishlist.filter((item) => {
+                return item.id !== product.id
+            }));
         } else {
             setWishlist([...wishlist, product]);
         }

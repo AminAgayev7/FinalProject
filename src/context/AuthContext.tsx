@@ -46,8 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     function login(email: string, password: string): boolean {
 
-        const users = storageGet<(User & { password: string })[]>("data", []);
-        ;
+        const users = storageGet<(User & { password: string })[]>("data", []);;
 
         const found = users.find((u: User & { password: string }) => {
             return (u.email === email) && (bcrypt.compareSync(password, u.password))

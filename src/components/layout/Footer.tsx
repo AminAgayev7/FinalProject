@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Footer() {
     return (
         <footer className="w-full dark:bg-gray-950 shadow-sm shadow-gray-500 bg-white py-14">
@@ -7,18 +8,18 @@ export default function Footer() {
                         <p className="sm:text-2xl text-center dark:text-gray-400 text-gray-600 font-light mb-4 tracking-tight">Follow us on social media!</p>
                     </div>
                     <div className="flex space-x-10 justify-center items-center mb-15">
-                        <a href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
+                        <Link href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
                             <i className="fa-brands text-2xl fa-x-twitter"></i>
-                        </a>
-                        <a href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
+                        </Link>
+                        <Link href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
                             <i className="fa-brands text-2xl fa-instagram"></i>
-                        </a>
-                        <a href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
+                        </Link>
+                        <Link href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
                             <i className="fa-brands text-2xl fa-facebook-f"></i>
-                        </a>
-                        <a href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
+                        </Link>
+                        <Link href="#" className="block dark:text-white text-gray-900 transition-all duration-500 hover:text-indigo-600">
                             <i className="fa-brands text-2xl fa-youtube"></i>
-                        </a>
+                        </Link>
                     </div>
                     
                     <span className="text-lg  dark:text-gray-400 text-gray-500 text-center block">© ModeX 2026, All rights reserved.</span>
