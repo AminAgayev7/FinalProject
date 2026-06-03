@@ -1,4 +1,4 @@
-import { z, ZodLazy } from "zod";
+import { z } from "zod";
 
 
 export const checkoutSchema = z.object({

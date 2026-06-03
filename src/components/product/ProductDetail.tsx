@@ -29,7 +29,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [added, setAdded] = useState(false);
     const { isAuthenticated } = useAuth();
     const [showAuthModal, setshowAuthModal] = useState(false);
-
+    const [showStockAlert, setShowStockAlert] = useState(false);
     const [error, seterror] = useState<string | null>(null);
     useEffect(() => {
         fetchProducts().then((products) => {
@@ -84,7 +84,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         const currentQuantityInCart = itemInCart ? itemInCart.quantity : 0;
 
         if (currentQuantityInCart >= currentStock) {
-            alert(`Sorry, only ${currentStock} items are available in stock.`);
+            setShowStockAlert(true);
             return;
         }
         addToCart(product, selectedSize, selectedColor);
@@ -221,7 +221,14 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                     onClose={() => setshowAuthModal(false)}
                 />
             )}
-
+            {
+                showStockAlert && (
+                    <Modal
+                        message="Sorry, the selected quantity exceeds available stock!"
+                        onClose={() => setShowStockAlert(false)}
+                    />
+                )
+            }
         </>
 
     );
