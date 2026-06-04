@@ -646,5 +646,1458 @@
             { "id": 2, "user": "Julia Y.", "avatar": "https://i.pravatar.cc/150?img=10", "rating": 5, "date": "2026-03-13", "verified": true, "comment": "Great quality, very comfortable cotton." },
             { "id": 3, "user": "Owen C.", "avatar": "https://i.pravatar.cc/150?img=54", "rating": 4, "date": "2026-04-24", "verified": false, "comment": "Love the patterns, wash well too." }
         ]
+    },
+    {
+    "id": 25,
+    "title": "Polo Shirt",
+    "price": 45,
+    "discount": 0,
+    "gender": "Men",
+    "category": "Shirts",
+    "brand": "Lacoste",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White",
+      "Green"
+    ],
+    "stock": 32,
+    "season": "Summer",
+    "rating": 4.6,
+    "reviews": 143,
+    "material": "100% Piqué Cotton",
+    "images": [
+      "https://www.meltemi.co.uk/content/images/thumbs/0031958_single-tipped-polo-shirt-whitebottle-green.jpeg",
+      "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800",
+      "https://dimg.dillards.com/is/image/DillardsZoom/zoom/polo-ralph-lauren-classic-fit-soft-touch-short-sleeve-polo-shirt/00000001_zi_polo_black05092529.jpg"
+    ],
+    "description": "Classic piqué polo shirt with embroidered logo, perfect for smart-casual occasions.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Nathan H.",
+        "avatar": "https://i.pravatar.cc/150?img=70",
+        "rating": 5,
+        "date": "2026-04-05",
+        "verified": true,
+        "comment": "Great quality polo, very comfortable."
+      },
+      {
+        "id": 2,
+        "user": "Oscar P.",
+        "avatar": "https://i.pravatar.cc/150?img=69",
+        "rating": 4,
+        "date": "2026-04-14",
+        "verified": true,
+        "comment": "Fits perfectly, love the navy color."
+      },
+      {
+        "id": 3,
+        "user": "Ralph E.",
+        "avatar": "https://i.pravatar.cc/150?img=68",
+        "rating": 5,
+        "date": "2026-04-28",
+        "verified": false,
+        "comment": "Premium feel, worth every penny."
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "High-Performance Leggings",
+    "price": 98,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Sportswear",
+    "brand": "Lululemon",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black",
+      "Navy",
+      "Burgundy"
+    ],
+    "stock": 42,
+    "season": "All Season",
+    "rating": 4.9,
+    "reviews": 521,
+    "material": "Nylon/Lycra Blend",
+    "images": [
+      "https://reebok.ca/cdn/shop/products/14ODNyuPioF7d6i9r3zI2tR-sL6Io7Tom.jpg?v=1663634872",
+      "https://www.sportsdirect.com/images/imgzoom/34/34661469_xxl.jpg",
+      "https://tse2.mm.bing.net/th/id/OIP.x4pCLgJJLOEQ-TTZ0i8YwwHaJ4?w=1280&h=1707&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "4-way stretch performance leggings with a high waist and buttery-soft feel.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Chloe M.",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "rating": 5,
+        "date": "2026-03-10",
+        "verified": true,
+        "comment": "Best leggings I've ever owned, no see-through!"
+      },
+      {
+        "id": 2,
+        "user": "Penny L.",
+        "avatar": "https://i.pravatar.cc/150?img=5",
+        "rating": 5,
+        "date": "2026-04-01",
+        "verified": true,
+        "comment": "So comfortable, wear them for everything."
+      },
+      {
+        "id": 3,
+        "user": "Daisy R.",
+        "avatar": "https://i.pravatar.cc/150?img=25",
+        "rating": 5,
+        "date": "2026-04-22",
+        "verified": false,
+        "comment": "Worth every penny, amazing quality."
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Windbreaker Jacket",
+    "price": 95,
+    "discount": 10,
+    "gender": "Unisex",
+    "category": "Jackets",
+    "brand": "Columbia",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Royal Blue",
+      "Orange",
+      "Black"
+    ],
+    "stock": 21,
+    "season": "Spring",
+    "rating": 4.5,
+    "reviews": 76,
+    "material": "100% Nylon",
+    "images": [
+      "https://i5.walmartimages.com/asr/6bb29bc4-d688-4295-acdb-867eb767148d.7ca0509e9215054ac702fb1f8d395f1c.jpeg",
+      "https://m.media-amazon.com/images/I/718WUHIIukL._AC_SL1500_.jpg",
+      "https://th.bing.com/th/id/R.3cad6d8f3fbda3174cae05153d0f66fd?rik=lafJPq1cFEtGZQ&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f0055%2f1242%2fproducts%2fEXP54LWP-RBK_600x.jpg%3fv%3d1569287511&ehk=fqjQddXIPnWVsPFMZcjufujpZ3uaxlrVgSUB6GdxmPE%3d&risl=&pid=ImgRaw&r=0"
+    ],
+    "description": "Lightweight packable windbreaker that keeps you protected from wind and light rain.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Mason T.",
+        "avatar": "https://i.pravatar.cc/150?img=56",
+        "rating": 5,
+        "date": "2026-03-08",
+        "verified": true,
+        "comment": "Packs into itself, great for travel."
+      },
+      {
+        "id": 2,
+        "user": "Riley W.",
+        "avatar": "https://i.pravatar.cc/150?img=57",
+        "rating": 4,
+        "date": "2026-03-30",
+        "verified": true,
+        "comment": "Great wind protection, very lightweight."
+      },
+      {
+        "id": 3,
+        "user": "Quinn B.",
+        "avatar": "https://i.pravatar.cc/150?img=49",
+        "rating": 5,
+        "date": "2026-04-20",
+        "verified": false,
+        "comment": "Love the royal blue, fits perfectly."
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Maxi Wrap Dress",
+    "price": 120,
+    "discount": 15,
+    "gender": "Women",
+    "category": "Dresses",
+    "brand": "Reformation",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Floral Print",
+      "Solid White",
+      "Terracotta"
+    ],
+    "stock": 9,
+    "season": "Summer",
+    "rating": 4.8,
+    "reviews": 67,
+    "material": "TENCEL™ Lyocell",
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.wME7WOrVkAt0g0VqrgBicgHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse1.mm.bing.net/th/id/OIP.BjT-D5yrvPG3IJEn94GliAHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse1.explicit.bing.net/th/id/OIP.HE0Cy_YojC17iLHeQQ-B1AHaJ3?rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Sustainable maxi wrap dress with a flattering silhouette and eco-friendly fabric.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Stella F.",
+        "avatar": "https://i.pravatar.cc/150?img=10",
+        "rating": 5,
+        "date": "2026-04-03",
+        "verified": true,
+        "comment": "Absolutely beautiful, so elegant."
+      },
+      {
+        "id": 2,
+        "user": "Isla G.",
+        "avatar": "https://i.pravatar.cc/150?img=9",
+        "rating": 5,
+        "date": "2026-04-16",
+        "verified": true,
+        "comment": "Love the sustainable fabric, super soft."
+      },
+      {
+        "id": 3,
+        "user": "Freya O.",
+        "avatar": "https://i.pravatar.cc/150?img=15",
+        "rating": 4,
+        "date": "2026-04-29",
+        "verified": false,
+        "comment": "Beautiful dress, runs slightly large."
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Penny Loafers",
+    "price": 130,
+    "discount": 0,
+    "gender": "Men",
+    "category": "Shoes",
+    "brand": "Clarks",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "colors": [
+      "Tan",
+      "Black",
+      "Burgundy"
+    ],
+    "stock": 24,
+    "season": "All Season",
+    "rating": 4.7,
+    "reviews": 92,
+    "material": "Full-Grain Leather",
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.lrEnLBBVn--dzBflPF6xAAHaJQ?w=2800&h=3500&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse4.mm.bing.net/th/id/OIP.ewu3TIxFBNiWkQLCk6xzqwHaHa?w=600&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://i.pinimg.com/736x/e2/1a/43/e21a43ad74bba72571f6a9eff579f445.jpg"
+    ],
+    "description": "Handcrafted full-grain leather loafers with cushioned insole for all-day comfort.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Bernard C.",
+        "avatar": "https://tse4.mm.bing.net/th/id/OIP.Zd1aR66hhAZWO9Yfc8Q5TwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-02-19",
+        "verified": true,
+        "comment": "Superb quality, very comfortable."
+      },
+      {
+        "id": 2,
+        "user": "Harold E.",
+        "avatar": "https://tse3.mm.bing.net/th/id/OIP.BhH4bhy0_GP5yMFpsDtkWgHaFY?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 4,
+        "date": "2026-03-11",
+        "verified": true,
+        "comment": "Classic style, pairs with everything."
+      },
+      {
+        "id": 3,
+        "user": "Edmund A.",
+        "avatar": "https://tse1.mm.bing.net/th/id/OIP.rZl_NBLOYBSWGRcpAGOkSgHaD8?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-04-04",
+        "verified": false,
+        "comment": "Best loafers I've ever had."
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Bucket Hat",
+    "price": 22,
+    "discount": 0,
+    "gender": "Unisex",
+    "category": "Accessories",
+    "brand": "New Era",
+    "sizes": [
+      "S/M",
+      "L/XL"
+    ],
+    "colors": [
+      "Black",
+      "Khaki",
+      "Tie-Dye"
+    ],
+    "stock": 65,
+    "season": "Summer",
+    "rating": 4.5,
+    "reviews": 182,
+    "material": "100% Cotton",
+    "images": [
+      "https://www.neweracap.co.uk/cdn/shop/files/mens-bucket-hat-2400x2400.webp?v=1743999361&width=2400",
+      "https://tse4.mm.bing.net/th/id/OIP.Sq4ezoE56VMaaeH259wkhwHaJQ?w=1800&h=2250&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse4.mm.bing.net/th/id/OIP.ee71iu3haxowNWs_aza0CgHaJQ?w=1800&h=2250&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Trendy cotton bucket hat offering sun protection and a relaxed streetwear vibe.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Jay M.",
+        "avatar": "https://tse3.mm.bing.net/th/id/OIP.HgnFblxnEeTBaCcXPOp_TAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-04-07",
+        "verified": true,
+        "comment": "Perfect fit, great for sunny days."
+      },
+      {
+        "id": 2,
+        "user": "Kai N.",
+        "avatar": "https://tse3.mm.bing.net/th/id/OIP.rSPoomE77d6hKNDMUJXVigHaLG?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 4,
+        "date": "2026-04-19",
+        "verified": false,
+        "comment": "Love the khaki color, very trendy."
+      },
+      {
+        "id": 3,
+        "user": "Lee O.",
+        "avatar": "https://th.bing.com/th/id/R.93f5fdc544b4ca384cd73b29db76d5fa?rik=C9xpCV5htF04Ig&riu=http%3a%2f%2fs3.amazonaws.com%2fmixform-backup%2f39179%2falbum.jpg&ehk=XhWaPYOiM3E9IDI3tp09LG3K%2bZiEVWsFrNwlOuefilk%3d&risl=&pid=ImgRaw&r=0",
+        "rating": 5,
+        "date": "2026-04-30",
+        "verified": true,
+        "comment": "Great quality, washes really well."
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Yoga Pants",
+    "price": 75,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Sportswear",
+    "brand": "Alo Yoga",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Black",
+      "Lavender",
+      "Forest Green"
+    ],
+    "stock": 38,
+    "season": "All Season",
+    "rating": 4.8,
+    "reviews": 264,
+    "material": "87% Nylon, 13% Elastane",
+    "images": [
+      "https://cdn-img.prettylittlething.com/7/1/2/1/712135143e62e3d58b9326709cb11ec5f03eab43_CNH1744_1_midnight_blue_sculpt_flare_yoga_pants.jpg?imwidth=600",
+      "https://tse1.mm.bing.net/th/id/OIP.WKeMcWb6ITq78HXljL7ZowHaI4?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://cdn.shopify.com/s/files/1/1737/4021/products/flare-legging_800x.jpg?v=1669834643"
+    ],
+    "description": "Ultra-soft yoga pants with a high waist and sculpting compression fit.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Aria S.",
+        "avatar": "https://tse4.mm.bing.net/th/id/OIP.9caEea3Xx9nmBzRGhnWdJwHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-03-14",
+        "verified": true,
+        "comment": "Amazing quality, so flattering."
+      },
+      {
+        "id": 2,
+        "user": "Maya T.",
+        "avatar": "https://tse4.mm.bing.net/th/id/OIP.6atIuCR7mbioAkjcejEGTwHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-04-02",
+        "verified": true,
+        "comment": "Perfect for yoga and pilates."
+      },
+      {
+        "id": 3,
+        "user": "Zara U.",
+        "avatar": "https://zena.net.hr/media/2025/02/03/1269945/O-6be776c8-e221-11ef-9f57-ee0b203e749c-380.webp?1748597995",
+        "rating": 4,
+        "date": "2026-04-23",
+        "verified": false,
+        "comment": "Love the lavender color, fits great."
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Bomber Jacket",
+    "price": 140,
+    "discount": 10,
+    "gender": "Men",
+    "category": "Jackets",
+    "brand": "Alpha Industries",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black",
+      "Navy"
+    ],
+    "stock": 14,
+    "season": "Spring",
+    "rating": 4.8,
+    "reviews": 115,
+    "material": "Nylon Shell, Polyester Lining",
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.i51csmG4xzDTj5wmbxS2-wHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://i5.walmartimages.com/seo/Men-s-MA-1-Flight-Bomber-Pilot-Jacket-MA1-Olv-Lg_a0edec78-c2a2-4d73-a5e7-7985e6f36c21.c52f6aadfcffb4c22cacd1ec50222c7c.jpeg",
+      "https://tse4.mm.bing.net/th/id/OIP.u_-1k95pjgDzws-4iB_lZwHaIy?w=1011&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Iconic military-inspired bomber jacket with ribbed cuffs and a sleek modern fit.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Finn D.",
+        "avatar": "https://avatars.preply.com/i/logos/i/logos/avatar_9mvxe7n7tsi.jpg",
+        "rating": 5,
+        "date": "2026-02-28",
+        "verified": true,
+        "comment": "Classic bomber, exceptional quality."
+      },
+      {
+        "id": 2,
+        "user": "Caden E.",
+        "avatar": "https://auburntigers.com/imgproxy/fsmicbCk3LZS8vlKAZLZ4VZPmXmKxurWJtdsKaLJhiw/rs:fit:1980:0:0/g:ce/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2F1YnVybi1wcm9kLzIwMjQvMDEvMTAvVnZQTzNSUHBRclRZaHlDZGtJTk1EN2pLdFFrb3JVUWp3NjF4YzFOeS5qcGc.jpg",
+        "rating": 5,
+        "date": "2026-03-19",
+        "verified": true,
+        "comment": "Perfect fit, love the olive color."
+      },
+      {
+        "id": 3,
+        "user": "Holden F.",
+        "avatar": "https://tse2.mm.bing.net/th/id/OIP.APlCGaphWcOsMv4O61JnfQHaJH?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 4,
+        "date": "2026-04-10",
+        "verified": false,
+        "comment": "Great jacket, very stylish."
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Leather Crossbody Bag",
+    "price": 185,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Bags",
+    "brand": "Coach",
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Tan",
+      "Black",
+      "Pebble Grey"
+    ],
+    "stock": 11,
+    "season": "All Season",
+    "rating": 4.9,
+    "reviews": 78,
+    "material": "Pebbled Leather",
+    "images": [
+      "https://tse1.explicit.bing.net/th/id/OIP.qtWIn6Ncid9T9C73G2JJGgHaFx?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse1.mm.bing.net/th/id/OIP.CNRj7OEK8Uuxd9fRoifYFgAAAA?w=300&h=300&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse4.mm.bing.net/th/id/OIP.nUa4sZBqJMBt2cUR7WXXRQHaH8?w=1124&h=1205&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Elegant pebbled leather crossbody bag with gold-tone hardware and adjustable strap.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Penelope A.",
+        "avatar": "https://tse2.mm.bing.net/th/id/OIP.vjPlKHnZCUG45_aaIb5IPwHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-02-07",
+        "verified": true,
+        "comment": "Stunning bag, perfect everyday size."
+      },
+      {
+        "id": 2,
+        "user": "Cecilia B.",
+        "avatar": "https://tse2.mm.bing.net/th/id/OIP.AJqbK1D3PeTeUDRu1u5YGwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+        "rating": 5,
+        "date": "2026-03-02",
+        "verified": true,
+        "comment": "Beautiful leather, so well made."
+      },
+      {
+        "id": 3,
+        "user": "Harriet C.",
+        "avatar": "https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,f_auto,q_auto/jpzhxmhj4xgly07iytnf",
+        "rating": 4,
+        "date": "2026-04-08",
+        "verified": false,
+        "comment": "Great bag, love the tan color."
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Swim Trunks",
+    "price": 38,
+    "discount": 0,
+    "gender": "Men",
+    "category": "Swimwear",
+    "brand": "Speedo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue/White",
+      "Black",
+      "Tropical Print"
+    ],
+    "stock": 47,
+    "season": "Summer",
+    "rating": 4.5,
+    "reviews": 158,
+    "material": "100% Polyester",
+    "images": [
+      "https://i5.walmartimages.com/seo/Dovford-Mens-Swimming-Trunks-5-Inch-Inseam-Swim-Shorts-Summer-Bathing-Suit-Swimwear-Beachwear-with-Pockets_c4d2add5-0e85-4730-bba3-e65c0df70c9d.a85bfbce3ab7a9f81952213cb09561f0.jpeg",
+      "https://i5.walmartimages.com/seo/Dovford-Mens-Swim-Trunks-5-Inch-Beach-Shorts-with-Mesh-Lining-Funny-Swimming-Bathing-Suits-Quick-Dry-Swimwear_ee8fee63-d879-4b02-874e-ed2eac001542.15cfe6c41faa4202e3d33a2c404b8ce2.jpeg",
+      "https://i5.walmartimages.com/seo/cllios-Mens-Swimming-Shorts-Quick-Dry-Swim-Trunks-9-Inch-Lightweight-Surfing-Board-Shorts-with-Pockets-Stretch-Waist-Drawstring-Beach-Shorts_411641cf-acde-481e-b6d0-b54bc6e57e65.61793a2ff4cc0d26127195a48c0d1c47.jpeg"
+    ],
+    "description": "Quick-dry swim trunks with an inner mesh lining and adjustable drawstring waistband.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Devon A.",
+        "avatar": "https://i.pravatar.cc/150?img=25",
+        "rating": 5,
+        "date": "2026-04-11",
+        "verified": true,
+        "comment": "Dries super fast, great beach shorts."
+      },
+      {
+        "id": 2,
+        "user": "Spencer B.",
+        "avatar": "https://i.pravatar.cc/150?img=30",
+        "rating": 4,
+        "date": "2026-04-21",
+        "verified": true,
+        "comment": "Comfortable fit, nice print options."
+      },
+      {
+        "id": 3,
+        "user": "Tanner C.",
+        "avatar": "https://i.pravatar.cc/150?img=31",
+        "rating": 5,
+        "date": "2026-05-01",
+        "verified": false,
+        "comment": "Perfect for swimming and beach days."
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "title": "One-Piece Swimsuit",
+    "price": 85,
+    "discount": 10,
+    "gender": "Women",
+    "category": "Swimwear",
+    "brand": "Seafolly",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black",
+      "Cobalt Blue",
+      "Coral"
+    ],
+    "stock": 29,
+    "season": "Summer",
+    "rating": 4.6,
+    "reviews": 95,
+    "material": "80% Nylon, 20% Elastane",
+    "images": [
+      "https://i5.walmartimages.com/seo/Charmo-Swimsuits-for-Women-One-Piece-Bathing-Suits-Racerback-Boyleg-Sports-Swimwear_ad3c5ced-e5e3-41bf-9735-06298c16b7b7_1.dbaab7e9a03efa5043ed7dc2c7a1af82.jpeg",
+      "https://i5.walmartimages.com/seo/Asoul-Women-s-Athletic-One-Piece-Swimwear-Boyleg-Racerback-Unitard-Swimsuit_277592dd-cfa0-478c-a4aa-14818e2e3f3c.d94250c3bae148a33444b28c5155d85c.jpeg",
+      "https://i5.walmartimages.com/seo/Charmo-One-Piece-Swimsuits-for-Women-Athletic-Swimsuit-Boyleg-Sports-Swimwear-Bathing-Suits_03a0a6aa-6a92-4156-b146-fa262ec76bc8.271faffd782c50c701740b070f9500ae.jpeg"
+    ],
+    "description": "Sleek one-piece swimsuit with UV protection and a flattering cut-out back detail.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Bianca D.",
+        "avatar": "https://i.pravatar.cc/150?img=2",
+        "rating": 5,
+        "date": "2026-04-08",
+        "verified": true,
+        "comment": "Great fit, love the cobalt color."
+      },
+      {
+        "id": 2,
+        "user": "Carmen E.",
+        "avatar": "https://i.pravatar.cc/150?img=4",
+        "rating": 4,
+        "date": "2026-04-18",
+        "verified": true,
+        "comment": "Comfortable and stylish, holds shape well."
+      },
+      {
+        "id": 3,
+        "user": "Diana F.",
+        "avatar": "https://i.pravatar.cc/150?img=6",
+        "rating": 5,
+        "date": "2026-05-02",
+        "verified": false,
+        "comment": "The coral color is gorgeous."
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Wool Overcoat",
+    "price": 320,
+    "discount": 20,
+    "gender": "Women",
+    "category": "Coats",
+    "brand": "Max Mara",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Camel",
+      "Black",
+      "Dark Grey"
+    ],
+    "stock": 5,
+    "season": "Winter",
+    "rating": 5,
+    "reviews": 34,
+    "material": "90% Wool, 10% Cashmere",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/1187/2436/products/wool_coat_austrian_loden_jacket_clothes_57_of_111.jpg",
+      "https://assets.digitalcontent.marksandspencer.app/image/upload/w_2560,q_auto,f_auto/SD_10_T08_4928_J0_X_EC_0",
+      "https://tse3.mm.bing.net/th/id/OIP.rqUxJMY4OeLhXHU75DKDqAHaLW?w=476&h=730&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Luxurious wool-cashmere overcoat — the ultimate investment piece for cold winters.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Genevieve H.",
+        "avatar": "https://i.pravatar.cc/150?img=8",
+        "rating": 5,
+        "date": "2026-01-10",
+        "verified": true,
+        "comment": "Absolutely luxurious, incredible quality."
+      },
+      {
+        "id": 2,
+        "user": "Dominique I.",
+        "avatar": "https://i.pravatar.cc/150?img=10",
+        "rating": 5,
+        "date": "2026-01-28",
+        "verified": true,
+        "comment": "Worth every penny, so elegant."
+      },
+      {
+        "id": 3,
+        "user": "Margot J.",
+        "avatar": "https://i.pravatar.cc/150?img=12",
+        "rating": 5,
+        "date": "2026-02-15",
+        "verified": false,
+        "comment": "Dream coat, fits perfectly."
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Strappy Sandals",
+    "price": 55,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Shoes",
+    "brand": "Birkenstock",
+    "sizes": [
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "colors": [
+      "Tan",
+      "Black",
+      "White"
+    ],
+    "stock": 36,
+    "season": "Summer",
+    "rating": 4.7,
+    "reviews": 289,
+    "material": "Suede Upper, EVA Sole",
+    "images": [
+      "https://tse1.explicit.bing.net/th/id/OIP.YQpGRcY5tQK6U-wE80WzQAHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.lulus.com/images/product/xlarge/11422921_2312811.jpg",
+      "https://tse3.mm.bing.net/th/id/OIP.wJ0KswQY4urhLBn8Ps6_3gHaLH?w=560&h=840&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Iconic suede sandals with a contoured cork footbed for exceptional everyday comfort.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Evelyn K.",
+        "avatar": "https://i.pravatar.cc/150?img=14",
+        "rating": 5,
+        "date": "2026-03-17",
+        "verified": true,
+        "comment": "So comfortable, wear them every day."
+      },
+      {
+        "id": 2,
+        "user": "Frances L.",
+        "avatar": "https://i.pravatar.cc/150?img=16",
+        "rating": 4,
+        "date": "2026-04-04",
+        "verified": true,
+        "comment": "Need a few days to break in, then perfect."
+      },
+      {
+        "id": 3,
+        "user": "Grace M.",
+        "avatar": "https://i.pravatar.cc/150?img=18",
+        "rating": 5,
+        "date": "2026-04-25",
+        "verified": false,
+        "comment": "Best sandals ever, great arch support."
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Ankle Boots",
+    "price": 110,
+    "discount": 5,
+    "gender": "Women",
+    "category": "Boots",
+    "brand": "Steve Madden",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "colors": [
+      "Black",
+      "Cognac",
+      "Snake Print"
+    ],
+    "stock": 20,
+    "season": "Winter",
+    "rating": 4.5,
+    "reviews": 143,
+    "material": "Faux Leather",
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.rVfk8y2jDObCP96XmmYAUAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://mintvelvet.com/cdn/shop/files/brown-suede-ankle-boots_1_240821110835.jpg?v=1724238524",
+      "https://www.shoezone.com/Images/Static/Blog/how-to-wear-ankle-boots-2.jpg"
+    ],
+    "description": "Sleek ankle boots with a block heel, perfect for day-to-night dressing.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Hannah N.",
+        "avatar": "https://i.pravatar.cc/150?img=20",
+        "rating": 5,
+        "date": "2026-02-03",
+        "verified": true,
+        "comment": "Gorgeous boots, very comfortable heel."
+      },
+      {
+        "id": 2,
+        "user": "Irene O.",
+        "avatar": "https://i.pravatar.cc/150?img=22",
+        "rating": 4,
+        "date": "2026-02-25",
+        "verified": true,
+        "comment": "Great style, runs true to size."
+      },
+      {
+        "id": 3,
+        "user": "Julia P.",
+        "avatar": "https://i.pravatar.cc/150?img=24",
+        "rating": 5,
+        "date": "2026-03-16",
+        "verified": false,
+        "comment": "Love the cognac color, so versatile."
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Sleeveless Linen Dress",
+    "price": 58,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Dresses",
+    "brand": "H&M",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White",
+      "Sand",
+      "Sage"
+    ],
+    "stock": 26,
+    "season": "Summer",
+    "rating": 4.4,
+    "reviews": 72,
+    "material": "100% Linen",
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.xoyrg-P5nWe58hJHig8r9QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.allseams.com/wp-content/uploads/2023/10/il_fullxfull.4552335031_18p1-493x800.jpg",
+      "https://www.allseams.com/wp-content/uploads/2019/04/linen-maxi-dress-001--scaled.jpg"
+    ],
+    "description": "Breezy sleeveless linen dress — effortlessly chic for warm summer days.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Katie Q.",
+        "avatar": "https://i.pravatar.cc/150?img=26",
+        "rating": 5,
+        "date": "2026-04-09",
+        "verified": true,
+        "comment": "Perfect summer dress, stays cool."
+      },
+      {
+        "id": 2,
+        "user": "Laura R.",
+        "avatar": "https://i.pravatar.cc/150?img=28",
+        "rating": 4,
+        "date": "2026-04-22",
+        "verified": false,
+        "comment": "Lovely linen fabric, very breezy."
+      },
+      {
+        "id": 3,
+        "user": "Monica S.",
+        "avatar": "https://i.pravatar.cc/150?img=30",
+        "rating": 4,
+        "date": "2026-05-03",
+        "verified": true,
+        "comment": "Great dress, the sand color is beautiful."
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Corduroy Pants",
+    "price": 72,
+    "discount": 0,
+    "gender": "Men",
+    "category": "Pants",
+    "brand": "Gap",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "colors": [
+      "Brown",
+      "Forest Green",
+      "Rust"
+    ],
+    "stock": 23,
+    "season": "Winter",
+    "rating": 4.4,
+    "reviews": 49,
+    "material": "100% Cotton Corduroy",
+    "images": [
+      "https://th.bing.com/th/id/OIP.40ijXSD5SxLW5lpBJfC8UgHaJE?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://images.bloomingdalesassets.com/is/image/BLM/products/3/optimized/13106993_fpx.tif",
+      "https://img01.ztat.net/article/spp-media-p1/710451b71e8a4253a1d6f82a0a03e5c5/70abd9ca427d4237a2ab5aa25b570626.jpg?imwidth=762"
+    ],
+    "description": "Vintage-inspired corduroy pants with a relaxed fit and warm, tactile texture.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Elliot D.",
+        "avatar": "https://i.pravatar.cc/150?img=38",
+        "rating": 4,
+        "date": "2026-01-22",
+        "verified": true,
+        "comment": "Great texture, very warm for winter."
+      },
+      {
+        "id": 2,
+        "user": "Gavin E.",
+        "avatar": "https://i.pravatar.cc/150?img=40",
+        "rating": 5,
+        "date": "2026-02-14",
+        "verified": true,
+        "comment": "Love the rust color, very stylish."
+      },
+      {
+        "id": 3,
+        "user": "Ian F.",
+        "avatar": "https://i.pravatar.cc/150?img=42",
+        "rating": 4,
+        "date": "2026-03-09",
+        "verified": false,
+        "comment": "Comfortable fit, good quality fabric."
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Satin Blouse",
+    "price": 65,
+    "discount": 5,
+    "gender": "Women",
+    "category": "Tops",
+    "brand": "Silk Laundry",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Ivory",
+      "Blush Pink",
+      "Midnight Blue"
+    ],
+    "stock": 17,
+    "season": "All Season",
+    "rating": 4.8,
+    "reviews": 61,
+    "material": "100% Polyester Satin",
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.OfKLgpe3S95uRYU5LzYKnwHaLL?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdD7ADCda5H6A7HD8eKpArlWIbOkyOVOEFBJl2hyIsOcj0-rKQeYEV9wUiZ2wjBadl_V2Vvw2dzsXea8m7Ezpga6eF7j1ArgK2oepOOsilvx4FcIlNExfSi2F1Pev8pDIg_WMJTbpZNJ7G/s1600/women%2527s+silk+satin+blouse.jpg",
+      "https://i.pinimg.com/originals/8a/3a/b7/8a3ab78a271bd79ebf0de8e2cb445967.jpg"
+    ],
+    "description": "Effortlessly luxurious satin blouse with a relaxed drape and button-front closure.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Nina G.",
+        "avatar": "https://i.pravatar.cc/150?img=44",
+        "rating": 5,
+        "date": "2026-03-04",
+        "verified": true,
+        "comment": "Looks so expensive, gorgeous drape."
+      },
+      {
+        "id": 2,
+        "user": "Ophelia H.",
+        "avatar": "https://i.pravatar.cc/150?img=46",
+        "rating": 5,
+        "date": "2026-03-24",
+        "verified": true,
+        "comment": "Blush pink is stunning, very elegant."
+      },
+      {
+        "id": 3,
+        "user": "Priya I.",
+        "avatar": "https://i.pravatar.cc/150?img=48",
+        "rating": 4,
+        "date": "2026-04-15",
+        "verified": false,
+        "comment": "Beautiful blouse, worth the price."
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Baseball Cap",
+    "price": 30,
+    "discount": 0,
+    "gender": "Unisex",
+    "category": "Accessories",
+    "brand": "New Era",
+    "sizes": [
+      "S/M",
+      "L/XL"
+    ],
+    "colors": [
+      "Black",
+      "Navy",
+      "White"
+    ],
+    "stock": 70,
+    "season": "All Season",
+    "rating": 4.5,
+    "reviews": 432,
+    "material": "100% Wool",
+    "images": [
+      "https://eu-images.contentstack.com/v3/assets/blt7dcd2cfbc90d45de/blt74086f9b89cb9448/64819127131ecf31edf40d04/28716.jpg?format=pjpg&auto=webp&quality=75%2C90&width=1920",
+      "https://www.kingandfifth.com/cdn/shop/products/FashionBaseballCapsforMen_1800x.jpg?v=1694585446",
+      "https://cdn.shopify.com/s/files/1/0824/1887/files/GrayBaseballCapsforMen_855d23fa-6d31-4592-b5bb-208701674746_1400x.jpg?v=1686129929"
+    ],
+    "description": "Structured wool baseball cap with embroidered logo and adjustable back closure.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Parker J.",
+        "avatar": "https://i.pravatar.cc/150?img=50",
+        "rating": 5,
+        "date": "2026-03-21",
+        "verified": true,
+        "comment": "Perfect cap, great quality wool."
+      },
+      {
+        "id": 2,
+        "user": "Quinn K.",
+        "avatar": "https://i.pravatar.cc/150?img=52",
+        "rating": 4,
+        "date": "2026-04-06",
+        "verified": true,
+        "comment": "Fits well, looks clean and classic."
+      },
+      {
+        "id": 3,
+        "user": "Reed L.",
+        "avatar": "https://i.pravatar.cc/150?img=54",
+        "rating": 5,
+        "date": "2026-04-27",
+        "verified": false,
+        "comment": "Love this cap, very well made."
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Linen Shirt",
+    "price": 40,
+    "discount": 0,
+    "gender": "Men",
+    "category": "Shirts",
+    "brand": "Uniqlo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "White",
+      "Sky Blue",
+      "Olive"
+    ],
+    "stock": 48,
+    "season": "Summer",
+    "rating": 4.7,
+    "reviews": 318,
+    "material": "100% Linen",
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.x36FL4ecX2En2eZciTvMWAHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse1.explicit.bing.net/th/id/OIP.rGsd-Qjwo8H0RWx09jYsxQHaKY?w=582&h=816&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://tse3.mm.bing.net/th/id/OIP.T5diwXMZWIr88FaLKx9bJQHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Breathable linen shirt with a relaxed regular fit, ideal for hot summer days.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Scott M.",
+        "avatar": "https://i.pravatar.cc/150?img=56",
+        "rating": 5,
+        "date": "2026-04-01",
+        "verified": true,
+        "comment": "Perfect summer shirt, very breathable."
+      },
+      {
+        "id": 2,
+        "user": "Travis N.",
+        "avatar": "https://i.pravatar.cc/150?img=58",
+        "rating": 5,
+        "date": "2026-04-14",
+        "verified": true,
+        "comment": "Great quality linen, comfortable fit."
+      },
+      {
+        "id": 3,
+        "user": "Umar O.",
+        "avatar": "https://i.pravatar.cc/150?img=60",
+        "rating": 4,
+        "date": "2026-04-28",
+        "verified": false,
+        "comment": "Good price for the quality, love olive."
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "title": "Crop Top",
+    "price": 22,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Tops",
+    "brand": "American Apparel",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "White",
+      "Black",
+      "Baby Blue",
+      "Pink"
+    ],
+    "stock": 60,
+    "season": "Summer",
+    "rating": 4.4,
+    "reviews": 196,
+    "material": "100% Cotton",
+    "images": [
+      "https://cdn-img.prettylittlething.com/8/b/6/5/8b65c8fc04a17bc77796c758a3ae399948539fbf_CNF0736_1_white_basic_slinky_short_sleeve_crop_top.jpg",
+      "https://cdn-img.prettylittlething.com/6/f/a/9/6fa98c3530b8119b41e49fa2573b572dafb4dad5_CNF7722_1_black_basic_soft_ribbed_short_sleeve_crop_top.jpg?imwidth=600",
+      "https://tse1.explicit.bing.net/th/id/OIP.BwkWWvt2jd02e8_ENY3d2AHaKh?rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Soft cotton crop top with a clean-cut relaxed fit for effortless casual style.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Vanessa P.",
+        "avatar": "https://i.pravatar.cc/150?img=62",
+        "rating": 5,
+        "date": "2026-04-12",
+        "verified": true,
+        "comment": "So soft and comfortable, love it."
+      },
+      {
+        "id": 2,
+        "user": "Whitney Q.",
+        "avatar": "https://i.pravatar.cc/150?img=64",
+        "rating": 4,
+        "date": "2026-04-23",
+        "verified": false,
+        "comment": "Nice top, runs true to size."
+      },
+      {
+        "id": 3,
+        "user": "Xena R.",
+        "avatar": "https://i.pravatar.cc/150?img=66",
+        "rating": 4,
+        "date": "2026-05-04",
+        "verified": true,
+        "comment": "Basic but great quality cotton."
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "title": "Fleece Pullover",
+    "price": 115,
+    "discount": 0,
+    "gender": "Unisex",
+    "category": "Hoodies",
+    "brand": "Patagonia",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "Forest Green",
+      "Cobalt Blue"
+    ],
+    "stock": 27,
+    "season": "Winter",
+    "rating": 4.9,
+    "reviews": 387,
+    "material": "100% Recycled Polyester Fleece",
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.V8SuHJQ1BHEywIbHDNYFWAHaLW?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://cdnp.sanmar.com/medias/sys_master/images/h9b/h7b/26475192582174/1200W_10187_GreyHthr-0-F130GreyHthrModelFront/1200W-10187-GreyHthr-0-F130GreyHthrModelFront.jpg",
+      "https://tse4.mm.bing.net/th/id/OIP.VMKeLWOz9v0UEU6nmp0p6gHaLW?rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Warm and cozy recycled fleece pullover with a relaxed fit and kangaroo pocket.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Yannick S.",
+        "avatar": "https://i.pravatar.cc/150?img=68",
+        "rating": 5,
+        "date": "2026-01-18",
+        "verified": true,
+        "comment": "Incredibly warm, great for outdoors."
+      },
+      {
+        "id": 2,
+        "user": "Zach T.",
+        "avatar": "https://i.pravatar.cc/150?img=70",
+        "rating": 5,
+        "date": "2026-02-09",
+        "verified": true,
+        "comment": "Best fleece ever, so comfortable."
+      },
+      {
+        "id": 3,
+        "user": "Alan U.",
+        "avatar": "https://i.pravatar.cc/150?img=66",
+        "rating": 5,
+        "date": "2026-03-03",
+        "verified": false,
+        "comment": "Forest green is stunning, perfect fit."
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Silk Scarf",
+    "price": 55,
+    "discount": 0,
+    "gender": "Women",
+    "category": "Accessories",
+    "brand": "Hermès",
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Blue Print",
+      "Red Print",
+      "Green Print"
+    ],
+    "stock": 18,
+    "season": "All Season",
+    "rating": 4.9,
+    "reviews": 53,
+    "material": "100% Silk",
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.guD60bA14V60Vw3WPaJRlQHaId?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://i.etsystatic.com/34008670/c/1851/1851/0/0/il/eda084/3725948950/il_300x300.3725948950_g0w5.jpg",
+      "https://tse2.mm.bing.net/th/id/OIP.VpQt1XuTbpGN5DZ3vb9nRgHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Luxurious silk twill scarf with an artistic print — wear it as a neck scarf, hair tie, or bag accessory.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Beatrice V.",
+        "avatar": "https://i.pravatar.cc/150?img=37",
+        "rating": 5,
+        "date": "2026-02-16",
+        "verified": true,
+        "comment": "Exquisite quality, incredibly versatile."
+      },
+      {
+        "id": 2,
+        "user": "Charlotte W.",
+        "avatar": "https://i.pravatar.cc/150?img=38",
+        "rating": 5,
+        "date": "2026-03-08",
+        "verified": true,
+        "comment": "Beautiful print, pure luxury feel."
+      },
+      {
+        "id": 3,
+        "user": "Dorothy X.",
+        "avatar": "https://i.pravatar.cc/150?img=39",
+        "rating": 5,
+        "date": "2026-04-02",
+        "verified": false,
+        "comment": "Got so many compliments wearing this."
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Canvas High-Top Sneakers",
+    "price": 65,
+    "discount": 0,
+    "gender": "Unisex",
+    "category": "Sneakers",
+    "brand": "Converse",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "colors": [
+      "White",
+      "Black",
+      "Red"
+    ],
+    "stock": 85,
+    "season": "All Season",
+    "rating": 4.8,
+    "reviews": 675,
+    "material": "Canvas/Rubber",
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.dUM3dobL1MyL0tiYwBKcYgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.thewarehouse.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dwaa0d8d11/images/hi-res/13/01/R1930345_32.jpg?sw=765&sh=765",
+      "https://tse2.mm.bing.net/th/id/OIP.ClhOsH-TsFb3u_KatGoWUQHaIz?w=530&h=630&rs=1&pid=ImgDetMain&o=7&rm=3"
+    ],
+    "description": "Iconic high-top canvas sneakers — a timeless classic that never goes out of style.",
+    "comments": [
+      {
+        "id": 1,
+        "user": "Eliot Y.",
+        "avatar": "https://i.pravatar.cc/150?img=62",
+        "rating": 5,
+        "date": "2026-03-06",
+        "verified": true,
+        "comment": "Never gets old, absolute classic."
+      },
+      {
+        "id": 2,
+        "user": "Freddie Z.",
+        "avatar": "https://i.pravatar.cc/150?img=45",
+        "rating": 5,
+        "date": "2026-03-27",
+        "verified": true,
+        "comment": "Comfortable and iconic, love them."
+      },
+      {
+        "id": 3,
+        "user": "George A.",
+        "avatar": "https://i.pravatar.cc/150?img=46",
+        "rating": 4,
+        "date": "2026-04-18",
+        "verified": false,
+        "comment": "Great sneakers, true to size."
+      }
+    ]
+  },
+  {
+  "id": 48,
+  "title": "Slim Fit Denim Jacket",
+  "price": 89,
+  "discount": 15,
+  "gender": "Men",
+  "category": "Jackets",
+  "brand": "Levi's",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "colors": [
+    "Blue",
+    "Black",
+    "Light Wash"
+  ],
+  "stock": 34,
+  "season": "Spring",
+  "rating": 4.7,
+  "reviews": 256,
+  "material": "98% Cotton, 2% Elastane",
+  "images": [
+    "https://images.bloomingdalesassets.com/is/image/BLM/products/5/optimized/10809435_fpx.tif?op_sharpen=1&wid=700&fit=fit,1&$filtersm$",
+    "https://tse3.mm.bing.net/th/id/OIP.9s6X6J9AVKhRrYF-oEORiQHaHa?w=980&h=980&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "https://tse3.mm.bing.net/th/id/OIP.SuYJLxeFgKDb-9xwMoXvFgAAAA?w=461&h=450&rs=1&pid=ImgDetMain&o=7&rm=3"
+  ],
+  "description": "Classic slim-fit denim jacket with stretch fabric for all-day comfort and style.",
+  "comments": [
+    {
+      "id": 1,
+      "user": "Michael R.",
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "rating": 5,
+      "date": "2026-01-12",
+      "verified": true,
+      "comment": "Excellent quality and perfect fit."
+    },
+    {
+      "id": 2,
+      "user": "David K.",
+      "avatar": "https://i.pravatar.cc/150?img=14",
+      "rating": 4,
+      "date": "2026-02-17",
+      "verified": true,
+      "comment": "Looks great and feels durable."
+    },
+    {
+      "id": 3,
+      "user": "Chris W.",
+      "avatar": "https://i.pravatar.cc/150?img=16",
+      "rating": 5,
+      "date": "2026-03-08",
+      "verified": false,
+      "comment": "My favorite jacket this season."
     }
+  ]
+}
 ]

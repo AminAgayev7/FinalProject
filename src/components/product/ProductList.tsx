@@ -121,7 +121,7 @@ export default function ProductList() {
 
                         {loading && (
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
-                                <Skeleton count={24} />
+                                <Skeleton count={48} />
                             </div>
                         )}
                         {(!loading && filtered.length > 0) && (
