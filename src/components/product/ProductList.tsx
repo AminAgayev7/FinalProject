@@ -86,7 +86,7 @@ export default function ProductList() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <h1 className="text-3xl font-bold dark:text-gray-300 text-gray-900 text-center my-8">Find the product you want!</h1>
 
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
+                <div className="flex flex-col lg:flex-row gap-8 items-start"> 
                     {!loading && (
                         <aside className="w-full lg:w-64">
                             <FilterPanel

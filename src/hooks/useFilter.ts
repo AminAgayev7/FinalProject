@@ -59,6 +59,7 @@ export function useFilter(products: Product[]) {
             new Set(source.map((product) => {
                 return product.category;
             }))).sort();
+            
     }, [products, selectedGender]);
 
     const sizes = useMemo(() => {

@@ -3,7 +3,7 @@
 import { useCart } from "@/hooks/useCart";
 import { useEffect } from "react";
 import Link from "next/link";
-
+import { storageGet } from "@/lib/safeStorage";
 import CartItem from "@/components/cart/CartItem";
 import CartSummary from "@/components/cart/CartSummary";
 

@@ -17,11 +17,12 @@ import CommentsSection from "./ProductReviews";
 import { getStock } from "@/lib/stockStorage";
 import { useAuth } from "@/hooks/useAuth";
 import Modal from "../ui/Modal";
-import {storageGet, storageSet} from "@/lib/safeStorage";
-
+import { storageGet, storageSet } from "@/lib/safeStorage";
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
+
     const { id } = use(params);
+
     const [product, setProduct] = useState<Product | null>(null);
     const { addToCart, items } = useCart();
     const [selectedSize, setSelectedSize] = useState("");
@@ -31,11 +32,17 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [showAuthModal, setshowAuthModal] = useState(false);
     const [showStockAlert, setShowStockAlert] = useState(false);
     const [error, seterror] = useState<string | null>(null);
+    const [cartItemCounter, setCartItemCounter] = useState(0);
+
+
     useEffect(() => {
+        if (!id) 
+            {
+                return;
+             } 
+
         fetchProducts().then((products) => {
-            const foundProduct = products.find((p) => {
-                return p.id === parseInt(id)
-            });
+            const foundProduct = products.find((p) => p.id === parseInt(id));
             if (foundProduct) {
                 const saved = storageGet(`comments_product_${foundProduct.id}`, null);
                 const extra = saved ? saved : [];
@@ -45,8 +52,16 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             seterror(`Error fetching product: ${err}`);
         });
     }, [id]);
-    
-    if(error) {
+
+
+    useEffect(() => {
+        const totalItemsInCart = storageGet("total_items_in_cart", null);
+        if (totalItemsInCart !== null) {
+            setCartItemCounter(Number(totalItemsInCart));
+        }
+    }, []);
+
+    if (error) {
         return (
             <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
                 <h1 className="text-2xl text-red-500">{error}</h1>
@@ -56,15 +71,15 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             </div>
         )
     }
+
     if (!product) {
         return (
-            <div className="min-h-screen bg-zinc-50 dark:bg-gray-950  pt-20 pb-16 text-black flex items-center justify-center">
+            <div className="min-h-screen bg-zinc-50 dark:bg-gray-950 pt-20 pb-16 text-black flex items-center justify-center">
                 <p className="text-xl text-gray-500 dark:text-white">Product not found.</p>
             </div>
         );
     }
 
-    
     const discountedPrice = product.discount ? (product.price - (product.price * product.discount) / 100) : product.price;
 
     const handleAddToCart = () => {
@@ -79,7 +94,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         const currentStock = getStock(product.id, product.stock);
         const itemInCart = items.find((item) => {
             return item.product.id === product.id && item.selectedSize === selectedSize && item.selectedColor === selectedColor
-        })
+        });
 
         const currentQuantityInCart = itemInCart ? itemInCart.quantity : 0;
 
@@ -87,13 +102,20 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
             setShowStockAlert(true);
             return;
         }
+
         addToCart(product, selectedSize, selectedColor);
+        
+
+        const newTotalCount = cartItemCounter + 1;
+        setCartItemCounter(newTotalCount);
+        storageSet(`total_items_in_cart`, newTotalCount); 
+
         setAdded(true);
-        setTimeout(function () {
+
+        setTimeout(() => {
             setAdded(false);
         }, 2000);
     };
-
 
     return (
         <>
@@ -208,7 +230,6 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                                 {added ? "Successfully added!" : "Add to Cart"}
                             </Button>
                         </div>
-
                     </div>
                 </div>
             </main>
@@ -221,15 +242,16 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                     onClose={() => setshowAuthModal(false)}
                 />
             )}
-            {
-                showStockAlert && (
-                    <Modal
-                        message="Sorry, the selected quantity exceeds available stock!"
-                        onClose={() => setShowStockAlert(false)}
-                    />
-                )
-            }
+            {showStockAlert && (
+                <Modal
+                    message="Sorry, the selected quantity exceeds available stock!"
+                    onClose={() => setShowStockAlert(false)}
+                />
+            )}
+            <div className="fixed bottom-5 right-5 z-50">
+                <span className="absolute bottom-5 px-1.5 text-sm right-2 text-white bg-red-500 rounded-full">{cartItemCounter}</span>
+                <i className="fa-solid text-3xl fa-cart-shopping"></i>
+            </div>
         </>
-
     );
 }

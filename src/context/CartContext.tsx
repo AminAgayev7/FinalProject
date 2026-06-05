@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { getStock } from "@/lib/stockStorage";
-import { storageGet, storageSet } from "@/lib/safeStorage";
+import { storageGet, storageRemove, storageSet } from "@/lib/safeStorage";
 export interface CartItem {
     product: Product;
     quantity: number;
@@ -73,6 +73,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 return !((item.product.id === productId) && (item.selectedSize === size) && (item.selectedColor === color));
             });
         });
+        const totalItemsInCart = storageGet("total_items_in_cart", 0);
+        const newTotalCount = totalItemsInCart > 0 ? totalItemsInCart - 1 : 0;
+        storageRemove("total_items_in_cart");
+        storageSet(`total_items_in_cart`, newTotalCount);
     };
 
     const updateQuantity = (productId: number, size: string, color: string, quantity: number, stock?: number) => {
