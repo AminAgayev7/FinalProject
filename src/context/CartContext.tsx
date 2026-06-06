@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { getStock } from "@/lib/stockStorage";
 import { storageGet, storageRemove, storageSet } from "@/lib/safeStorage";
+import { useAuth } from "@/hooks/useAuth";
 export interface CartItem {
     product: Product;
     quantity: number;
@@ -25,15 +26,16 @@ export const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
     const [items, setItems] = useState<CartItem[]>([]);
-
+    const { user } = useAuth();
+    const cartKey = `cart_${user?.email ?? "guest"}`;
     useEffect(() => {
-        const saved = storageGet<CartItem[]>("cart", []);
+        const saved = storageGet<CartItem[]>(cartKey, []);
         setItems(saved);
-    }, []);
+    }, [cartKey]);
 
     useEffect(() => {
-        storageSet("cart", items);
-    }, [items]);
+        storageSet(cartKey, items);
+    }, [items, cartKey]);
 
     const addToCart = (product: Product, size: string, color: string) => {
         const currentStock = getStock(product.id, product.stock)
@@ -73,10 +75,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 return !((item.product.id === productId) && (item.selectedSize === size) && (item.selectedColor === color));
             });
         });
-        const totalItemsInCart = storageGet("total_items_in_cart", 0);
+        const totalItemsInCart = storageGet(cartKey + "_total_items", 0);
         const newTotalCount = totalItemsInCart > 0 ? totalItemsInCart - 1 : 0;
-        storageRemove("total_items_in_cart");
-        storageSet(`total_items_in_cart`, newTotalCount);
+        storageRemove(cartKey + "_total_items");
+        storageSet(`${cartKey}_total_items`, newTotalCount);
     };
 
     const updateQuantity = (productId: number, size: string, color: string, quantity: number, stock?: number) => {

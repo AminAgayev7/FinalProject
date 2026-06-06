@@ -7,13 +7,13 @@ import ErrorBoundary from "../ErrorBoundary";
 export default function Providers({ children }: { children: React.ReactNode }) {
     return (
         <ErrorBoundary>
-            <CartProvider>
-                <AuthProvider>
+            <AuthProvider>
+                <CartProvider>
                     <WishlistProvider>
                         {children}
                     </WishlistProvider>
-                </AuthProvider>
-            </CartProvider>
+                </CartProvider>
+            </AuthProvider>
         </ErrorBoundary>
 
     );

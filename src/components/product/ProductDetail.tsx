@@ -24,7 +24,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const { id } = use(params);
 
     const [product, setProduct] = useState<Product | null>(null);
-    const { addToCart, items } = useCart();
+    const { addToCart, items, totalItems } = useCart();
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedColor, setSelectedColor] = useState("");
     const [added, setAdded] = useState(false);
@@ -32,7 +32,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     const [showAuthModal, setshowAuthModal] = useState(false);
     const [showStockAlert, setShowStockAlert] = useState(false);
     const [error, seterror] = useState<string | null>(null);
-    const [cartItemCounter, setCartItemCounter] = useState(0);
+
 
 
     useEffect(() => {
@@ -54,12 +54,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     }, [id]);
 
 
-    useEffect(() => {
-        const totalItemsInCart = storageGet("total_items_in_cart", null);
-        if (totalItemsInCart !== null) {
-            setCartItemCounter(Number(totalItemsInCart));
-        }
-    }, []);
+
 
     if (error) {
         return (
@@ -106,9 +101,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         addToCart(product, selectedSize, selectedColor);
         
 
-        const newTotalCount = cartItemCounter + 1;
-        setCartItemCounter(newTotalCount);
-        storageSet(`total_items_in_cart`, newTotalCount); 
+
 
         setAdded(true);
 
@@ -249,7 +242,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 />
             )}
             <div className="fixed bottom-5 right-5 z-50">
-                <span className="absolute bottom-5 px-1.5 text-sm right-2 text-white bg-red-500 rounded-full">{cartItemCounter}</span>
+                <span className="absolute bottom-5 px-1.5 text-sm right-2 text-white bg-red-500 rounded-full">{totalItems}</span>
                 <i className="fa-solid text-3xl fa-cart-shopping"></i>
             </div>
         </>
