@@ -46,7 +46,7 @@ export default function RegisterPage() {
 
     return (
         <>
-            <main className="min-h-screen bg-zinc-50 dark:bg-gray-950 flex items-center justify-center px-4 py-12">
+            <form onSubmit={handleSubmit(handleFormSubmit)} className="min-h-screen bg-zinc-50 dark:bg-gray-950 flex items-center justify-center px-4 py-12">
                 <div className="w-full  max-w-md">
                     <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-6 sm:p-10">
                         <h1 className="text-center text-2xl sm:text-3xl font-bold dark:text-white text-gray-900 mb-8">
@@ -128,8 +128,8 @@ export default function RegisterPage() {
 
                             <Button
                                 className="mt-2 w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors flex items-center justify-center gap-2"
-                                type="button"
-                                onClick={handleSubmit(handleFormSubmit)}
+                                type="submit"
+
                             >
                                 Register
                             </Button>
@@ -143,7 +143,7 @@ export default function RegisterPage() {
                         </div>
                     </div>
                 </div>
-            </main>
+            </form>
 
             {showModal && (
                 <Modal

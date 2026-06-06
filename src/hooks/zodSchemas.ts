@@ -56,7 +56,7 @@ export type registerFormData = z.infer<typeof registerSchema>
 
 export const loginSchema = z.object({
     email: z.email("Please enter a valid email address"),
-    password: z.string().min(8, "Password should contain at least 8 characters.").max(20, "Password can't get over 20 characters."),
+    password: z.string().min(6, "Password should contain at least 6 characters.").max(20, "Password can't get over 20 characters."),
 })
 
 export type loginFormData = z.infer<typeof loginSchema>

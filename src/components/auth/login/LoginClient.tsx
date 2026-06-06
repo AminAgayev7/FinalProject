@@ -32,7 +32,7 @@ export default function LoginPage() {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
+            <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
                 <div className="xl:max-w-3xl w-full p-5 sm:p-10 rounded-md shadow-lg dark:bg-gray-900">
                     <h1 className="text-center text-xl text-black dark:text-white sm:text-3xl font-semibold">
                         Login your account!
@@ -67,8 +67,8 @@ export default function LoginPage() {
                             </div>
 
                             <Button
-                                type="button"
-                                onClick={handleSubmit(handleFormSubmit)}
+                                type="submit"
+                                
                                 className="mt-5 tracking-wide font-semibold bg-gray-800 text-gray-100 w-full py-4 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out flex items-center justify-center"
                             >
                                 <span className="ml-3">Login</span>
@@ -83,7 +83,7 @@ export default function LoginPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             {showModal && (
                 <Modal
