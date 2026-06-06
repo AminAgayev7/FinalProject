@@ -9,6 +9,7 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
@@ -242,8 +243,10 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 />
             )}
             <div className="fixed bottom-5 right-5 z-50">
-                <span className="absolute bottom-5 px-1.5 text-sm right-2 text-white bg-red-500 rounded-full">{totalItems}</span>
-                <i className="fa-solid text-3xl fa-cart-shopping"></i>
+                <Link href="/cart">
+                    <span className="absolute bottom-5 px-1.5 text-sm right-2 text-white bg-red-500 rounded-full">{totalItems}</span>
+                    <i className="fa-solid text-3xl text-black dark:text-white fa-cart-shopping"></i>
+                </Link>
             </div>
         </>
     );

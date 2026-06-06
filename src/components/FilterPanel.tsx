@@ -17,8 +17,8 @@ type FilterPanelProps = {
     selectedSize: string;
     setSelectedSize: (v: string) => void;
     sizes: string[];
-    selectedColor: string;
-    setSelectedColor: (v: string) => void;
+    selectedColors: string[];
+    toggleColor: (v: string) => void;
     colors: string[];
     minPrice: string;
     setMinPrice: (v: string) => void;
@@ -28,7 +28,7 @@ type FilterPanelProps = {
     hasFilters: string | boolean;
 };
 
-export default function FilterPanel({ search, setSearch, selectedSeason, setSelectedSeason, seasons, selectedGender, handleGenderChange, genders, selectedCategory, setSelectedCategory, categories, selectedSize, setSelectedSize, sizes, selectedColor, setSelectedColor, colors, minPrice, setMinPrice, maxPrice, setMaxPrice, resetFilters, hasFilters }: FilterPanelProps) {
+export default function FilterPanel({ search, setSearch, selectedSeason, setSelectedSeason, seasons, selectedGender, handleGenderChange, genders, selectedCategory, setSelectedCategory, categories, selectedSize, setSelectedSize, sizes, selectedColors, toggleColor, colors, minPrice, setMinPrice, maxPrice, setMaxPrice, resetFilters, hasFilters }: FilterPanelProps) {
 
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 sticky top-24 flex flex-col gap-6">
@@ -114,8 +114,8 @@ export default function FilterPanel({ search, setSearch, selectedSeason, setSele
                     {colors.map((color) => (
                         <Button
                             key={color}
-                            onClick={() => setSelectedColor(selectedColor === color ? "" : color)}
-                            className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedColor === color
+                            onClick={() => toggleColor(color)}
+                            className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${selectedColors.includes(color)
                                     ? "bg-black text-white border-black"
                                     : "bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white"
                                 }`}

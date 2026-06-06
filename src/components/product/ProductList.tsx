@@ -48,7 +48,7 @@ export default function ProductList() {
         selectedGender, handleGenderChange,
         selectedCategory, setSelectedCategory,
         selectedSize, setSelectedSize,
-        selectedColor, setSelectedColor,
+        selectedColors, toggleColor,
         minPrice, setMinPrice,
         maxPrice, setMaxPrice,
         sort, setSort,
@@ -95,7 +95,7 @@ export default function ProductList() {
                                 selectedGender={selectedGender} handleGenderChange={handleGenderChange} genders={genders}
                                 selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} categories={categories}
                                 selectedSize={selectedSize} setSelectedSize={setSelectedSize} sizes={sizes}
-                                selectedColor={selectedColor} setSelectedColor={setSelectedColor} colors={colors}
+                                selectedColors={selectedColors} toggleColor={toggleColor} colors={colors}
                                 minPrice={minPrice} setMinPrice={setMinPrice}
                                 maxPrice={maxPrice} setMaxPrice={setMaxPrice}
                                 resetFilters={resetFilters} hasFilters={hasFilters}
@@ -121,7 +121,7 @@ export default function ProductList() {
 
                         {loading && (
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
-                                <Skeleton count={48} />
+                                <Skeleton count={12} />
                             </div>
                         )}
                         {(!loading && filtered.length > 0) && (

@@ -8,13 +8,17 @@ export const checkoutSchema = z.object({
         address: z.string().min(5, "Address must be at least 5 characters").max(100, "Address is too long"),
         city: z.string().min(1, "City is required").max(50, "City name is too long"),
         region: z.string().min(1, "Region is required").max(50, "Region name is too long"),
-        zipCode: z.string().min(3).max(4).refine((val) => {
-        return val.split("").every((char) => {
-            return (char >= "0" && char <= "9");
-        });
-    }, {
-        message: "Zip Code should only contain digits.",
-    }),
+        zipCode: z.string().min(3).max(10).refine((val) => {
+            return val.split("").every((char) => {
+                const isDigit = char >= "0" && char <= "9";
+                const isUpperLetter = char >= "A" && char <= "Z";
+                const isLowerLetter = char >= "a" && char <= "z";
+
+                return isDigit || isUpperLetter || isLowerLetter || char === " " || char === "-";
+            });
+        }, {
+            message: "Invalid zip code format",
+        }),
     }),
 });
 
@@ -41,7 +45,9 @@ export const registerSchema = z.object({
     email: z.string().email("Please enter a valid email"),
     password: z.string().min(6, "Password must be at least 6 characters"),
     confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
+}).refine((data) => { 
+    return data.password === data.confirmPassword; 
+}, {
     message: "Passwords do not match",
     path: ["confirmPassword"],
 });
@@ -101,7 +107,7 @@ export const cardSchema = z.object({
 }, {
     message: "Invalid or expired date"
 }),
-    cvv: z.string().min(3).max(4).refine((val) => {
+    cvv: z.string().max(3).refine((val) => {
         return val.split("").every((char) => {
             return (char >= "0" && char <= "9");
         });

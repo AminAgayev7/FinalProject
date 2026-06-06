@@ -71,7 +71,7 @@ export default function CommentsSection({ comments: initialComments, productId }
                                     <div className="w-full flex flex-col gap-3.5">
                                         <div className="w-full flex justify-between items-center">
                                             <div className="flex items-center gap-2.5">
-                                                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                                                <div className="sm:w-10 sm:h-10 w-8 h-8 rounded-full overflow-hidden shrink-0 bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                                                     {avatarSrc ? (
                                                         <Image
                                                             width={40}
@@ -86,8 +86,8 @@ export default function CommentsSection({ comments: initialComments, productId }
                                                         </span>
                                                     )}
                                                 </div>
-                                                <div className="flex flex-col gap-1">
-                                                    <div className="flex items-center gap-2">
+                                                <div className="flex flex-col gap-y-1 sm:gap-1">
+                                                    <div className="flex sm:flex-row flex-col sm:items-center sm:gap-2">
                                                         <h5 className="text-gray-900 dark:text-white text-sm font-semibold">
                                                             {comment.user}
                                                         </h5>
@@ -107,7 +107,7 @@ export default function CommentsSection({ comments: initialComments, productId }
                                                 {Array.from({ length: 5 }).map((item, i) => (
                                                     <span
                                                         key={i}
-                                                        className={`fa-star fa-solid text-xs ${i < comment.rating ? "text-amber-400" : "text-gray-200"}`}
+                                                        className={`fa-star  fa-solid text-xs ${i < comment.rating ? "text-amber-400" : "text-gray-200"}`}
                                                     />
                                                 ))}
                                             </div>

@@ -44,7 +44,7 @@ export default function Wishlist() {
                     {loading ? (
 
                         <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4  gap-6">
-                            <Skeleton count={wishlist.length || 4} />
+                            <Skeleton count={4} />
 
                         </div>
                     ) : (

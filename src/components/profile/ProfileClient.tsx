@@ -14,7 +14,7 @@ import { addCard } from "@/lib/cardStorage";
 import { deleteCard } from "@/lib/cardStorage";
 import Input from "@/components/ui/Input";
 import Image from "next/image";
-import {storageGet, storageRemove, storageSet} from "@/lib/safeStorage";
+import { storageGet, storageRemove, storageSet } from "@/lib/safeStorage";
 export default function UserProfile() {
 
     const { user, logout } = useAuth();
@@ -209,8 +209,8 @@ export default function UserProfile() {
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-2/3 flex flex-col min-h-75 justify-center">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="w-full lg:w-2/3 flex flex-col gap-y-1.5 min-h-75 justify-center">
+                        <div className="flex items-center justify-between mb-4">
                             <h2 className="font-bold text-gray-800 dark:text-white">
                                 Payment Cards
                             </h2>
@@ -331,7 +331,7 @@ export default function UserProfile() {
                                 </form>
                             )
                         }
-                        
+
                         {
                             cards.length > 0 ?
                                 cards.map((card, index) => (

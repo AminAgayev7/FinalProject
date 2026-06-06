@@ -13,7 +13,7 @@ export default function CartSummary({ originalTotal, totalDiscount, totalPrice }
     const { isAuthenticated } = useAuth();
     const router = useRouter();
     return (
-        <div className="shadow-lg dark:bg-gray-800 p-5 rounded-md bg-white w-full md:max-w-sm md:sticky md:top-24">
+        <div className="shadow-lg dark:bg-gray-800 h-full p-5 rounded-md bg-white w-full md:w-80 md:shrink-0 md:sticky md:top-24">
             <h2 className="text-lg dark:text-gray-300 text-gray-900 font-semibold mb-4">
                 Order Summary
             </h2>

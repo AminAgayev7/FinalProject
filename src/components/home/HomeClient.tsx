@@ -37,7 +37,7 @@ export default function Home() {
     }
 
     const newArrivals = products.slice(products.length - 6, products.length).reverse();
-    const skeletonCount = loading ? 6 : newArrivals.length;
+    const skeletonCount = 6;
     const popular = products.filter((product) => {
         return product.rating >= 4.7;
     });
@@ -123,7 +123,7 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {loading ? (
-                        <Skeleton count={23} />
+                        <Skeleton count={6} />
                     ) : (
                         popular.map((product) => (
                             <ProductCard key={product.id} product={product} />

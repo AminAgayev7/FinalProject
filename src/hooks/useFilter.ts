@@ -9,7 +9,7 @@ export function useFilter(products: Product[]) {
     const [selectedGender, setSelectedGender] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedSize, setSelectedSize] = useState("");
-    const [selectedColor, setSelectedColor] = useState("");
+    const [selectedColors, setSelectedColors] = useState<string[]>([]);
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
     const [sort, setSort] = useState("default");
@@ -42,6 +42,13 @@ export function useFilter(products: Product[]) {
     const handleGenderChange = (gender: string) => {
         setSelectedGender(gender);
         setSelectedCategory("");
+    };
+    const toggleColor = (color: string) => {
+        setSelectedColors((prev) => {
+            return prev.includes(color) ? prev.filter((c) => {
+                return c !== color
+            }) : [...prev, color]
+        });
     };
 
     const genders = ["Men", "Women", "Unisex"];
@@ -97,11 +104,13 @@ export function useFilter(products: Product[]) {
                 return product.sizes.includes(selectedSize);
             });
         }
-        if (selectedColor) {
+        if (selectedColors.length > 0) {
             result = result.filter((product) => {
-                return product.colors.some((color) => {
-                    return color.toLowerCase().includes(selectedColor.toLowerCase())
-                })
+                return selectedColors.some((selected) => {
+                    return product.colors.some((c) => {
+                            return c.toLowerCase().includes(selected.toLowerCase())
+                        })
+                });
             });
         }
         if (debouncedMinPrice) {
@@ -137,28 +146,28 @@ export function useFilter(products: Product[]) {
             });
         }
         return result;
-    }, [products, debouncedSearch, selectedGender, selectedCategory, selectedSize, selectedColor, debouncedMinPrice, debouncedMaxPrice, sort, selectedSeason]);
+    }, [products, debouncedSearch, selectedGender, selectedCategory, selectedSize, selectedColors, debouncedMinPrice, debouncedMaxPrice, sort, selectedSeason]);
 
     const resetFilters = () => {
         setSearch("");
         setSelectedGender("");
         setSelectedCategory("");
         setSelectedSize("");
-        setSelectedColor("");
+        setSelectedColors([]);
         setMinPrice("");
         setMaxPrice("");
         setSort("default");
         setSelectedSeason("");
     };
 
-    const hasFilters = (search || selectedGender || selectedCategory || selectedSize || selectedColor || minPrice || maxPrice || sort !== "default" || selectedSeason);
+    const hasFilters = (search || selectedGender || selectedCategory || selectedSize || selectedColors.length > 0 || minPrice || maxPrice || sort !== "default" || selectedSeason);
 
     return {
         search, setSearch,
         selectedGender, handleGenderChange,
         selectedCategory, setSelectedCategory,
         selectedSize, setSelectedSize,
-        selectedColor, setSelectedColor,
+        selectedColors, toggleColor,
         minPrice, setMinPrice,
         maxPrice, setMaxPrice,
         sort, setSort,

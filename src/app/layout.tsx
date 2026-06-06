@@ -5,7 +5,7 @@ import Script from "next/script";
 import Footer from "@/components/layout/Footer";
 import Providers from "@/components/Providers/Providers";
 import type { Metadata } from "next";
-
+import Link from "next/link";
 export const metadata: Metadata = {
   title: {
     default: "ModeX",
