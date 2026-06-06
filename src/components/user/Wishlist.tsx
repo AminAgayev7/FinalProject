@@ -55,7 +55,7 @@ export default function Wishlist() {
 
             }
             {
-                        wishlist.length === 0 && !loading && (
+                isAuthenticated &&         wishlist.length === 0 && !loading && (
                             <div className="text-center py-50">
                                 <h2 className="text-xl font-semibold dark:text-gray-300 text-gray-800 mb-2">Your wishlist is empty.</h2>
                                 <p className="text-gray-500 dark:text-gray-400 mb-6">Start adding products to your wishlist to see them here.</p>

@@ -8,7 +8,7 @@ export const checkoutSchema = z.object({
         address: z.string().min(5, "Address must be at least 5 characters").max(100, "Address is too long"),
         city: z.string().min(1, "City is required").max(50, "City name is too long"),
         region: z.string().min(1, "Region is required").max(50, "Region name is too long"),
-        zipCode: z.string().min(3).max(10).refine((val) => {
+        zipCode: z.string().min(6, "Zip code must be at least 6 characters").max(6, "Zip code must be at most 6 characters").refine((val) => {
             return val.split("").every((char) => {
                 const isDigit = char >= "0" && char <= "9";
                 const isUpperLetter = char >= "A" && char <= "Z";
@@ -107,7 +107,7 @@ export const cardSchema = z.object({
 }, {
     message: "Invalid or expired date"
 }),
-    cvv: z.string().max(3).refine((val) => {
+    cvv: z.string().min(3, "CVV must be at least 3 characters").max(3, "CVV must be at most 3 characters").refine((val) => {
         return val.split("").every((char) => {
             return (char >= "0" && char <= "9");
         });
