@@ -37,7 +37,7 @@ export default function ProductList() {
                 setProducts(data);
                 setLoading(false);
             } catch (err) {
-                seterror(`Error fetching products: ${err}`);
+                seterror(`An unexpected error occured try to reload the page!`);
                 setLoading(false);
             }
         }, 3000);
@@ -57,7 +57,7 @@ export default function ProductList() {
         selectedSeason, setSelectedSeason, seasons
     } = useFilter(products);
 
-    if (!loading && filtered.length === 0) {
+    if (!loading && filtered.length === 0 && error === null) {
         return (
             <div className="flex flex-col items-center min-h-screen justify-center py-24 text-center">
                 <h3 className="text-xl font-semibold dark:text-gray-300 text-gray-800 mb-2">No products found</h3>
@@ -68,11 +68,9 @@ export default function ProductList() {
                 </Button>
             </div>
         )
-    }
-
-    if (error) {
+    } else if (error) {
         return (
-            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-zinc-50 px-5">
+            <div className="flex flex-col justify-center items-center w-full h-screen dark:bg-gray-950 bg-gray-100 px-5">
                 <h1 className="text-2xl text-red-500">{error}</h1>
                 <Button onClick={() => window.location.reload()} className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg transition-colors">
                     Reload Page
@@ -81,8 +79,10 @@ export default function ProductList() {
         )
     }
 
+
+
     return (
-        <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 mt-10 pb-16">
+        <main className="min-h-screen dark:bg-gray-950 bg-gray-100 mt-10 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <h1 className="text-3xl font-bold dark:text-gray-300 text-gray-900 text-center my-8">Find the product you want!</h1>
 

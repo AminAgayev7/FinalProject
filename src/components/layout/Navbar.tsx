@@ -35,7 +35,7 @@ export default function Navbar() {
 
     return (
 
-        <nav className="fixed dark:bg-gray-900 top-0 left-0 w-full py-3 sm:py-4 px-3 sm:px-6 lg:px-8 z-50 backdrop-blur-md bg-white/90   transition-all duration-300">
+        <nav className="fixed dark:bg-gray-900/80 top-0 left-0 w-full py-3 sm:py-4 px-3 sm:px-6 lg:px-8 z-50 backdrop-blur-md bg-white/70   transition-all duration-300">
 
             <div className="flex justify-between items-center gap-3 w-full">
 

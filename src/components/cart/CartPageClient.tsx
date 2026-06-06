@@ -33,7 +33,7 @@ export default function CartPage() {
     }, []);
     if (!isAuthenticated) {
         return (
-            <main className="min-h-screen dark:bg-gray-950 bg-zinc-50 pt-20 sm:pt-30 pb-16">
+            <main className="min-h-screen dark:bg-gray-950 bg-gray-100 pt-20 sm:pt-30 pb-16">
                 <div className="container mx-auto px-4 sm:px-6">
                     <h1 className="text-xl sm:text-2xl dark:text-gray-300 text-gray-900 font-bold mb-4">
                         Shopping Cart

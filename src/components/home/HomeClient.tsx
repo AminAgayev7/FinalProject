@@ -19,7 +19,7 @@ export default function Home() {
                 setProducts(data);
                 setLoading(false);
             } catch (err) {
-                seterror(`Error fetching products: ${err}`);
+                seterror(`An unexpected error occured try to reload the page!`);
                 setLoading(false);
             }
         }, 3000);
@@ -43,7 +43,7 @@ export default function Home() {
     });
 
     return (
-        <main className="bg-zinc-50 dark:bg-gray-950 min-h-screen pt-9">
+        <main className="bg-gray-100 dark:bg-gray-950 min-h-screen pt-9">
             <section className="relative min-h-screen mt-6 flex items-center overflow-hidden">
                 <Image
                     src={"https://wallpaperaccess.com/full/4624210.jpg"}
